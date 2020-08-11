@@ -26,7 +26,6 @@ nav {
 .header-right ul {
   padding: 0;
   margin: 0;
-  background-color: rgba(255, 255, 255, 0.3);
   float: left;
 }
 
@@ -52,6 +51,7 @@ main {
 }
 
 .btn-wrapper {
+  text-align: center;
   padding: 8px 24px;
   display: inline-block;
   cursor: pointer;
@@ -63,5 +63,9 @@ main {
 
 .btn-wrapper:hover {
   opacity: 1;
+}
+
+.signup{
+  background-color: rgb(148, 199, 150);
 }
 

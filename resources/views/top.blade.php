@@ -51,5 +51,8 @@
             </a>
           </div>
         </div>
+        <div class="btn-wrapper">
+          <a href="#" class="signup">新規登録</a>
+        </div>
     </div>
 @endsection

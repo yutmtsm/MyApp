@@ -15,6 +15,11 @@
 //     return view('welcome');
 // });
 
-Route::get('/', function() {
-    return view('top');
-});
+// Route::get('/', function() {
+//     return view('top')->middleware('auth');
+// });
+Route::get('/', 'Admin\ArticleController@create')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

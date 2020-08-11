@@ -35,14 +35,26 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     
-                    <div class="header-right callapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li><a class="login" href="#">HOME</a></li>
-                            <li><a class="login" href="#">ABOUT</a></li>
-                            <li><a class="login" href="#">SERVICE</a></li>
-                            <li><a class="login" href="#">新規登録</a></li>
-                            <li><a class="login" href="#">ログイン</a></li>
-                        </ul>
+                    <div class="callapse navbar-collapse" id="navbarSupportedContent">
+                        @if (Route::has('login'))
+                            <ul class="header-right navbar-nav ml-auto">
+                                @auth
+                                <li><a href="#">{{ __('messages.nav_mypage') }}</a></li>
+                                <li><a href="#">{{ __('messages.nav_moneyaccount') }}</a></li>
+                                <li><a href="#">{{ __('messages.nav_spotsearch') }}</a></li>
+                                <li><a href="{{ route('logout') }}">{{ __('messages.nav_logout') }}</a></li>
+                                @else
+                                <li><a href="#">{{ __('messages.nav_home') }}</a></li>
+                                <li><a href="#">{{ __('messages.nav_about') }}</a></li>
+                                <li><a href="#">{{ __('messages.nav_searvice') }}</a></li>
+                                @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}">{{ __('messages.nav_register') }}</a></li>
+                                @endif
+                                <li><a href="{{ route('login') }}">{{ __('messages.nav_login') }}</a></li>
+                                @endauth
+                            </ul>
+                        @endif
+                        
                     </div>
                 </div>
             </nav>
