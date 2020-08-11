@@ -1,0 +1,31 @@
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
+  color: #fff;
+}
+
+header{
+    height: 65px;
+    width: 100%;
+    background-color: rgba(34, 49, 52, 0.9);
+    top: 0;
+    position: fixed;
+}
+.header-left{
+  float: left;
+}
+.header-right{
+  float: right;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.5s;
+}
+.header-right:hover{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.header-right a{
+  line-height: 65px;
+  padding: 0 24px;
+  display: block;
+  color: white;
+}
