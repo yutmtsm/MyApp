@@ -25,57 +25,17 @@
     </head>
     <body>
         <div id="app">
-            {{-- 画面上部に表示するナビゲーションバーです。 --}}
-            <!--<nav class="navbar navbar-expand-md navbar-dark navbar-laravel">-->
-            <!--    <div class="container">-->
-            <!--        <a class="navbar-brand" href="{{ url('/') }}">-->
-            <!--            {{ config('app.name', 'Laravel') }}-->
-            <!--        </a>-->
-            <!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-            <!--            <span class="navbar-toggler-icon"></span>-->
-            <!--        </button>-->
-
-            <!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-            <!--             Left Side Of Navbar -->
-            <!--            <ul class="navbar-nav mr-auto">-->
-
-            <!--            </ul>-->
-
-            <!--             Right Side Of Navbar -->
-            <!--            <ul class="navbar-nav ml-auto">-->
-            <!--            </ul>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--</nav>-->
-            
-            <!--<header>-->
-            <!--    <div class="container">-->
-            <!--        <div class="header-left">-->
-            <!--            <h2>MoneyBike</h2>-->
-            <!--        </div>-->
-            <!--        <div class="header-right">-->
-            <!--            <ul>-->
-            <!--                <li><a class="login" href="#">HOME</a></li>-->
-            <!--                <li><a class="login" href="#">ABOUT</a></li>-->
-            <!--                <li><a class="login" href="#">SERVICE</a></li>-->
-            <!--                <li><a class="login" href="#">新規登録</a></li>-->
-            <!--                <li><a class="login" href="#">ログイン</a></li>-->
-            <!--            </ul>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--</header>-->
-            
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel" id="navbarSupportedContent">
+            {{-- ナビゲーションバー --}}
+            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'MoneyBike') }}
                     </a>
-                    
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     
-                    <div class="header-right callapse navbar-collapse">
+                    <div class="header-right callapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li><a class="login" href="#">HOME</a></li>
                             <li><a class="login" href="#">ABOUT</a></li>

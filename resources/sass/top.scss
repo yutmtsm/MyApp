@@ -5,27 +5,58 @@ body {
   color: #fff;
 }
 
-header{
-    height: 65px;
-    width: 100%;
-    background-color: rgba(34, 49, 52, 0.9);
-    top: 0;
-    position: fixed;
+nav {
+  height: 65px;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+  
 }
-.header-left{
+
+.header-left {
   float: left;
 }
-.header-right{
-  float: right;
-  background-color: rgba(255, 255, 255, 0.3);
-  transition: all 0.5s;
+.header-left h2{
+  line-height: 65px;
 }
-.header-right:hover{
+
+.header-right {
+  float: right;
+}
+.header-right ul{
+  padding: 0;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  float: left;
+}
+.header-right li{
+  float: left;
+  list-style: none;
+  transition: all 0.8s;
+}
+.header-right li:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-.header-right a{
+
+.header-right a {
   line-height: 65px;
   padding: 0 24px;
   display: block;
   color: white;
+}
+
+main{
+  margin-top: 60px;
+}
+
+.btn-wrapper{
+  padding: 8px 24px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  margin: 10px 0;
+  opacity: 0.8;
+}
+.btn-wrapper:hover{
+  opacity: 1;
 }
