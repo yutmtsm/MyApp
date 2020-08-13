@@ -39,7 +39,7 @@
                         @if (Route::has('login'))
                             <ul class="header-right navbar-nav ml-auto">
                                 @auth
-                                <li><a href="#">{{ __('messages.nav_mypage') }}</a></li>
+                                <li><a href="{{ action('Admin\PersonalController@mypage') }}">{{ __('messages.nav_mypage') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_moneyaccount') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_spotsearch') }}</a></li>
                                 <li><a href="{{ route('logout') }}"　onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('messages.nav_logout') }}</a></li>

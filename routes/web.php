@@ -19,6 +19,7 @@
 //     return view('top')->middleware('auth');
 // });
 Route::get('/', 'Admin\ArticleController@create')->middleware('auth');
+Route::get('/mypage', 'Admin\PersonalController@mypage')->middleware('auth');
 
 Auth::routes();
 

@@ -119,7 +119,7 @@
                             <label for="residence" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.Residence') }}</label>
 
                             <div class="col-md-6">
-                                <input id="residence" type="text" class="form-control @error('residence') is-invalid @enderror" name="age" value="{{ old('residence') }}" required autocomplete="residence" autofocus>
+                                <input id="residence" type="text" class="form-control @error('residence') is-invalid @enderror" name="residence" value="{{ old('residence') }}" required autocomplete="residence" autofocus>
 
                                 @error('residence')
                                     <span class="invalid-feedback" role="alert">

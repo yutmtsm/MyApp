@@ -91,7 +91,7 @@ return [
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
-    'not_regex' => 'The :attribute format is invalid.',
+    'not_regex' => ':attribute に入力が必要です。',
     'numeric' => 'The :attribute must be a number.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
@@ -145,6 +145,7 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'password' => 'タイトル',
+    ],
 ];
