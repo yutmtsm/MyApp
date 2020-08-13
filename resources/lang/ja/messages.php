@@ -17,5 +17,18 @@ return [
     'nav_searvice' => 'サービス',
     'nav_register' => '新規登録',
     'nav_login' => 'ログイン',
+    'Login' => 'ログイン',
+    'E-Mail Address' => 'メールアドレス',
+    'Password' => 'パスワード',
+    'Remember Me' => 'ログイン情報を記憶する',
+    'Register' => '新規登録',
+    'Confirm Password' => 'パスワード確認',
+    'Name' => 'ニックネーム',
+    'E-mail&Password' => 'メールアドレス/パスワード',
+    'PersonalData' => '個人情報',
+    'gender' => '性別',
+    'age' => '年齢',
+    'Residence' => '居住エリア',
+    '' => '',
     
 ];
