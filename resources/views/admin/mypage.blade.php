@@ -4,9 +4,14 @@
 
 @section('content')
     <div class="container">
+        <h1>マイページ</h1>
         <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>ニュース新規作成</h2>
+            <div class="col-md-4">
+                <div class="section">
+                    <div class="card">
+                        <img width="100%" height="auto" src="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

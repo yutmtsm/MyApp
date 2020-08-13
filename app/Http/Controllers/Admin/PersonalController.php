@@ -10,6 +10,8 @@ class PersonalController extends Controller
 {
     //
     public function mypage(Request $request){
+        
+        $personal = new Personal;
         return view('admin.mypage');
     }
 }
