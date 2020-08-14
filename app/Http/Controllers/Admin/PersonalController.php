@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Personal;
+use App\User;
+use Auth;
 
 class PersonalController extends Controller
 {
     //
-    public function mypage(Request $request){
+    public function mypage(){
+        $user = Auth::user();
+        //dd($user);
         
-        $personal = new Personal;
-        return view('admin.mypage');
+        return view('admin.mypage', ['user' => $user]);
     }
 }

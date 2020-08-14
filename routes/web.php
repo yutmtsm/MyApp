@@ -24,3 +24,4 @@ Route::get('/mypage', 'Admin\PersonalController@mypage')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

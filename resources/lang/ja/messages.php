@@ -28,7 +28,6 @@ return [
     'PersonalData' => '個人情報',
     'gender' => '性別',
     'age' => '年齢',
-    'Residence' => '居住エリア',
-    '' => '',
+    'address' => '居住エリア',
     
 ];

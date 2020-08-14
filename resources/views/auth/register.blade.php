@@ -116,12 +116,12 @@
                         
                         <!-- 出身地 -->
                         <div class="form-group row">
-                            <label for="residence" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.Residence') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="residence" type="text" class="form-control @error('residence') is-invalid @enderror" name="residence" value="{{ old('residence') }}" required autocomplete="residence" autofocus>
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
 
-                                @error('residence')
+                                @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
