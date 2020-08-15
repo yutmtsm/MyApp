@@ -5,6 +5,10 @@ body {
   color: #fff;
 }
 
+p{
+  color: black;
+}
+
 nav {
   height: 65px;
   width: 100%;
@@ -68,3 +72,24 @@ main {
 .signup {
   background-color: #94c796;
 }
+
+/* Mypage */
+
+.content {
+  color: black;
+}
+
+.text-center {
+  display: inline;
+  text-align: left;
+}
+
+/*支出表示*/
+.cost{
+  width: 50%;
+}
+
+table{
+  background-color: white;
+}
+
