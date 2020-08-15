@@ -18,8 +18,8 @@
 // Route::get('/', function() {
 //     return view('top')->middleware('auth');
 // });
-Route::get('/', 'Admin\ArticleController@create')->middleware('auth');
-Route::get('/mypage', 'Admin\PersonalController@mypage')->middleware('auth');
+Route::get('/', 'Admin\MoneybikeController@create');
+Route::get('/mypage', 'Admin\MoneybikeController@mypage')->middleware('auth');
 
 Auth::routes();
 

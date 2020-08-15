@@ -24,14 +24,16 @@
                             <p class="personal-text">{{ $user->age}}</p>
                         </div>
                         <div class="content">
-                            <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
+                            <div class="d-flex">
+                                <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
+                                <a class="add-bike" href="#">バイク追加</a>
+                            </div>
                             <p class="personal-text">MT-25</p>
                         </div>
                         <div class="content">
-                            <div class="d-flex">
-                                <a class="add-bike" href="#">バイク追加</a>
-                                <a class="add-bike" href="#">バイク編集</a>
-                            </div>
+                            <p class="text-center">
+                                 <a class="btn btn-sub" href="#">編集する</a>
+                            </p>
                         </div>
                     </div>
                 </div>
