@@ -52,6 +52,7 @@ main {
 
 .top-wrapper {
   padding: 180px 0 100px 0;
+  height: 600px;
   background-image: url("/storage/images/topimage.jpeg");
   background-size: cover;
   color: white;
@@ -70,20 +71,52 @@ main {
 
 .btn-wrapper {
   text-align: center;
-  padding: 8px 24px;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  margin: 10px 0;
-  opacity: 0.8;
+  margin: 20px 0;
 }
 
-.btn-wrapper:hover {
-  opacity: 1;
+.btn-wrapper p {
+  margin: 10px 0;
+}
+
+.signup{
+  background-color: #0000FF;
+  margin-top: 60px;
+}
+
+.twitt {
+  background-color: #239b76;
+}
+
+.facebook {
+  background-color: #3b5998;
+  margin-right: 10px;
+}
+
+.aa {
+  background-color: #55acee;
 }
 
 .signup {
-  background-color: #94c796;
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 7px #000080;
+}
+
+.signup:hover {
+  opacity: 1;
+}
+
+.btn:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+
+.fa {
+  margin-right: 5px;
 }
 

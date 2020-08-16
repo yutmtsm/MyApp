@@ -3,7 +3,7 @@
 @section('title', 'TOP')
 
 @section('content')
-    <div class="container">
+    <!--<div class="container">-->
         <!--<div class="row align-items-stretch retro-layout-2">-->
         <!--  <div class="col-md-6">-->
         <!--    <a href="#" class="h-entry mb-30 v-height gradient" style="height: 450px; width: 450px;">-->
@@ -59,7 +59,9 @@
             <h1>なんかテキスト</h1>
             <p>テキストテキストテキストテキストテキストテキストテキストテキスト<br>
             テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <div class="btn-wrapper">
+              <a href="{{ route('register') }}" class="btn signup">さっそく始めてみる</a>
+        </div>
           </div>
         </div>
-    </div>
 @endsection
