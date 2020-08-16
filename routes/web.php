@@ -20,6 +20,7 @@
 // });
 Route::get('/', 'Admin\MoneybikeController@create');
 Route::get('/mypage', 'Admin\MoneybikeController@mypage')->middleware('auth');
+Route::get('/mypage/addbike', 'Admin\MoneybikeController@addbike')->middleware('auth');
 
 Auth::routes();
 

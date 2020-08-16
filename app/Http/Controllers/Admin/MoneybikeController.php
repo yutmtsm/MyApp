@@ -19,4 +19,8 @@ class MoneybikeController extends Controller
         $today = Carbon::now('Asia/Tokyo');
         return view('admin.mypage', ['user' => $user, 'today' => $today]);
     }
+    
+    public function addbike(Request $request){
+        
+    }
 }

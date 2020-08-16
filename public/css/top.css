@@ -120,3 +120,8 @@ main {
   margin-right: 5px;
 }
 
+footer{
+  position: flex;
+  bottom: 0;
+}
+

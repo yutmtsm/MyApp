@@ -134,3 +134,7 @@ table{
 .card-title{
   color: black;
 }
+
+footer{
+  bottom: 0;
+}

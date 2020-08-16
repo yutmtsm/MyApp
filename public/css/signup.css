@@ -15,3 +15,7 @@ nav {
   color: black;
 }
 
+footer{
+  position: flex;
+  bottom: 0;
+}

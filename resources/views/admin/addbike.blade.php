@@ -1,138 +1,146 @@
-@extends('layouts.mypage')
-
-@section('title', 'マイページ')
+@extends('layouts.index')
 
 @section('content')
-    <div class="container">
-        <h1>マイページ</h1>
-        <div class="row">
-            <!-- 左コンテンツ -->
-            <div class="col-md-4">
-                <div class="section">
-                    <div class="card">
-                        <img width="100%" height="400px" style="margin-bottom: 5px;" src="/storage/sample.jpeg">
-                        <div class="content">
-                            <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
-                            <p class="personal-text">{{ $user->name}}</p>
-                        </div>
-                       <div class="content">
-                            <p class="personal-title text-bold text-large text-ornament">性別</p>
-                            <p class="personal-text">{{ $user->gender}}</p>
-                        </div>
-                        <div class="content">
-                            <p class="personal-title text-bold text-large text-ornament">年齢</p>
-                            <p class="personal-text">{{ $user->age}}</p>
-                        </div>
-                        <div class="content">
-                            <div class="d-flex">
-                                <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
-                                <a class="add-bike" href="#">バイク追加</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="color: black;">{{ __('messages.Register') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        
+                        <!-- E-mail&Password -->
+                        <h3 class="circle" style="font-size: 20px; color: black;">{{ __('messages.E-mail&Password') }}</h3>
+                        
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <p class="personal-text">MT-25</p>
                         </div>
-                        <div class="content">
-                            <p class="text-center">
-                                 <a class="btn btn-sub" href="#">編集する</a>
-                            </p>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+                        
+                        <!-- PersonalData-->
+                        <h3 class="circle" style="font-size: 20px; color: black;">{{ __('messages.PersonalData') }}</h3>
+                        
+                        <!-- 名前 -->
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <!-- 性別 -->
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.gender') }}</label>
+
+                            <div class="col-md-6 control-label">
+                                <div class="btn-group" data-toggle="buttons" style="width: 100%">
+                                    <label class="btn btn-primary">
+                                        <input type="radio" autocomplete="off" name="gender" value="男性"
+                                        @if (old('gender') === '男性') checked @endif>
+                                        男性
+                                    </label>
+                                    <label class="btn btn-danger">
+                                        <input type="radio" autocomplete="off" name="gender" value="女性"
+                                        @if (old('gender') === '女性') checked @endif>
+                                        女性
+                                    </label>
+                                    <label class="btn btn-success">
+                                        <input type="radio" autocomplete="off" name="gender" value="その他"
+                                        @if (old('gender') === 'その他') checked @endif>
+                                        その他
+                                    </label>
+                                </div>
+
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <!-- 年齢 -->
+                        <div class="form-group row">
+                            <label for="age" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.age') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus>
+
+                                @error('age')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <!-- 出身地 -->
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <!-- 新規登録ボタン -->
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary"  style="color: black;">
+                                    {{ __('messages.Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- 真ん中コンテンツ -->
-            <div class="col-md-8">
-                <div class="row">
-                    <!-- 支出 -->
-                    <div class="col-md-6">
-                        <div class="item" style="margin-bottom: 20px;">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">支出一覧</div>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">年間支出</th>
-                                                <th scope="col">当月支出</th>
-                                                <th scope="col">当日支出</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>120,000円</td>
-                                                <td>5,400円</td>
-                                                <td>300円</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>前月比：+10%</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- カレンダー -->
-                        <div class="item">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title text-center"><p>{{ $today->month }}月</p></div>
-                                    <div class="d-flex">
-                                        <a href="#">前の月</a>
-                                        <a class="ml-auto" href="#">次の月</a>
-                                    </div>
-                                </div>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <th colspan="7" class="cellTableHead">2020年8月</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="cellSunday">日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th class="cellSaturday">土</th>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday"> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="cellSaturday">1</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class="cellSaturday">8</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">9</td><td>10</td><td class="cellHoliday">11</td><td>12</td><td>13</td><td>14</td><td class="cellToday">15</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td class="cellSaturday">22</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td class="cellSaturday">29</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">30</td><td>31</td><td> </td><td> </td><td> </td><td> </td><td class="cellSaturday"> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ツイート部分 -->
-                    <div class="col-md-6">
-                        <div class="item">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">スポットツイート</div>
-                                </div>
-                                <div class="card-body" style="height: 300px;">
-                                    <a class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
+</div>
 @endsection
