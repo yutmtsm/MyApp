@@ -121,9 +121,10 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">スポットツイート</div>
+                                    <a class="new-post" href=#>新規投稿</a>
                                 </div>
-                                <div class="card-body" style="height: 300px;">
-                                    <a class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                <div class="card-body" style="max-height: 600px;">
+                                    <a data-height="600px" class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
                             </div>
                         </div>
