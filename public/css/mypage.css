@@ -135,6 +135,50 @@ table{
   color: black;
 }
 
+/*投稿*/
+.post{
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.post-info{
+  padding: 0;
+  margin: 5px 5px;
+}
+
+tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+
+.no-gutters　> .col,
+.no-gutters　> [class*="col-"] {
+  margin:0;
+  padding:0;
+}
+
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+
+.post-icon{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.post-name{
+  font-weight: bold;
+}
+
+.date{
+  font-size: 10px;
+}
 footer{
   bottom: 200px;
 }

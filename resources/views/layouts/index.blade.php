@@ -104,5 +104,7 @@
             </nav>
             </footer>
         </div>
+        <script src="./googlemap.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
     </body>
 </html>

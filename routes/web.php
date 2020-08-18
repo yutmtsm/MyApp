@@ -21,8 +21,14 @@
 Route::get('/', 'Admin\MoneybikeController@create');
 Route::get('/mypage', 'Admin\MoneybikeController@mypage')->middleware('auth');
 Route::get('/mypage/addbike', 'Admin\MoneybikeController@addbike')->middleware('auth');
-Route::get('/mypage/newpost', 'Admin\PostController@add')->middleware('auth');
+//新規投稿画面
+Route::get('/mypage/newpost', 'Admin\PostController@newpost')->middleware('auth');
+//編集画面
+Route::get('/mypage/edit', 'Admin\PostController@edit')->middleware('auth');
+//新規投稿
 Route::post('/mypage/newpost', 'Admin\PostController@create')->middleware('auth');
+//投稿削除
+Route::get('/mypage/delete', 'Admin\PostController@delete')->middleware('auth');
 
 Auth::routes();
 
