@@ -32,16 +32,18 @@ class PostController extends Controller
         unset($form['_token']);
         $post->fill($form);
         $post->save();
+        
         return redirect('mypage');
     }
     
     public function detail(Request $request){
+        $user = Auth::user();
         $post = Post::find($request->id);
         if(empty($post)){
             abort(404);
         }
-        
-        return view('admin.post.detail');
+        //dd($post);
+        return view('admin.post.detail', ['user' => $user, 'post' => $post]);
     }
     
     public function edit(Request $request){

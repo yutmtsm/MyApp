@@ -24,7 +24,7 @@ Route::get('/mypage/addbike', 'Admin\MoneybikeController@addbike')->middleware('
 //新規投稿画面
 Route::get('/mypage/newpost', 'Admin\PostController@newpost')->middleware('auth');
 //詳細画面
-Route::get('/mypage/post/detail', 'Admin\PostController@newpost')->middleware('auth');
+Route::get('/mypage/post/detail', 'Admin\PostController@detail')->middleware('auth');
 //編集画面
 Route::get('/mypage/post/edit', 'Admin\PostController@edit')->middleware('auth');
 //新規投稿
