@@ -23,8 +23,10 @@ Route::get('/mypage', 'Admin\MoneybikeController@mypage')->middleware('auth');
 Route::get('/mypage/addbike', 'Admin\MoneybikeController@addbike')->middleware('auth');
 //新規投稿画面
 Route::get('/mypage/newpost', 'Admin\PostController@newpost')->middleware('auth');
+//詳細画面
+Route::get('/mypage/post/detail', 'Admin\PostController@newpost')->middleware('auth');
 //編集画面
-Route::get('/mypage/edit', 'Admin\PostController@edit')->middleware('auth');
+Route::get('/mypage/post/edit', 'Admin\PostController@edit')->middleware('auth');
 //新規投稿
 Route::post('/mypage/newpost', 'Admin\PostController@create')->middleware('auth');
 //投稿削除

@@ -134,7 +134,7 @@
                                                        <div class="post-name">{{ $user->name}}</div>
                                                    </div>
                                                    <div class="col-md-4 text-right">
-                                                       <a href="{{ action('Admin\PostController@delete', ['id' => $post->id]) }}">詳細</a>
+                                                       <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">詳細</a>
                                                        <a href="{{ action('Admin\PostController@delete', ['id' => $post->id]) }}">削除</a>
                                                    </div>
                                                </div>

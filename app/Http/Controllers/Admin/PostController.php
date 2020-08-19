@@ -30,12 +30,18 @@ class PostController extends Controller
         $post->created_at = Carbon::now('Asia/Tokyo');
         //dd($post->created_at);
         unset($form['_token']);
-        //dd($form);
         $post->fill($form);
-        //dd($post);
         $post->save();
-        dd($post);
         return redirect('mypage');
+    }
+    
+    public function detail(Request $request){
+        $post = Post::find($request->id);
+        if(empty($post)){
+            abort(404);
+        }
+        
+        return view('admin.post.detail');
     }
     
     public function edit(Request $request){
@@ -43,7 +49,6 @@ class PostController extends Controller
         if(empty($post)){
             abort(404);
         }
-        
         return view('admin.post.edit');
     }
     
