@@ -1,4 +1,4 @@
-@extends('layouts.mypage')
+@extends('layouts.post')
 
 @section('title', '投稿内容')
 

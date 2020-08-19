@@ -151,6 +151,7 @@ table {
 .post-info {
   padding: 0;
   margin: 5px 5px;
+  border-bottom: solid 1px #808080;
 }
 
 tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no-gutters {

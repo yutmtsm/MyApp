@@ -49693,6 +49693,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/post.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/post.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/top.scss":
 /*!*********************************!*\
   !*** ./resources/sass/top.scss ***!
@@ -49705,16 +49716,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/top.scss ./resources/sass/mypage.scss ***!
-  \********************************************************************************************************************/
+/*!***********************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/top.scss ./resources/sass/mypage.scss ./resources/sass/post.scss ***!
+  \***********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/ec2-user/environment/moneybike/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/ec2-user/environment/moneybike/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /home/ec2-user/environment/moneybike/resources/sass/top.scss */"./resources/sass/top.scss");
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/moneybike/resources/sass/mypage.scss */"./resources/sass/mypage.scss");
+__webpack_require__(/*! /home/ec2-user/environment/moneybike/resources/sass/mypage.scss */"./resources/sass/mypage.scss");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/moneybike/resources/sass/post.scss */"./resources/sass/post.scss");
 
 
 /***/ })
