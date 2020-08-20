@@ -1,13 +1,13 @@
 @extends('layouts.index')
 
-@section('title', '新規投稿')
+@section('title', '投稿編集')
 
 @section('content')
 <div class="container">
     <h1>新規投稿</h1>
     <div class="row" style="width: 100%;">
         <div class="col-md-6 mx-auto" >
-            <form action="{{ action('Admin\PostController@create') }}" method="post">
+            <form action="{{ action('Admin\PostController@update') }}" method="post" enctype="multipart/form-data">
                 @if (count($errors) > 0)
                     <ul>
                         @foreach($errors->all() as $e)
@@ -18,7 +18,7 @@
                 <!-- タイトル -->
                 <div class="form-group">
                     <label class="control-label">タイトル</label>
-                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                    <input type="text" class="form-control" name="title" value="{{ $post_form->title }}">
                 </div>
                 <!-- スポット -->
                 <!--<div class="form-group">-->
@@ -39,7 +39,7 @@
                 <!-- コメント -->
                 <div class="form-group">
                     <label class="control-label">コメント</label>
-                    <textarea class="form-control" name="comment" value="{{ old('comment') }}" style="height: 150px;">{{ old('comment') }}</textarea>
+                    <textarea class="form-control" name="comment" value="{{ $post_form->comment }}" style="height: 150px;">{{ $post_form->comment }}</textarea>
                 </div>
                 <!-- 画像 -->
                 <!--<div class="form-group">-->
@@ -47,7 +47,7 @@
                 <!--    <input type="file" class="form-control-file" name="image">-->
                 <!--</div>-->
                 {{ csrf_field() }}
-                <input type="submit" class="btn" value="投稿!!">
+                <input type="submit" class="btn" value="更新!!">
             </form>
         </div>
     </div>

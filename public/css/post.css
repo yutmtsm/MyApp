@@ -148,7 +148,7 @@ table {
   border-radius: 5px;
 }
 
-.post-info {
+.post-info, .post-content {
   padding: 0;
   margin: 5px 5px;
   border-bottom: solid 1px #808080;

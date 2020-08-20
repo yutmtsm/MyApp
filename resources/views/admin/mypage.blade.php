@@ -11,6 +11,7 @@
                 <div class="section">
                     <div class="card">
                         <img width="100%" height="400px" style="margin-bottom: 5px;" src="/storage/sampl.jpeg">
+                        
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
                             <p class="personal-text">{{ $user->name}}</p>
@@ -125,6 +126,7 @@
                                 </div>
                                <!-- 新着順に表示 -->
                                @foreach($posts as $post)
+                               <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">
                                    <div class="post">
                                        <div class="row">
                                            <div class="col-md-12">
@@ -133,19 +135,15 @@
                                                        <div class="post-icon"></div>
                                                        <div class="post-name">{{ $user->name}}</div>
                                                    </div>
-                                                   <div class="col-md-4 text-right">
-                                                       <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">詳細</a>
-                                                       <a href="{{ action('Admin\PostController@delete', ['id' => $post->id]) }}">削除</a>
-                                                   </div>
                                                </div>
                                                <div class="title">
-                                                   タイトル：{{ str_limit($post->title, 100) }}
+                                                   <h2>{{ str_limit($post->title, 100) }}</h2>
                                                </div>
                                                <!--<div class="spot">-->
                                                <!--    {{ str_limit($post->spot, 100) }}-->
                                                <!--</div>-->
                                                <div class="comment mt-3">
-                                                   コメント：{{ str_limit($post->comment, 1500) }}
+                                                   <p>{{ str_limit($post->comment, 1500) }}</p>
                                                 </div>
                                                 <!--<div class="image col-md-6 text-right mt-4">-->
                                                 <!--    @if ($post->image_path)-->
@@ -158,7 +156,7 @@
                                            </div>
                                        </div>
                                    </div>
-                               
+                               </a>
                                @endforeach
                                 <div class="card-body" style="max-height: 600px;">
                                     <a data-height="600px" class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

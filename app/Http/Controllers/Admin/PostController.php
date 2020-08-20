@@ -39,6 +39,7 @@ class PostController extends Controller
     public function detail(Request $request){
         $user = Auth::user();
         $post = Post::find($request->id);
+        //dd($post);
         if(empty($post)){
             abort(404);
         }
@@ -47,11 +48,30 @@ class PostController extends Controller
     }
     
     public function edit(Request $request){
+        //dd($request);
         $post = Post::find($request->id);
+        //dd($post);
         if(empty($post)){
             abort(404);
         }
-        return view('admin.post.edit');
+        return view('admin.post.edit', ['post_form' => $post]);
+    }
+    
+    public function update(Request $request){
+        
+        //dd($request);
+        $this->validate($request, Post::$rules);
+        
+        $post = Post::find($request->id);
+        dd($post);
+        $post_form = $request->all();
+        
+        unset($post_form['_token']);
+        
+        $post->fill($post_form)->save();
+        //dd($post);
+        
+        return redirect('admin/post/edit');
     }
     
     public function delete(Request $request){

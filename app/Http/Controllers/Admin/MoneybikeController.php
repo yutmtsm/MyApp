@@ -17,6 +17,7 @@ class MoneybikeController extends Controller
     
     public function mypage(){
         $user = Auth::user();
+        //dd($user);
         $today = Carbon::now('Asia/Tokyo');
         //最新順にツイートを並べる
         $posts = Post::all()->sortByDesc('created_at');

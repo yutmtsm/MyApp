@@ -7,6 +7,7 @@
     <h1>投稿内容</h1>
     <div class="row" style="width: 100%;">
         <div class="col-md-6 mx-auto" >
+            <!-- タイトル -->
             <div class="post-info d-flex">
                <div class="col-md-8 d-flex no-gutters">
                    <div class="post-icon"></div>
@@ -25,10 +26,10 @@
                    <a href="{{ action('Admin\PostController@delete', ['id' => $post->id]) }}">削除</a>
                </div>
            </div>
-            <!-- タイトル -->
-            <div class="form-group">
-                <label class="control-label">タイトル</label>
-                {{ $post->title }}
+            <!-- コメント -->
+            <div class="post-content">
+                <label class="post-comment"></label>
+                <p style="color: white;">{{ $post->comment }}</p>
             </div>
             <!-- スポット -->
             <!--<div class="form-group">-->
@@ -46,19 +47,14 @@
             <!--        <input type="text" class="form-control" name="purchase-cost" value="{{ old('purchase-cost') }}">-->
             <!--    </div>-->
             <!--</div>-->
-            <!-- コメント -->
-            <div class="form-group">
-                <label class="control-label">コメント</label>
-                <textarea class="form-control" name="comment" value="{{ old('comment') }}" style="height: 150px;">{{ old('comment') }}</textarea>
-            </div>
             <!-- 画像 -->
             <!--<div class="form-group">-->
             <!--    <label class="control-label">画像</label>-->
             <!--    <input type="file" class="form-control-file" name="image">-->
             <!--</div>-->
-            {{ csrf_field() }}
             <input type="submit" class="btn" value="投稿!!">
         </div>
     </div>
+    
 </div>
 @endsection
