@@ -17,4 +17,10 @@ class Post extends Model
         'comment' => 'required | max:300',
         'addmission-fee' => 'numeric',
     );
+    
+    public function user()
+    {
+    return $this->belongsTo('App\User');
+        
+    }
 }

@@ -139,28 +139,23 @@
                                                <div class="title">
                                                    <h2>{{ str_limit($post->title, 100) }}</h2>
                                                </div>
-                                               <!--<div class="spot">-->
-                                               <!--    {{ str_limit($post->spot, 100) }}-->
-                                               <!--</div>-->
+                                               
                                                <div class="comment mt-3">
                                                    <p>{{ str_limit($post->comment, 1500) }}</p>
                                                 </div>
-                                                <!--<div class="image col-md-6 text-right mt-4">-->
-                                                <!--    @if ($post->image_path)-->
-                                                <!--        <img src="{{ $post->image_path }}">-->
-                                                <!--    @endif-->
-                                                <!--</div>-->
+                                               
                                                <div class="date text-right">
-                                                   {{ $post->created_at->format('Y年m月d日') }}
+                                                   {{ $post->created_at }}
                                                </div>
                                            </div>
                                        </div>
                                    </div>
                                </a>
                                @endforeach
-                                <div class="card-body" style="max-height: 600px;">
-                                    <a data-height="600px" class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                </div>
+                               {{ $posts->links() }}
+                                <!--<div class="card-body" style="max-height: 600px;">-->
+                                <!--    <a data-height="600px" class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+                                <!--</div>-->
                             </div>
                         </div>
                     </div>

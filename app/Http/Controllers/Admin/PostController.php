@@ -61,9 +61,8 @@ class PostController extends Controller
         
         //dd($request);
         $this->validate($request, Post::$rules);
-        
         $post = Post::find($request->id);
-        dd($post);
+        //dd($post);
         $post_form = $request->all();
         
         unset($post_form['_token']);
@@ -71,7 +70,7 @@ class PostController extends Controller
         $post->fill($post_form)->save();
         //dd($post);
         
-        return redirect('admin/post/edit');
+        return redirect('mypage');
     }
     
     public function delete(Request $request){

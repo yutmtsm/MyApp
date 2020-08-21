@@ -46,6 +46,7 @@
                 <!--    <label class="control-label">画像</label>-->
                 <!--    <input type="file" class="form-control-file" name="image">-->
                 <!--</div>-->
+                <input type="hidden" name="id" value="{{ $post_form->id }}">
                 {{ csrf_field() }}
                 <input type="submit" class="btn" value="更新!!">
             </form>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Post;
 use Auth;
+use DB;
 use Carbon\Carbon;
 
 class MoneybikeController extends Controller
@@ -20,8 +21,9 @@ class MoneybikeController extends Controller
         //dd($user);
         $today = Carbon::now('Asia/Tokyo');
         //最新順にツイートを並べる
-        $posts = Post::all()->sortByDesc('created_at');
-        
+        // $posts = Post::all()->sortByDesc('created_at');
+        $posts = DB::table('posts')->paginate(3);
+        //dd($posts);
         return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts]);
     }
     
