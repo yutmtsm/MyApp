@@ -142,12 +142,14 @@ table {
 
 /*投稿*/
 
-.title{
+.title {
   border-bottom: solid 1px #808080;
 }
-.title h2{
+
+.title h2 {
   font-size: 20px;
 }
+
 .post {
   color: black;
   border: 1px solid black;
@@ -164,7 +166,7 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   padding: 0;
 }
 
-.no-gutters{
+.no-gutters {
   margin: 0;
   padding: 0;
 }

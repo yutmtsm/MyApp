@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="section">
                     <div class="card">
-                        <img width="100%" height="400px" style="margin-bottom: 5px;" src="/storage/sampl.jpeg">
+                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/sampl.jpeg">
                         
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
@@ -125,6 +125,11 @@
                                     <a class="new-post" href="{{ action('Admin\PostController@newpost') }}">新規投稿</a>
                                 </div>
                                <!-- 新着順に表示 -->
+                               <section class="scroll_area"
+                               data-infinite-scroll='{
+                               "path": ".pagination a[rel=next]",
+                               "append": ".post"
+                               }'>
                                @foreach($posts as $post)
                                <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">
                                    <div class="post">
@@ -150,9 +155,11 @@
                                            </div>
                                        </div>
                                    </div>
-                               </a>
+                                 </a>
                                @endforeach
-                               {{ $posts->links() }}
+                               </section>
+                               <div style="display: none;">{{ $posts->links() }}</div>
+                               <p>下にスクロールしてね</p>
                                 <!--<div class="card-body" style="max-height: 600px;">-->
                                 <!--    <a data-height="600px" class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
                                 <!--</div>-->
@@ -164,4 +171,11 @@
             
         </div>
     </div>
+    // <script>
+    // var infScroll = new InfiniteScroll( '.scroll_area', {
+    //     path : ".pagination a[rel=next]",
+    //     append : ".post"
+        
+    // });
+    // </script>
 @endsection

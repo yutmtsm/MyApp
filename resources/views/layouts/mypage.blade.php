@@ -14,6 +14,9 @@
         <!-- Scripts -->
          {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        <!---->
+        <script src="{{ secure_asset('js/jquery.min.js') }}"></script>
+        <script src="{{ secure_asset('js/infinite-scroll.pkgd.min.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">

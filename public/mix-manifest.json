@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/css/top.css": "/css/top.css",
     "/css/mypage.css": "/css/mypage.css",
-    "/css/post.css": "/css/post.css"
+    "/css/post.css": "/css/post.css",
+    "/js/scroll.js": "/js/scroll.js"
 }
