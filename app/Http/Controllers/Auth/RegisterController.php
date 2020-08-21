@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -67,6 +69,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+        if(isset($data['image'])){
+            $path = $data->file('image')->store('public/images');
+        } else {
+            
+        }
+        unset($data['_token']);
+        unset($data['image']);
+       
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -74,7 +85,20 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'age' => $data['age'],
             'address' => $data['address'],
+            'image_path' => $data['image_path']
         ]);
         
+    }
+    
+    public function aaaa(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        
+        event(new Registered($user = $this->create($request)));
+        
+        $this->guard()->login($user);
+        
+        return $this->registered($request, $user)
+                    ?: redirect($this->redirectPath());
     }
 }

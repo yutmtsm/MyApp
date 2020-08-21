@@ -22,7 +22,7 @@ class MoneybikeController extends Controller
         $today = Carbon::now('Asia/Tokyo');
         //最新順にツイートを並べる
         // $posts = Post::all()->sortByDesc('created_at');
-        $posts = DB::table('posts')->paginate(2);
+        $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         //dd($posts);
         return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts]);
     }

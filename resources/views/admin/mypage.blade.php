@@ -138,7 +138,7 @@
                                                <div class="post-info d-flex">
                                                    <div class="col-md-8 d-flex no-gutters">
                                                        <div class="post-icon"></div>
-                                                       <div class="post-name">{{ $user->name}}</div>
+                                                       <div class="post-name">{{ $post->user_id }}</div>
                                                    </div>
                                                </div>
                                                <div class="title">

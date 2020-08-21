@@ -29,5 +29,6 @@ return [
     'gender' => '性別',
     'age' => '年齢',
     'address' => '居住エリア',
+    'profile-image' => 'プロフィール画像',
     
 ];
