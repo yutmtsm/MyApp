@@ -181,7 +181,6 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   height: 25px;
   margin-right: 10px;
   border-radius: 50%;
-  background-color: red;
 }
 
 .post-name {

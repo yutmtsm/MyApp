@@ -87,14 +87,13 @@ class RegisterController extends Controller
         if(isset($data['image'])){
             $path = $request->file('image')->store('public/image');
             //dd($path);
-            $user->image_path = basename($path);
+            //$data->image = basename($path);
         } else {
             $data->image_path = null;
         }
         //dd($data);
         unset($data['_token']);
-        unset($data['image']);
-       
+       //dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -102,7 +101,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'age' => $data['age'],
             'address' => $data['address'],
-            'image_path' => $data['image_path']
+            'image_path' => $data['image'] = basename($path),
         ]);
         
     }

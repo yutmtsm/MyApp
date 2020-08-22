@@ -10,7 +10,7 @@
             <!-- タイトル -->
             <div class="post-info d-flex">
                <div class="col-md-8 d-flex no-gutters">
-                   <div class="post-icon"></div>
+                   <img class="post-icon" src="storage/image/{{ $user->image_path }}">
                    <div class="post-top">
                          <div class="form-inline">
                            <div class="post-name" style="margin-right: 10px;">{{ $user->name }}</div>
@@ -52,9 +52,9 @@
             <!--    <label class="control-label">画像</label>-->
             <!--    <input type="file" class="form-control-file" name="image">-->
             <!--</div>-->
-            <input type="submit" class="btn" value="投稿!!">
         </div>
     </div>
+    
     
 </div>
 @endsection

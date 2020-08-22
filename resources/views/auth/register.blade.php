@@ -134,7 +134,7 @@
                             <label for="image" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.profile-image') }}</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" enctype="multipart/form-data">
+                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
