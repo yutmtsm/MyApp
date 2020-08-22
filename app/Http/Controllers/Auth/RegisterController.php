@@ -69,12 +69,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+        //dd($data);
         if(isset($data['image'])){
             $path = $data->file('image')->store('public/images');
+            $data->image_path = basename($path);
         } else {
-            
+            $data->image_path = null;
         }
+        dd($data);
         unset($data['_token']);
         unset($data['image']);
        
