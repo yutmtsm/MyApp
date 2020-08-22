@@ -86,11 +86,12 @@ class RegisterController extends Controller
         //dd($data);
         if(isset($data['image'])){
             $path = $request->file('image')->store('public/image');
-            $data->image_path = basename($path);
+            //dd($path);
+            $user->image_path = basename($path);
         } else {
             $data->image_path = null;
         }
-        dd($data);
+        //dd($data);
         unset($data['_token']);
         unset($data['image']);
        
