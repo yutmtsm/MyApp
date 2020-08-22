@@ -67,9 +67,10 @@ class RegisterController extends Controller
      * 
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        //dd($data);
+        $data = $request->all();
+        dd($data);
         if(isset($data['image'])){
             $path = $data->file('image')->store('public/images');
             $data->image_path = basename($path);
@@ -92,7 +93,7 @@ class RegisterController extends Controller
         
     }
     
-    public function aaaa(Request $request)
+    public function register(Request $request)
     {
         $this->validator($request->all())->validate();
         
@@ -103,4 +104,5 @@ class RegisterController extends Controller
         return $this->registered($request, $user)
                     ?: redirect($this->redirectPath());
     }
+    
 }
