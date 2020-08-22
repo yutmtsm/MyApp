@@ -8,7 +8,7 @@
                 <div class="card-header" style="color: black;">{{ __('messages.Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         
                         <!-- E-mail&Password -->
@@ -134,9 +134,9 @@
                             <label for="image" class="col-md-4 col-form-label text-md-right" style="color: black;">{{ __('messages.profile-image') }}</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" enctype="multipart/form-data" name="image">
+                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
 
-                                @error('address')
+                                @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
