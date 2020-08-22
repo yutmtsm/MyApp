@@ -67,10 +67,23 @@ class RegisterController extends Controller
      * 
      * @return \App\User
      */
+    
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        
+        event(new Registered($user = $this->create($request)));
+        
+        $this->guard()->login($user);
+        
+        return $this->registered($request, $user)
+                    ?: redirect($this->redirectPath());
+    }
+    
     protected function create(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        //dd($data);
         if(isset($data['image'])){
             $path = $data->file('image')->store('public/images');
             $data->image_path = basename($path);
@@ -91,18 +104,6 @@ class RegisterController extends Controller
             'image_path' => $data['image_path']
         ]);
         
-    }
-    
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        
-        event(new Registered($user = $this->create($request)));
-        
-        $this->guard()->login($user);
-        
-        return $this->registered($request, $user)
-                    ?: redirect($this->redirectPath());
     }
     
 }
