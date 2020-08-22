@@ -83,7 +83,7 @@ class RegisterController extends Controller
     protected function create(Request $request)
     {
         $data = $request->all();
-        //dd($data);
+        dd($data);
         if(isset($data['image'])){
             $path = $data->file('image')->store('public/images');
             $data->image_path = basename($path);
