@@ -21,31 +21,41 @@
                     <input type="text" class="form-control" name="title" value="{{ $post_form->title }}">
                 </div>
                 <!-- スポット -->
-                <!--<div class="form-group">-->
-                <!--    <label class="control-label">スポット</label>-->
-                <!--    <input type="text" class="form-control" name="spot" value="{{ old('spot') }}">-->
-                <!--</div>-->
+                <div class="form-group">
+                    <label class="control-label">スポット</label>
+                    <input type="text" class="form-control" name="spot" value="{{ $post_form->spot }}">
+                </div>
                 <!-- 使用金 -->
-                <!--<div class="d-flex align-items-center">-->
-                <!--    <div class="form-group">-->
-                <!--        <label class="control-label">施設費</label>-->
-                <!--        <input type="text" class="form-control" name="addmission-fee" value="{{ old('addmission-fee') }}">-->
-                <!--    </div>-->
-                <!--    <div class="form-group" style="margin-left: 100px;">-->
-                <!--        <label class="control-label">購入金</label>-->
-                <!--        <input type="text" class="form-control" name="purchase-cost" value="{{ old('purchase-cost') }}">-->
-                <!--    </div>-->
-                <!--</div>-->
+                <div class="d-flex align-items-center">
+                    <div class="form-group">
+                        <label class="control-label">施設費</label>
+                        <input type="text" class="form-control" name="addmission_fee" value="{{ $post_form->addmission_fee }}">
+                    </div>
+                    <div class="form-group" style="margin-left: 100px;">
+                        <label class="control-label">購入金</label>
+                        <input type="text" class="form-control" name="purchase_cost" value="{{ $post_form->purchase_cost }}">
+                    </div>
+                </div>
                 <!-- コメント -->
                 <div class="form-group">
                     <label class="control-label">コメント</label>
                     <textarea class="form-control" name="comment" value="{{ $post_form->comment }}" style="height: 150px;">{{ $post_form->comment }}</textarea>
                 </div>
                 <!-- 画像 -->
-                <!--<div class="form-group">-->
-                <!--    <label class="control-label">画像</label>-->
-                <!--    <input type="file" class="form-control-file" name="image">-->
-                <!--</div>-->
+                <div class="form-group">
+                    <label class="control-label">画像</label>
+                    <div class="col-md-10">
+                        <input type="file" class="form-control-file" name="image">
+                        <div class="form-text text-info">
+                                設定中: {{ $post_form->image_path }}
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <input type="hidden" name="id" value="{{ $post_form->id }}">
                 {{ csrf_field() }}
                 <input type="submit" class="btn" value="更新!!">

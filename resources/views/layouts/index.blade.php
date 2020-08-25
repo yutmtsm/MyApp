@@ -21,6 +21,7 @@
 
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/common.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/top.css') }}" rel="stylesheet">
     </head>
     <body>

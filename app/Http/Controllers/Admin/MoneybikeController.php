@@ -16,13 +16,30 @@ class MoneybikeController extends Controller
         return view('top');
     }
     
+    public function following(Request $request){
+        $user = Auth::user();
+        //dd($user);
+        $users = DB::table('users')->get();
+        //dd($users->image_path);
+        //dd($post->path);
+        //dd($post->user_name);
+        return view('admin.following', ['user' => $user, 'users' => $users]);
+    }
+    
     public function mypage(){
         $user = Auth::user();
-        //dd($user->image_path);
+        //dd($user);
         $today = Carbon::now('Asia/Tokyo');
         //最新順にツイートを並べる
         // $posts = Post::all()->sortByDesc('created_at');
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
+        //dd($posts);
+        foreach($posts as $post){
+            $users = User::find($post->user_id);
+            $post->user_name = $users->name;
+        }
+        //dd($post->path);
+        //dd($post->user_name);
         //dd($posts);
         return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts]);
     }

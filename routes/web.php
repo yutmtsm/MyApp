@@ -19,20 +19,26 @@
 //     return view('top')->middleware('auth');
 // });
 Route::get('/', 'Admin\MoneybikeController@create');
-Route::get('/mypage', 'Admin\MoneybikeController@mypage')->middleware('auth');
-Route::get('/mypage/addbike', 'Admin\MoneybikeController@addbike')->middleware('auth');
-//新規投稿画面
-Route::get('/mypage/newpost', 'Admin\PostController@newpost')->middleware('auth');
-//詳細画面
-Route::get('/mypage/post/detail', 'Admin\PostController@detail')->middleware('auth');
-//編集画面
-Route::get('/mypage/post/edit', 'Admin\PostController@edit')->middleware('auth');
-//編集後の更新
-Route::post('/mypage/post/edit', 'Admin\PostController@update')->middleware('auth');
-//新規投稿
-Route::post('/mypage/newpost', 'Admin\PostController@create')->middleware('auth');
-//投稿削除
-Route::get('/mypage/delete', 'Admin\PostController@delete')->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/mypage', 'Admin\MoneybikeController@mypage');
+    Route::get('/mypage/addbike', 'Admin\MoneybikeController@addbike');
+    //新規投稿画面
+    Route::get('/mypage/newpost', 'Admin\PostController@newpost');
+    //詳細画面
+    Route::get('/mypage/post/detail', 'Admin\PostController@detail');
+    //編集画面
+    Route::get('/mypage/post/edit', 'Admin\PostController@edit');
+    //編集後の更新
+    Route::post('/mypage/post/edit', 'Admin\PostController@update');
+    //新規投稿
+    Route::post('/mypage/newpost', 'Admin\PostController@create');
+    //投稿削除
+    Route::get('/mypage/delete', 'Admin\PostController@delete');
+    //following
+    Route::get('mypage/following', 'Admin\MoneybikeController@following');
+    
+});
 
 Auth::routes();
 

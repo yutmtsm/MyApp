@@ -1,59 +1,11 @@
 @charset "UTF-8";
 
-body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000;
-  color: #fff;
+.section {
+  border: 2px solid black;
 }
 
-p {
-  color: black;
-}
-
-nav {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-}
-
-.header-left {
-  float: left;
-}
-
-.header-left h2 {
-  line-height: 65px;
-}
-
-.header-right {
-  float: right;
-}
-
-.header-right ul {
-  padding: 0;
-  margin: 0;
-  float: left;
-}
-
-.header-right li {
-  float: left;
-  list-style: none;
-  transition: all 0.8s;
-}
-
-.header-right li:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.header-right a {
-  line-height: 65px;
-  padding: 0 24px;
-  display: block;
-  color: white;
-}
-
-main {
-  margin-top: 0px;
+.card {
+  border: 2px solid black;
 }
 
 .btn-wrapper {
@@ -191,7 +143,20 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   font-size: 10px;
 }
 
-footer {
-  bottom: 200px;
+/* フォローボタン */
+.follow-button{
+  border: 1px solid #0000FF;
+  border-radius: 10px 20px 30px 40px / 5px 10px 50px 100px;
+  text-decoration: none;
+  padding: 5px 20px;
+  background-color: #0000FF;
+  color: white;
+  
 }
-
+.follow-button:hover{
+  opacity: 0.8;
+  text-decoration: none;
+}
+.follow-button:active{
+  background-color: black;
+}

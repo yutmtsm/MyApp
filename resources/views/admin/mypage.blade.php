@@ -11,7 +11,10 @@
                 <div class="section">
                     <div class="card">
                         <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $user->image_path }}">
-                        
+                        <div class="content d-flex">
+                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロー数：32</a>
+                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロワー数：32</a>
+                        </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
                             <p class="personal-text">{{ $user->name}}</p>
@@ -122,15 +125,19 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">スポットツイート</div>
-                                    <a class="new-post" href="{{ action('Admin\PostController@newpost') }}">新規投稿</a>
+                                    <div class="d-flex">
+                                        <a class="new-post" href="{{ action('Admin\PostController@newpost') }}">新規投稿</a>
+                                        <a class="new-post" href="{{ action('Admin\PostController@newpost') }}" style="margin-left: 40px;">削除一覧</a>
+                                    </div>
                                 </div>
                                <!-- 新着順に表示 -->
-                               <section class="scroll_area"
-                               data-infinite-scroll='{
-                               "path": ".pagination a[rel=next]",
-                               "append": ".post"
-                               }'>
+                               <!--<section class="scroll_area"-->
+                               <!--data-infinite-scroll='{-->
+                               <!--"path": ".pagination a[rel=next]",-->
+                               <!--"append": ".post"-->
+                               <!--}'>-->
                                @foreach($posts as $post)
+                               @if($post->delete_flag == 0)
                                <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">
                                    <div class="post">
                                        <div class="row">
@@ -138,7 +145,7 @@
                                                <div class="post-info d-flex">
                                                    <div class="col-md-8 d-flex no-gutters">
                                                        <img  class="post-icon" src="storage/image/{{ $user->image_path }}">
-                                                       <div class="post-name">{{ $post->user_id }}</div>
+                                                       <div class="post-name">{{ $post->user_name }}</div>
                                                    </div>
                                                </div>
                                                <div class="title">
@@ -156,10 +163,11 @@
                                        </div>
                                    </div>
                                  </a>
+                               @endif
                                @endforeach
-                               </section>
-                               <div style="display: none;">{{ $posts->links() }}</div>
-                               <p>下にスクロールしてね</p>
+                               <!--</section>-->
+                               {{ $posts->links() }}
+                               <!--<p>下にスクロールしてね</p>-->
                                 <!--<div class="card-body" style="max-height: 600px;">-->
                                 <!--    <a data-height="600px" class="twitter-timeline" href="https://twitter.com/yousuck2020?ref_src=twsrc%5Etfw">Tweets by yousuck2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
                                 <!--</div>-->
@@ -171,11 +179,4 @@
             
         </div>
     </div>
-    // <script>
-    // var infScroll = new InfiniteScroll( '.scroll_area', {
-    //     path : ".pagination a[rel=next]",
-    //     append : ".post"
-        
-    // });
-    // </script>
 @endsection

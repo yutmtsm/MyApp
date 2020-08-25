@@ -1,61 +1,5 @@
 @charset "UTF-8";
 
-body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000;
-  color: #fff;
-}
-
-p {
-  color: black;
-}
-
-nav {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-}
-
-.header-left {
-  float: left;
-}
-
-.header-left h2 {
-  line-height: 65px;
-}
-
-.header-right {
-  float: right;
-}
-
-.header-right ul {
-  padding: 0;
-  margin: 0;
-  float: left;
-}
-
-.header-right li {
-  float: left;
-  list-style: none;
-  transition: all 0.8s;
-}
-
-.header-right li:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.header-right a {
-  line-height: 65px;
-  padding: 0 24px;
-  display: block;
-  color: white;
-}
-
-main {
-  margin-top: 0px;
-}
-
 .btn-wrapper {
   text-align: center;
   padding: 8px 24px;
@@ -184,9 +128,5 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
 
 .date {
   font-size: 10px;
-}
-
-footer {
-  bottom: 200px;
 }
 

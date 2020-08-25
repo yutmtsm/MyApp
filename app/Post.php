@@ -11,9 +11,9 @@ class Post extends Model
     
     public static $rules = array(
         'title' => 'required | max:25',
-        // 'spot' => 'required | max:50',
-        // 'addmission-fee' => 'numeric',
-        // 'purchase-cost' => 'numeric',
+        'spot' => 'required | max:50',
+        'addmission-fee' => 'numeric',
+        'purchase-cost' => 'numeric',
         'comment' => 'required | max:300',
         'addmission-fee' => 'numeric',
     );

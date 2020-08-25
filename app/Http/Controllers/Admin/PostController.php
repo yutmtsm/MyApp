@@ -26,13 +26,26 @@ class PostController extends Controller
         $post->user_id = $user->id;
         //dd($post);
         $form = $request->all();
+        // dd($form);
+        if(isset($form['image'])){
+            //画像をStrange内に格納し、パスを代入
+            $path = $request->file('image')->store('public/image');
+            //画像のパス先を格納
+            $post->image_path = basename($path);
+            // $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            // $news->image_path = Storage::disk('s3')->url($path);
+        } else {
+            $post->image_path = "noimage.png";
+        }
         $post->delete_flag = false;
         $post->created_at = Carbon::now('Asia/Tokyo');
         //dd($post->created_at);
+        unset($form['image']);
         unset($form['_token']);
         $post->fill($form);
+        //dd($post);
         $post->save();
-        
+        //dd($post);
         return redirect('mypage');
     }
     
@@ -65,7 +78,20 @@ class PostController extends Controller
         //dd($post);
         $post_form = $request->all();
         
+        if ($request->remove == 'true') {
+            $post_form['image_path'] = null;
+        } elseif ($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $post_form['image_path'] = basename($path);
+            // $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            // $news->image_path = Storage::disk('s3')->url($path);
+        } else {
+            $post_form['image_path'] = $post->image_path;
+        }
+
         unset($post_form['_token']);
+        unset($post_form['image']);
+        unset($post_form['remove']);
         
         $post->fill($post_form)->save();
         //dd($post);
@@ -77,8 +103,10 @@ class PostController extends Controller
         $post = Post::find($request->id);
         //dd($post);
         
-        $post->delete();
-        
+        // $post->delete();
+        $post->delete_flag = true;
+        $post->save();
+        //dd($post);
         return redirect('mypage');
     }
 }

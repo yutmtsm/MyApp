@@ -16,8 +16,8 @@ class AddColumnToPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             //
             $table->string('spot')->nullable();
-            $table->integer('addmission_fee');
-            $table->integer('purchase_cost');
+            $table->integer('addmission_fee')->nullable();
+            $table->integer('purchase_cost')->nullable();
             $table->string('image_path')->nullable();
         });
     }

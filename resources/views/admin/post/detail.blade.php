@@ -10,7 +10,7 @@
             <!-- タイトル -->
             <div class="post-info d-flex">
                <div class="col-md-8 d-flex no-gutters">
-                   <img class="post-icon" src="storage/image/{{ $user->image_path }}">
+                   <img class="post-icon" src="/storage/image/{{ $user->image_path }}">
                    <div class="post-top">
                          <div class="form-inline">
                            <div class="post-name" style="margin-right: 10px;">{{ $user->name }}</div>
@@ -32,26 +32,29 @@
                 <p style="color: white;">{{ $post->comment }}</p>
             </div>
             <!-- スポット -->
-            <!--<div class="form-group">-->
-            <!--    <label class="control-label">スポット</label>-->
-            <!--    <input type="text" class="form-control" name="spot" value="{{ old('spot') }}">-->
-            <!--</div>-->
+            <div class="form-group">
+                <label class="control-label">スポット</label>
+                <!--<input type="text" class="form-control" name="spot" value="{{ old('spot') }}">-->
+                <p style="color: white;">{{ $post->spot }}</p>
+            </div>
             <!-- 使用金 -->
-            <!--<div class="d-flex align-items-center">-->
-            <!--    <div class="form-group">-->
-            <!--        <label class="control-label">施設費</label>-->
-            <!--        <input type="text" class="form-control" name="addmission-fee" value="{{ old('addmission-fee') }}">-->
-            <!--    </div>-->
-            <!--    <div class="form-group" style="margin-left: 100px;">-->
-            <!--        <label class="control-label">購入金</label>-->
-            <!--        <input type="text" class="form-control" name="purchase-cost" value="{{ old('purchase-cost') }}">-->
-            <!--    </div>-->
-            <!--</div>-->
+            <div class="d-flex align-items-center">
+                <div class="form-group">
+                    <label class="control-label">施設費</label>
+                    <!--<input type="text" class="form-control" name="addmission_fee" value="{{ old('addmission_fee') }}">-->
+                    <p style="color: white;">{{ $post->addmission_fee }}</p>
+                </div>
+                <div class="form-group" style="margin-left: 100px;">
+                    <label class="control-label">購入金</label>
+                    <!--<input type="text" class="form-control" name="purchase_cost" value="{{ old('purchase_cost') }}">-->
+                    <p style="color: white;">{{ $post->purchase_cost }}</p>
+                </div>
+            </div>
             <!-- 画像 -->
-            <!--<div class="form-group">-->
-            <!--    <label class="control-label">画像</label>-->
-            <!--    <input type="file" class="form-control-file" name="image">-->
-            <!--</div>-->
+            <div class="form-group">
+                <!--<input type="file" class="form-control-file" name="image">-->
+                <img src="/storage/image/{{ $post->image_path }}">
+            </div>
         </div>
     </div>
     
