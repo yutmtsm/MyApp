@@ -62,12 +62,10 @@
                                                    <div class="follow-btn">
                                                        <a href="#" class="follow-button">フォロー</a>
                                                    </div>
+                                                   
                                                 </div>
+                                                
                                                     
-                                               
-                                                <div class="title">
-                                                   <h2>{{ str_limit($user->name, 100) }}</h2>
-                                               </div>
                                                
                                                <div class="comment mt-3">
                                                    <p>{{ str_limit($user->address, 1500) }}</p>
@@ -77,6 +75,11 @@
                                                    {{ $user->image_path }}
                                                </div>
                                                
+                                                @if (auth()->user())
+                                                <div class="px-2">
+                                                    <span class="px-1 bg-secondary text-light">フォローされています</span>
+                                                </div>
+                                                @endif
                                            </div>
                                        </div>
                                    </div>
