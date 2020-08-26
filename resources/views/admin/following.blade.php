@@ -62,8 +62,10 @@
                                                    <div class="follow-btn">
                                                        <a href="#" class="follow-button">フォロー</a>
                                                    </div>
-                                               </div>
-                                               <div class="title">
+                                                </div>
+                                                    
+                                               
+                                                <div class="title">
                                                    <h2>{{ str_limit($user->name, 100) }}</h2>
                                                </div>
                                                
@@ -74,6 +76,7 @@
                                                <div class="date text-right">
                                                    {{ $user->image_path }}
                                                </div>
+                                               
                                            </div>
                                        </div>
                                    </div>

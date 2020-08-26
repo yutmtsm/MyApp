@@ -7,79 +7,35 @@ use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    //フォローボタンを押した時に実行
+    public function follow(User $user)
     {
-        //
+        $follower = auth()->user();
+        //フォローしているか⇨ログインユーザーのisFollowing内にidがあるかどうか
+        //つまり、フォローしているかどうか
+        $is_followimg = $follower->isFollowing($user->id);
+        
+        if(!$is_followimg){
+            //上が通るのでフォローされていないから、フォローするする処理
+            //follow()関数がUserModelにて定義されている。
+            $follower->follow($user->id);
+            return back();
+        }
+        
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+     //フォロー解除
+    public function unfollow(User $user)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $follower = auth()->user();
+        //フォローしているか⇨ログインユーザーのisFollowing内にidがあるかどうか
+        //つまり、フォローされているかどうか
+        $is_following = $follower->isFollowing($user->id);
+        
+        if($is_following){
+            //unfollow()関数がUserModelにて定義されている。
+            $follower->unfollow($user->id);
+            return back();
+        }
     }
 }

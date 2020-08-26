@@ -144,7 +144,7 @@
                                            <div class="col-md-12">
                                                <div class="post-info d-flex">
                                                    <div class="col-md-8 d-flex no-gutters">
-                                                       <img  class="post-icon" src="storage/image/{{ $user->image_path }}">
+                                                       <img  class="post-icon" src="storage/image/{{ $post->image_icon }}">
                                                        <div class="post-name">{{ $post->user_name }}</div>
                                                    </div>
                                                </div>

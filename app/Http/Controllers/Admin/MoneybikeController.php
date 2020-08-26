@@ -37,6 +37,7 @@ class MoneybikeController extends Controller
         foreach($posts as $post){
             $users = User::find($post->user_id);
             $post->user_name = $users->name;
+            $post->image_icon = $users->image_path;
         }
         //dd($post->path);
         //dd($post->user_name);
