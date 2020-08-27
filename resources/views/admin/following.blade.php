@@ -48,7 +48,7 @@
                         <div class="item">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">フォロー</div>
+                                    <div class="card-title">フォ�����ー</div>
                                 </div>
                                @foreach($users as $user)
                                    <div class="post">
@@ -62,7 +62,6 @@
                                                    <div class="follow-btn">
                                                        <a href="#" class="follow-button">フォロー</a>
                                                    </div>
-                                                   
                                                 </div>
                                                 
                                                     
@@ -75,7 +74,7 @@
                                                    {{ $user->image_path }}
                                                </div>
                                                
-                                                @if (auth()->user())
+                                                @if (auth()->user()->isFollowed($user->id))
                                                 <div class="px-2">
                                                     <span class="px-1 bg-secondary text-light">フォローされています</span>
                                                 </div>
@@ -90,7 +89,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 @endsection
