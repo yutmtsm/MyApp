@@ -55,7 +55,7 @@ class User extends Authenticatable
     //フォローするアクション
     public function follow($user_id) 
     {
-        dd($user_id);
+        //dd($user_id);
         return $this->follows()->attach($user_id);
     }
     
@@ -72,7 +72,7 @@ class User extends Authenticatable
     }
     
     //フォローされているか
-    public function isFollowed(Int $user_id)
+    public function isFollowed($user_id)
     {
         return (boolean) $this->follows()->where('following_id', $user_id)->exists();
     }

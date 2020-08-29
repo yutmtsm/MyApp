@@ -55,10 +55,12 @@
                                        <div class="row">
                                            <div class="col-md-12">
                                                <div class="post-info d-flex">
+                                                   <a href="{{ action('MoneybikeController@otherpage', ['id' => $_user->id]) }}">
                                                    <div class="col-md-8 d-flex no-gutters">
                                                        <img  class="post-icon" src="/storage/image/{{ $_user->image_path }}">
                                                        <div class="post-name">{{ $_user->name }}</div>
                                                    </div>
+                                                   </a>
                                                    
                                                     @if ($user->isFollowing($_user->id))
                                                     <form action="{{ route('unfollow', ['id' => $_user->id]) }}" method="POST">

@@ -9,8 +9,10 @@ use App\User;
 class UsersController extends Controller
 {
     //フォローボタンを押した時に実行
-    public function follow(User $user)
+    public function follow(Request $request)
     {
+        //対象のユーザーを特定
+        $user = User::find($request->id);
         $follower = auth()->user();
         //dd($follower);
         //フォローしているか⇨ログインユーザーのisFollowing内にidがあるかどうか
@@ -20,7 +22,7 @@ class UsersController extends Controller
         if(!$is_followimg){
             //上が通るのでフォローされていないから、フォローするする処理
             //follow()関数がUserModelにて定義されている。
-            dd($user->id);
+            //dd($user->id);
             $follower->follow($user->id);
             return back();
         }
@@ -28,8 +30,9 @@ class UsersController extends Controller
     }
     
      //フォロー解除
-    public function unfollow(User $user)
+    public function unfollow(Request $request)
     {
+        $user = User::find($request->id);
         $follower = auth()->user();
         //フォローしているか⇨ログインユーザーのisFollowing内にidがあるかどうか
         //つまり、フォローされているかどうか
