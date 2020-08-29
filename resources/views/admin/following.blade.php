@@ -59,10 +59,8 @@
                                                        <img  class="post-icon" src="/storage/image/{{ $_user->image_path }}">
                                                        <div class="post-name">{{ $_user->name }}</div>
                                                    </div>
-                                                   <div class="follow-btn">
-                                                       <a href="#" class="follow-button">フォロー</a>
-                                                   </div>
-                                                    @if ($user()->isFollowing($_user->id))
+                                                   
+                                                    @if ($user->isFollowing($_user->id))
                                                     <form action="{{ route('unfollow', ['id' => $_user->id]) }}" method="POST">
                                                        {{ csrf_field() }}
                                                        {{ method_field('DELETE') }}
