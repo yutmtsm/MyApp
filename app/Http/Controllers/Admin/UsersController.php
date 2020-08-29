@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Follower;
 
 class UsersController extends Controller
 {
@@ -44,4 +45,5 @@ class UsersController extends Controller
             return back();
         }
     }
+    
 }

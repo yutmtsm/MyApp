@@ -39,6 +39,7 @@ class MoneybikeController extends Controller
             $post->user_name = $users->name;
             $post->image_icon = $users->image_path;
         }
+        
         //dd($post->path);
         //dd($post->user_name);
         //dd($posts);
