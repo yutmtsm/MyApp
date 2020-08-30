@@ -86,7 +86,7 @@
                                                    {{ $_user->image_path }}
                                                </div>
                                                
-                                                @if ($user->isFollowed($_user->id))
+                                                @if ($user->isFollowing($_user->id))
                                                 <div class="px-2">
                                                     <span class="px-1 bg-secondary text-light">フォローされています</span>
                                                 </div>
@@ -95,66 +95,11 @@
                                        </div>
                                    </div>
                                @endforeach
-                               
+                               {{ $users->links() }}
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-md-6">
-                        <div class="item">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">フォロワー</div>
-                                </div>
-                               @foreach($users as $_user)
-                                   <div class="post">
-                                       <div class="row">
-                                           <div class="col-md-12">
-                                               <div class="post-info d-flex">
-                                                   <a href="{{ action('MoneybikeController@otherpage', ['id' => $_user->id]) }}">
-                                                   <div class="col-md-8 d-flex no-gutters">
-                                                       <img  class="post-icon" src="/storage/image/{{ $_user->image_path }}">
-                                                       <div class="post-name">{{ $_user->name }}</div>
-                                                   </div>
-                                                   </a>
-                                                   
-                                                    @if ($user->isFollowing($_user->id))
-                                                    <form action="{{ route('unfollow', ['id' => $_user->id]) }}" method="POST">
-                                                       {{ csrf_field() }}
-                                                       {{ method_field('DELETE') }}
-                                                       <button type="submit" class="btn btn-danger">フォロー解除</button>
-                                                    </form>
-                                                    @else
-                                                    <form action="{{ route('follow', ['id' => $_user->id]) }}" method="POST">
-                                                        {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-primary">フォローする</button>
-                                                    </form>
-                                                    @endif
-                                                </div>
-                                                
-                                                    
-                                               
-                                               <div class="comment mt-3">
-                                                   <p>{{ str_limit($_user->address, 1500) }}</p>
-                                                </div>
-                                               
-                                               <div class="date text-right">
-                                                   {{ $_user->image_path }}
-                                               </div>
-                                               
-                                                @if ($user->isFollowed($_user->id))
-                                                <div class="px-2">
-                                                    <span class="px-1 bg-secondary text-light">フォローされています</span>
-                                                </div>
-                                                @endif
-                                           </div>
-                                       </div>
-                                   </div>
-                               @endforeach
-                               
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

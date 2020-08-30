@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Post;
+use DB;
 use Auth;
 use Carbon\Carbon;
 
@@ -52,12 +53,21 @@ class PostController extends Controller
     public function detail(Request $request){
         $user = Auth::user();
         $post = Post::find($request->id);
+        $users = DB::table('users')->get();
+        
+        //ポストに紐づいたUser_idを持ってきて情報を代入
+            $users = User::find($post->user_id);
+            $post->user_name = $users->name;
+            $post->image_icon = $users->image_path;
+            $post->created_at = $users->created_at;
+        
+        //dd($users);
         //dd($post);
         if(empty($post)){
             abort(404);
         }
         //dd($post);
-        return view('admin.post.detail', ['user' => $user, 'post' => $post]);
+        return view('admin.post.detail', ['user' => $user, 'post' => $post, 'users' => $users]);
     }
     
     public function edit(Request $request){

@@ -13,7 +13,7 @@ class MoneybikeController extends Controller
     public function otherpage(Request $request)
     {
         $other_user = User::find($request->id);
-        //d($other_user);
+        //dd($other_user);
         
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         

@@ -19,7 +19,7 @@ class MoneybikeController extends Controller
     public function following(Request $request){
         $user = Auth::user();
         //dd($user);
-        $users = DB::table('users')->get();
+        $users = DB::table('users')->simplePaginate(10);
         //dd($users->image_path);
         //dd($post->path);
         //dd($post->user_name);
@@ -30,6 +30,7 @@ class MoneybikeController extends Controller
         $user = Auth::user();
         //dd($user);
         $today = Carbon::now('Asia/Tokyo');
+        $users = DB::table('users')->get();
         //最新順にツイートを並べる
         // $posts = Post::all()->sortByDesc('created_at');
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
@@ -43,7 +44,7 @@ class MoneybikeController extends Controller
         //dd($post->path);
         //dd($post->user_name);
         //dd($posts);
-        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts]);
+        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users]);
     }
     
     public function index(Request $request){

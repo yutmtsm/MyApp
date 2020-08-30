@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h1>マイページ</h1>
+        <h1>{{ $other_user->name}}さんのページ</h1>
         <div class="row">
             <!-- 左コンテンツ -->
             <div class="col-md-4">
@@ -134,7 +134,7 @@
                                <!--"append": ".post"-->
                                <!--}'>-->
                                @foreach($posts as $post)
-                               @if($post->delete_flag == 0)
+                               
                                <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">
                                    <div class="post">
                                        <div class="row">
@@ -160,7 +160,7 @@
                                        </div>
                                    </div>
                                  </a>
-                               @endif
+                               
                                @endforeach
                                <!--</section>-->
                                {{ $posts->links() }}

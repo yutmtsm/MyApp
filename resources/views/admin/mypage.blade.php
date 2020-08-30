@@ -137,7 +137,6 @@
                                <!--"append": ".post"-->
                                <!--}'>-->
                                @foreach($posts as $post)
-                               @if($post->delete_flag == 0)
                                <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">
                                    <div class="post">
                                        <div class="row">
@@ -163,7 +162,7 @@
                                        </div>
                                    </div>
                                  </a>
-                               @endif
+                         
                                @endforeach
                                <!--</section>-->
                                {{ $posts->links() }}

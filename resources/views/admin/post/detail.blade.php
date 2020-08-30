@@ -10,11 +10,11 @@
             <!-- タイトル -->
             <div class="post-info d-flex">
                <div class="col-md-8 d-flex no-gutters">
-                   <img class="post-icon" src="/storage/image/{{ $user->image_path }}">
+                   <img class="post-icon" src="/storage/image/{{ $post->image_icon }}">
                    <div class="post-top">
                          <div class="form-inline">
-                           <div class="post-name" style="margin-right: 10px;">{{ $user->name }}</div>
-                           <div class="post-date">{{ $user->created_at }}</div>
+                           <div class="post-name" style="margin-right: 10px;">{{ $post->user_name }}</div>
+                           <div class="post-date">{{ $post->created_at }}</div>
                         </div>
                         <div class="post-title">
                             <h2>『{{ $post->title }}』</h2>
@@ -22,8 +22,10 @@
                    </div>
                </div>
                <div class="col-md-4 text-right">
+                   @if($user->id == $post->user_id)
                    <a href="{{ action('Admin\PostController@edit', ['id' => $post->id]) }}">編集</a>
                    <a href="{{ action('Admin\PostController@delete', ['id' => $post->id]) }}">削除</a>
+                   @endif
                </div>
            </div>
             <!-- コメント -->
