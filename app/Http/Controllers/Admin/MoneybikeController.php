@@ -22,6 +22,7 @@ class MoneybikeController extends Controller
         $user = Auth::user();
         $users = DB::table('users')->get();
         // dd($users->name);
+        //フォローしているユーザーのID取得
         $following_Users = Follower::where('following_id', $user->id)->get();
         $followed_Users = Follower::where('followed_id', $user->id)->get();
         // dd($users);
