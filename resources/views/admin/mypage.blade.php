@@ -12,8 +12,8 @@
                     <div class="card">
                         <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $user->image_path }}">
                         <div class="content d-flex">
-                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロー数：32</a>
-                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロワー数：32</a>
+                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロー数：{{ $followingCount }}</a>
+                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロワー数：{{ $followedCount }}</a>
                         </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
