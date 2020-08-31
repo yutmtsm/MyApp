@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 //他人のページに移動
 Route::get('otherpage', 'MoneybikeController@otherpage');
+Route::get('otherpage/followers', 'MoneybikeController@other_followers');
 
 Auth::routes();
 

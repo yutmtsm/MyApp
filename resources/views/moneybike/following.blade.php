@@ -10,22 +10,22 @@
             <div class="col-md-4">
                 <div class="section">
                     <div class="card">
-                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $user->image_path }}">
+                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $other_user->image_path }}">
                         <div class="content d-flex">
-                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロー数：{{ $following_Count }}</a>
-                            <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロワー数：{{ $followed_Count }}</a>
+                            <a href="{{ action('MoneybikeController@other_followers') }}" class="">フォロー数：{{ $following_Count }}</a>
+                            <a href="{{ action('MoneybikeController@other_followers') }}" class="">フォロワー数：{{ $followed_Count }}</a>
                         </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
-                            <p class="personal-text">{{ $user->name}}</p>
+                            <p class="personal-text">{{ $other_user->name}}</p>
                         </div>
                        <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">性別</p>
-                            <p class="personal-text">{{ $user->gender}}</p>
+                            <p class="personal-text">{{ $other_user->gender}}</p>
                         </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">年齢</p>
-                            <p class="personal-text">{{ $user->age}}</p>
+                            <p class="personal-text">{{ $other_user->age}}</p>
                         </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
@@ -62,7 +62,7 @@
                                                    </div>
                                                    </a>
                                                    
-                                                    @if ($user->isFollowing($following_User->id))
+                                                    @if ($other_user->isFollowing($following_User->id))
                                                     <form action="{{ route('unfollow', ['id' => $following_User->id]) }}" method="POST">
                                                        {{ csrf_field() }}
                                                        {{ method_field('DELETE') }}
@@ -86,11 +86,7 @@
                                                    {{ $following_User->image_path }}
                                                </div>
                                                
-                                                @if ($user->isFollowing($user->id))
-                                                <div class="px-2">
-                                                    <span class="px-1 bg-secondary text-light">フォローされています</span>
-                                                </div>
-                                                @endif
+                                                
                                            </div>
                                        </div>
                                    </div>
@@ -119,7 +115,7 @@
                                                    </div>
                                                    </a>
                                                    
-                                                    @if ($user->isFollowing($followed_User->id))
+                                                    @if ($other_user->isFollowing($followed_User->id))
                                                     <form action="{{ route('unfollow', ['id' => $followed_User->id]) }}" method="POST">
                                                        {{ csrf_field() }}
                                                        {{ method_field('DELETE') }}
@@ -143,11 +139,7 @@
                                                    {{ $followed_User->image_path }}
                                                </div>
                                                
-                                                @if ($user->isFollowing($user->id))
-                                                <div class="px-2">
-                                                    <span class="px-1 bg-secondary text-light">フォローされています</span>
-                                                </div>
-                                                @endif
+                                                
                                            </div>
                                        </div>
                                    </div>
