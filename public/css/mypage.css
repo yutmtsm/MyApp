@@ -128,9 +128,23 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   padding: 0;
 }
 
+.noimage-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
 .post-icon {
   width: 25px;
   height: 25px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.spot-icon {
+  width: 50px;
+  height: 50px;
   margin-right: 10px;
   border-radius: 50%;
 }
@@ -143,6 +157,30 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   font-size: 10px;
 }
 
+/* spot_search内 */
+.spot-image{
+  margin-left: 10px;
+}
+
+.spot-image img{
+  width:250px;
+  height: auto;
+}
+
+.post-text{
+  width: 100%;
+  padding: 15px;
+  border: 1px solid black;
+}
+.spot-comment{
+  
+  margin: 0 auto;
+}
+
+.detail-btn{
+  display: inline-block;
+  width: 80%;
+}
 /* フォローボタン */
 .follow-button{
   border: 1px solid #0000FF;

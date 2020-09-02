@@ -44,7 +44,7 @@ class PostController extends Controller
         unset($form['image']);
         unset($form['_token']);
         $post->fill($form);
-        //dd($post);
+        dd($post);
         $post->save();
         //dd($post);
         return redirect('mypage');
@@ -113,8 +113,7 @@ class PostController extends Controller
         $post = Post::find($request->id);
         //dd($post);
         
-        // $post->delete();
-        $post->delete_flag = true;
+        $post->delete();
         $post->save();
         //dd($post);
         return redirect('mypage');

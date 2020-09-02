@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/mypage/delete', 'Admin\PostController@delete');
     //following
     Route::get('mypage/following', 'Admin\MoneybikeController@following');
+    //スポット検索
+    Route::get('mypage/spot_search', 'Admin\MoneybikeController@spot_search');
     
     // フォロー/フォロー解除を追加
     Route::post('mypage/following/follow', 'Admin\UsersController@follow')->name('follow');
