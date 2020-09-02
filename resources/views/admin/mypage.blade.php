@@ -10,7 +10,12 @@
             <div class="col-md-4">
                 <div class="section">
                     <div class="card">
+                        
+                        @if(isset($user->image_path))
                         <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $user->image_path }}">
+                        @else
+                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
+                        @endif
                         <div class="content d-flex">
                             <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロー数：{{ $following_Count }}</a>
                             <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロワー数：{{ $followed_Count }}</a>
