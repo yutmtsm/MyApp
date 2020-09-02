@@ -76,8 +76,8 @@ class MoneybikeController extends Controller
         return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }
-    
-    public function spot_search()
+
+    public function spot_search(Request $request)
     {
         $user = Auth::user();
         // dd($user)
@@ -156,8 +156,10 @@ class MoneybikeController extends Controller
         // dd($post->image_icon);;
         //投稿記事ここまで
         
-        return view('admin.search_result', ['user' => $user, 'posts' => $posts,
+        return view('admin.spot_search', ['user' => $user, 'posts' => $posts,
         'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
-        'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
+        'following_Count' => $following_Count, 'followed_Count' => $followed_Count,
+        'cond_title' => $cond_title
+        ]);
     }
 }
