@@ -45,7 +45,8 @@ class MoneybikeController extends Controller
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }
     
-    public function mypage(){
+    public function mypage()
+    {
         $user = Auth::user();
         //dd($user);
         $today = Carbon::now('Asia/Tokyo');
@@ -59,6 +60,9 @@ class MoneybikeController extends Controller
         //最新順にツイートを並べる
         // $posts = Post::all()->sortByDesc('created_at');
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
+        // $followed_ids = Follower::where('followed_id', $user->id)->get('following_id');
+        //dd($followed_ids);
+        // $posts = Post::where('user_id',$followed_ids )->orderByDesc('created_at')->simplePaginate(3);
         //dd($posts);
         foreach($posts as $post){
             $users = User::find($post->user_id);
@@ -76,7 +80,7 @@ class MoneybikeController extends Controller
     public function spot_search()
     {
         $user = Auth::user();
-        //dd($user);
+        // dd($user)
         
         //ログインユーザーのフォロー・フォロワーユーザーの取得
         //フォローしているユーザーID。| following_id（対象） | followed_id（被対象） |で表現する為。followed_idを取得 
@@ -94,7 +98,8 @@ class MoneybikeController extends Controller
         $followed_Count = Follower::where('followed_id', $user->id)->count();
         //フォロー・フォロワーのカウント数：ここまで
         
-        
+        $users = DB::table('users')->get();
+        // dd($users);
         //投稿記事
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         foreach($posts as $post){
@@ -102,7 +107,7 @@ class MoneybikeController extends Controller
             $post->user_name = $users->name;
             $post->image_icon = $users->image_path;
         }
-        // dd($post->image_icon);
+        // dd($post->image_icon);;
         //投稿記事ここまで
         
         return view('admin.spot_search', ['user' => $user, 'posts' => $posts,
