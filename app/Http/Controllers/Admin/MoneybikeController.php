@@ -142,7 +142,7 @@ class MoneybikeController extends Controller
         //検索⇨投稿記事
         if($cond_title != ''){
             // 検索されたら検索結果を取得する
-            $posts = DB::table('posts')->where('spot', $cond_title)->get();
+            $posts = DB::table('posts')->where('spot', 'like', "%$cond_title%")->orwhere('comment', 'like', "%$cond_title%")->simplePaginate(10);
         } else {
             $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         }

@@ -44,7 +44,7 @@ class PostController extends Controller
         unset($form['image']);
         unset($form['_token']);
         $post->fill($form);
-        dd($post);
+        //dd($post);
         $post->save();
         //dd($post);
         return redirect('mypage');
