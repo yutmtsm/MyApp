@@ -15,6 +15,7 @@
                             <a href="{{ action('MoneybikeController@other_followers') }}" class="">フォロー数：{{ $following_Count }}</a>
                             <a href="{{ action('MoneybikeController@other_followers') }}" class="">フォロワー数：{{ $followed_Count }}</a>
                         </div>
+                        
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
                             <p class="personal-text">{{ $other_user->name}}</p>
@@ -62,7 +63,7 @@
                                                    </div>
                                                    </a>
                                                    
-                                                    @if ($other_user->isFollowing($following_User->id))
+                                                    @if ($user->isFollowing($following_User->id))
                                                     <form action="{{ route('unfollow', ['id' => $following_User->id]) }}" method="POST">
                                                        {{ csrf_field() }}
                                                        {{ method_field('DELETE') }}
@@ -72,6 +73,11 @@
                                                     <form action="{{ route('follow', ['id' => $following_User->id]) }}" method="POST">
                                                         {{ csrf_field() }}
                                                         <button type="submit" class="btn btn-primary">フォローする</button>
+                                                        <!--@if (!$user->isFollowing($following_User->id))-->
+                                                        <!--    <div class="px-2">-->
+                                                        <!--        <span class="px-1 bg-secondary text-light">フォローされています</span>-->
+                                                        <!--    </div>-->
+                                                        <!--@endif-->
                                                     </form>
                                                     @endif
                                                 </div>

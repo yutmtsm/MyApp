@@ -7,6 +7,7 @@ use App\User;
 use App\Follower;
 use Carbon\Carbon;
 use DB;
+use Auth;
 
 class MoneybikeController extends Controller
 {
@@ -40,7 +41,10 @@ class MoneybikeController extends Controller
     public function other_followers(Request $request)
     {
         $other_user = User::find($request->id);
-        //dd($other_user);
+        
+        //ログインユーザーがフォローしているか判断のために必要
+        $user = Auth::user();
+        // dd($user);
         //ログインユーザーのフォロー・フォロワーユーザーの取得
         //フォローしているユーザーID。| following_id（対象） | followed_id（被対象） |で表現する為。followed_idを取得 
         $following_Users_Id = Follower::where('following_id', $other_user->id)->get('followed_id');
@@ -57,7 +61,7 @@ class MoneybikeController extends Controller
         $followed_Count = Follower::where('followed_id', $other_user->id)->count();
         //フォロー・フォロワーのカウント数：ここまで
         
-        return view('moneybike.following', ['other_user' => $other_user,
+        return view('moneybike.following', ['other_user' => $other_user, 'user' => $user,
         'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }
