@@ -62,8 +62,8 @@ class MoneybikeController extends Controller
         //最新順にツイートを並べる
         // $posts = Post::all()->sortByDesc('created_at');
         // $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
-        $followed_user = Follower::where('following_id', $user->id)->get('followed_id');
-        $posts = DB::table('posts')->where('user->id', $followed_user)->simplePaginate(10);
+        $followed_user_ids = Follower::where('following_id', $user->id)->get('followed_id');
+        $posts = DB::table('posts')->where('user->id', $followed_user_ids)->simplePaginate(10);
         dd($posts);
         // $followed_ids = Follower::where('followed_id', $user->id)->get('following_id');
         //dd($followed_ids);
