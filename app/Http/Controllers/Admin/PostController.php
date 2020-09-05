@@ -53,6 +53,7 @@ class PostController extends Controller
     public function detail(Request $request){
         $user = Auth::user();
         $post = Post::find($request->id);
+        // dd($post);
         $users = DB::table('users')->get();
         
         //ポストに紐づいたUser_idを持ってきて情報を代入

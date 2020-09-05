@@ -110,6 +110,11 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   padding: 0;
 }
 
+.other-link{
+  color: white;
+  text-decoration: none;
+}
+
 .no-gutters {
   margin: 0;
   padding: 0;

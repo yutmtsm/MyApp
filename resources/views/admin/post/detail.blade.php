@@ -10,10 +10,14 @@
             <!-- タイトル -->
             <div class="post-info d-flex">
                <div class="col-md-8 d-flex no-gutters">
-                   <img class="post-icon" src="/storage/image/{{ $post->image_icon }}">
+                   <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
+                       <img class="post-icon" src="/storage/image/{{ $post->image_icon }}">
+                    </a>
                    <div class="post-top">
                          <div class="form-inline">
-                           <div class="post-name" style="margin-right: 10px;">{{ $post->user_name }}</div>
+                             <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
+                                 <div class="post-name" style="margin-right: 10px;">{{ $post->user_name }}</div>
+                            </a>
                            <div class="post-date">{{ $post->created_at }}</div>
                         </div>
                         <div class="post-title">

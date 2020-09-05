@@ -14,7 +14,7 @@ class MoneybikeController extends Controller
     //
     public function otherpage(Request $request)
     {
-        //dd($request->id);
+        // dd($request->id);
         $other_user = User::find($request->id);
         //dd($other_user);
         
@@ -50,6 +50,7 @@ class MoneybikeController extends Controller
         $following_Users_Id = Follower::where('following_id', $other_user->id)->get('followed_id');
         //フォローされているユーザーID。| following_id（被対象） | followed_id（対象） |で表現する為。following_idを取得 
         $followed_Users_Id = Follower::where('followed_id', $other_user->id)->get('following_id');
+        // dd($followed_Users_Id);
         //取得IDを下に該当ユーザーの抽出
         $following_Users = User::find($following_Users_Id);
         $followed_Users = User::find($followed_Users_Id);

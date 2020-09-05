@@ -95,29 +95,29 @@
             <div class="item">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">ユーザー一覧</div>
+                        <div class="card-title">未フォロワー</div>
                         
                     </div>
-                    @foreach($all_users as $all_user)
+                    @foreach($all_users as $_user)
                         <div class="post">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="post-info d-flex">
-                                        <a href="{{ action('MoneybikeController@otherpage', ['id' => $all_user->id]) }}">
+                                        <a href="{{ action('MoneybikeController@otherpage', ['id' => $_user->id]) }}">
                                         <div class="col-md-8 d-flex no-gutters">
-                                            <img  class="post-icon" src="/storage/image/{{ $all_user->image_path }}">
-                                            <div class="post-name">{{ $all_user->name }}</div>
+                                            <img  class="post-icon" src="/storage/image/{{ $_user->image_path }}">
+                                            <div class="post-name">{{ $_user->name }}</div>
                                         </div>
                                         </a>
                                         
-                                         @if ($user->isFollowing($all_user->id))
-                                         <form action="{{ route('unfollow', ['id' => $all_user->id]) }}" method="POST">
+                                         @if ($user->isFollowing($_user->id))
+                                         <form action="{{ route('unfollow', ['id' => $_user->id]) }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button type="submit" class="btn btn-danger">フォロー解除</button>
                                          </form>
                                          @else
-                                         <form action="{{ route('follow', ['id' => $all_user->id]) }}" method="POST">
+                                         <form action="{{ route('follow', ['id' => $_user->id]) }}" method="POST">
                                              {{ csrf_field() }}
                                              <button type="submit" class="btn btn-primary">フォローする</button>
                                          </form>
@@ -127,11 +127,11 @@
                                          
                                     
                                     <div class="comment mt-3">
-                                        <p>{{ str_limit($all_user->address, 1500) }}</p>
+                                        <p>{{ str_limit($_user->address, 1500) }}</p>
                                      </div>
                                     
                                     <div class="date text-right">
-                                        {{ $all_user->image_path }}
+                                        {{ $_user->image_path }}
                                     </div>
                                     
                                      @if ($user->isFollowing($user->id))
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                     @endforeach
-                    {{ $all_users->links() }}
+                    
                 </div>
             </div>
         </div>

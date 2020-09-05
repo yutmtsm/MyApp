@@ -22,7 +22,7 @@ Route::get('/', 'Admin\MoneybikeController@create');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/mypage', 'Admin\MoneybikeController@mypage');
-    Route::get('/mypage/addbike', 'Admin\MoneybikeController@addbike');
+    
     //新規投稿画面
     Route::get('/mypage/newpost', 'Admin\PostController@newpost');
     //詳細画面
@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('mypage/following', 'Admin\MoneybikeController@following');
     //スポット検索
     Route::get('mypage/spot_search', 'Admin\MoneybikeController@spot_search');
-    //文字検索
+    //検索
     Route::get('mypage/spot_search', 'Admin\MoneybikeController@search');
     
     // フォロー/フォロー解除を追加

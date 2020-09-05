@@ -4,13 +4,17 @@
 
 @section('content')
     <div class="container">
-        <h1>マイページ</h1>
+        <h1>{{ $other_user->name}}さんのページ</h1>
         <div class="row">
             <!-- 左コンテンツ -->
             <div class="col-md-4">
                 <div class="section">
                     <div class="card">
+                        @if(isset($other_user->image_path))
                         <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $other_user->image_path }}">
+                        @else
+                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
+                        @endif
                         <div class="content d-flex">
                             <a href="{{ action('MoneybikeController@other_followers') }}" class="">フォロー数：{{ $following_Count }}</a>
                             <a href="{{ action('MoneybikeController@other_followers') }}" class="">フォロワー数：{{ $followed_Count }}</a>
@@ -62,24 +66,25 @@
                                                        <div class="post-name">{{ $following_User->name }}</div>
                                                    </div>
                                                    </a>
-                                                   
-                                                    @if ($user->isFollowing($following_User->id))
-                                                    <form action="{{ route('unfollow', ['id' => $following_User->id]) }}" method="POST">
-                                                       {{ csrf_field() }}
-                                                       {{ method_field('DELETE') }}
-                                                       <button type="submit" class="btn btn-danger">フォロー解除</button>
-                                                    </form>
-                                                    @else
-                                                    <form action="{{ route('follow', ['id' => $following_User->id]) }}" method="POST">
-                                                        {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-primary">フォローする</button>
-                                                        <!--@if (!$user->isFollowing($following_User->id))-->
-                                                        <!--    <div class="px-2">-->
-                                                        <!--        <span class="px-1 bg-secondary text-light">フォローされています</span>-->
-                                                        <!--    </div>-->
-                                                        <!--@endif-->
-                                                    </form>
-                                                    @endif
+                                                   <div class="follow-btn">
+                                                        @if ($user->isFollowing($following_User->id))
+                                                        <form action="{{ route('unfollow', ['id' => $following_User->id]) }}" method="POST">
+                                                           {{ csrf_field() }}
+                                                           {{ method_field('DELETE') }}
+                                                           <button type="submit" class="btn btn-danger">フォロー解除</button>
+                                                        </form>
+                                                        @else
+                                                        <form action="{{ route('follow', ['id' => $following_User->id]) }}" method="POST">
+                                                            {{ csrf_field() }}
+                                                            <button type="submit" class="btn btn-primary">フォローする</button>
+                                                            <!--@if (!$user->isFollowing($following_User->id))-->
+                                                            <!--    <div class="px-2">-->
+                                                            <!--        <span class="px-1 bg-secondary text-light">フォローされています</span>-->
+                                                            <!--    </div>-->
+                                                            <!--@endif-->
+                                                        </form>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                                 
                                                     
@@ -121,18 +126,20 @@
                                                    </div>
                                                    </a>
                                                    
-                                                    @if ($other_user->isFollowing($followed_User->id))
-                                                    <form action="{{ route('unfollow', ['id' => $followed_User->id]) }}" method="POST">
-                                                       {{ csrf_field() }}
-                                                       {{ method_field('DELETE') }}
-                                                       <button type="submit" class="btn btn-danger">フォロー解除</button>
-                                                    </form>
-                                                    @else
-                                                    <form action="{{ route('follow', ['id' => $followed_User->id]) }}" method="POST">
-                                                        {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-primary">フォローする</button>
-                                                    </form>
-                                                    @endif
+                                                   <div class="follow-btn">
+                                                        @if ($other_user->isFollowing($followed_User->id))
+                                                        <form action="{{ route('unfollow', ['id' => $followed_User->id]) }}" method="POST">
+                                                           {{ csrf_field() }}
+                                                           {{ method_field('DELETE') }}
+                                                           <button type="submit" class="btn btn-danger">フォロー解除</button>
+                                                        </form>
+                                                        @else
+                                                        <form action="{{ route('follow', ['id' => $followed_User->id]) }}" method="POST">
+                                                            {{ csrf_field() }}
+                                                            <button type="submit" class="btn btn-primary">フォローする</button>
+                                                        </form>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                                 
                                                     

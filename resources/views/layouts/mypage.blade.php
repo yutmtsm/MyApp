@@ -45,7 +45,7 @@
                                 @auth
                                 <li><a href="{{ action('Admin\MoneybikeController@mypage') }}">{{ __('messages.nav_mypage') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_moneyaccount') }}</a></li>
-                                <li><a href="#">{{ __('messages.nav_spotsearch') }}</a></li>
+                                <li><a href="{{ url('mypage/spot_search') }}">{{ __('messages.nav_spotsearch') }}</a></li>
                                 <li><a href="{{ route('logout') }}"　onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('messages.nav_logout') }}</a></li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -86,7 +86,7 @@
                                 @auth
                                 <li><a href="{{ action('Admin\MoneybikeController@mypage') }}">{{ __('messages.nav_mypage') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_moneyaccount') }}</a></li>
-                                <li><a href="#">{{ __('messages.nav_spotsearch') }}</a></li>
+                                <li><a href="{{ action('Admin\MoneybikeController@create') }}">{{ __('messages.nav_spotsearch') }}</a></li>
                                 <li><a href="{{ route('logout') }}"　onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('messages.nav_logout') }}</a></li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
