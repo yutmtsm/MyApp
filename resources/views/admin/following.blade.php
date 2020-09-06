@@ -33,7 +33,7 @@
                         </div>
                         <div class="content">
                             <div class="d-flex">
-                                <a href="{{ action('Admin\MoneybikeController@addbike') }}" class="add-bike" href="#">バイク追加</a>
+                                <a href="#" class="add-bike" href="#">バイク追加</a>
                                 <a class="add-bike" href="#">バイク編集</a>
                             </div>
                         </div>

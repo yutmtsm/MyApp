@@ -38,7 +38,7 @@
                         </div>
                         <div class="content">
                             <div class="d-flex">
-                                <a href="{{ action('Admin\MoneybikeController@addbike') }}" class="add-bike" href="#">バイク追加</a>
+                                <a href="#" class="add-bike" href="#">バイク追加</a>
                                 <a class="add-bike" href="#">バイク編集</a>
                             </div>
                         </div>
@@ -121,7 +121,12 @@
                                                <div class="post-info d-flex">
                                                    <a href="{{ action('MoneybikeController@otherpage', ['id' => $followed_User->id]) }}">
                                                    <div class="col-md-8 d-flex no-gutters">
+                                                       
+                                                       @if(isset($followed_User->image_path))
                                                        <img  class="post-icon" src="/storage/image/{{ $followed_User->image_path }}">
+                                                        @else
+                                                        <img class="post-icon" src="/storage/image/noimage.png">
+                                                        @endif
                                                        <div class="post-name">{{ $followed_User->name }}</div>
                                                    </div>
                                                    </a>

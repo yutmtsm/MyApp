@@ -11,7 +11,11 @@
             <div class="post-info d-flex">
                <div class="col-md-8 d-flex no-gutters">
                    <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
+                       @if(isset($post->image_icon))
                        <img class="post-icon" src="/storage/image/{{ $post->image_icon }}">
+                        @else
+                        <img class="post-icon" src="/storage/image/noimage.png">
+                        @endif
                     </a>
                    <div class="post-top">
                          <div class="form-inline">
@@ -58,8 +62,11 @@
             </div>
             <!-- 画像 -->
             <div class="form-group">
-                <!--<input type="file" class="form-control-file" name="image">-->
+                @if(isset($post->image_path))
                 <img src="/storage/image/{{ $post->image_path }}">
+                @else
+                <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
+                @endif
             </div>
         </div>
     </div>

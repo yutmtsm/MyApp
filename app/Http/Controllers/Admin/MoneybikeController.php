@@ -66,7 +66,7 @@ class MoneybikeController extends Controller
         $followed_user_ids = Follower::where('following_id', $user->id)->get('followed_id');
         // dd($followed_user_ids);
         //配列の中身を出す時はwhereIn
-        $posts = DB::table('posts')->whereIn('user_id', $followed_user_ids)->simplePaginate(4);
+        $posts = DB::table('posts')->orWhere('user_id', $user->id)->orwhereIn('user_id', $followed_user_ids)->simplePaginate(4);
         // dd($posts);
         // $followed_ids = Follower::where('followed_id', $user->id)->get('following_id');
         //dd($followed_ids);

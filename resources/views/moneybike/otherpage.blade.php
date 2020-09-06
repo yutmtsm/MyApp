@@ -37,7 +37,7 @@
                         </div>
                         <div class="content">
                             <div class="d-flex">
-                                <a href="{{ action('Admin\MoneybikeController@addbike') }}" class="add-bike" href="#">バイク追加</a>
+                                <a href="#" class="add-bike" href="#">バイク追加</a>
                                 <a class="add-bike" href="#">バイク編集</a>
                             </div>
                         </div>
@@ -145,7 +145,12 @@
                                            <div class="col-md-12">
                                                <div class="post-info d-flex">
                                                    <div class="col-md-8 d-flex no-gutters">
-                                                       <img  class="post-icon" src="storage/image/{{ $post->image_icon }}">
+                                                       
+                                                       @if(isset($post->image_icon))
+                                                       <img class="post-icon" src="/storage/image/{{ $post->image_icon }}">
+                                                        @else
+                                                        <img class="post-icon" src="/storage/image/noimage.png">
+                                                        @endif
                                                        <div class="post-name">{{ $post->user_name }}</div>
                                                    </div>
                                                </div>
