@@ -1,13 +1,13 @@
 @extends('layouts.index')
 
-@section('title', '新規投稿')
+@section('title', '新規バイク追加')
 
 @section('content')
 <div class="container">
     <h1>新規投稿</h1>
     <div class="row" style="width: 100%;">
         <div class="col-md-6 mx-auto" >
-            <form action="{{ action('Admin\PostController@create') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ action('Admin\BikeController@create') }}" method="post" enctype="multipart/form-data">
                 @if (count($errors) > 0)
                     <ul>
                         @foreach($errors->all() as $e)
@@ -17,13 +17,13 @@
                 @endif
                 <!-- タイトル -->
                 <div class="form-group">
-                    <label class="control-label">タイトル</label>
-                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                    <label class="control-label">メーカー</label>
+                    <input type="text" class="form-control" name="manufacturer" value="{{ old('manufacturer') }}">
                 </div>
                  <!--スポット -->
                 <div class="form-group">
-                    <label class="control-label">スポット</label>
-                    <input type="text" class="form-control" name="spot" value="{{ old('spot') }}">
+                    <label class="control-label">排気量</label>
+                    <input type="text" class="form-control" name="engine_displacement" value="{{ old('engine_displacement') }}">
                 </div>
                 <!-- 使用金 -->
                 <div class="d-flex align-items-center">

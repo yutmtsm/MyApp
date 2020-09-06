@@ -41,6 +41,10 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Post');
     }
+    //1:多（User:Bike）⇨User側にhasManyを定義
+    public function bikes(){
+        return $this->hasMany('App\Bike');
+    }
     
     public function followers()
     {

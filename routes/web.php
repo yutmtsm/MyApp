@@ -23,6 +23,7 @@ Route::get('/', 'Admin\MoneybikeController@create');
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/mypage', 'Admin\MoneybikeController@mypage');
     
+    //投稿関連
     //新規投稿画面
     Route::get('/mypage/newpost', 'Admin\PostController@newpost');
     //詳細画面
@@ -35,6 +36,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/mypage/newpost', 'Admin\PostController@create');
     //投稿削除
     Route::get('/mypage/delete', 'Admin\PostController@delete');
+    
+    
+    
     //following
     Route::get('mypage/following', 'Admin\MoneybikeController@following');
     //スポット検索

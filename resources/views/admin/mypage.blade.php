@@ -38,7 +38,7 @@
                         </div>
                         <div class="content">
                             <div class="d-flex">
-                                <a href="#" class="add-bike" href="#">バイク追加</a>
+                                <a href="Admin\BikeController@add" class="add-bike" href="#">バイク追加</a>
                                 <a class="add-bike" href="#">バイク編集</a>
                             </div>
                         </div>
