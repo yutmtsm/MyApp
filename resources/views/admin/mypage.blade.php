@@ -148,7 +148,12 @@
                                            <div class="col-md-12">
                                                <div class="post-info d-flex">
                                                    <div class="col-md-8 d-flex no-gutters">
+                                                       
+                                                       @if(isset($post->image_icon))
                                                        <img  class="post-icon" src="storage/image/{{ $post->image_icon }}">
+                                                        @else
+                                                        <img class="post-icon" src="/storage/image/noimage.png">
+                                                        @endif
                                                        <div class="post-name">{{ $post->user_name }}</div>
                                                    </div>
                                                </div>

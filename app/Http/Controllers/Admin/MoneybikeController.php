@@ -48,7 +48,7 @@ class MoneybikeController extends Controller
     public function mypage()
     {
         $user = Auth::user();
-        //dd($user);
+        // dd($user->id);
         $today = Carbon::now('Asia/Tokyo');
         $users = DB::table('users')->get();
         
@@ -63,10 +63,12 @@ class MoneybikeController extends Controller
         // $posts = Post::all()->sortByDesc('created_at');
         // $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(30);
         // dd($posts);
-        $followed_user_ids = Follower::where('following_id', $user->id)->get('followed_id');
+        $followed_user_ids = Follower::where('following_id', $user->id)->get('followed_id'); 
+         
         // dd($followed_user_ids);
         //配列の中身を出す時はwhereIn
-        $posts = DB::table('posts')->orWhere('user_id', $user->id)->orwhereIn('user_id', $followed_user_ids)->simplePaginate(4);
+        //folllowed_idsにログイン中の情報も追加
+        $posts = DB::table('posts')->whereIn('user_id', $followed_user_ids)->simplePaginate(4);
         // dd($posts);
         // $followed_ids = Follower::where('followed_id', $user->id)->get('following_id');
         //dd($followed_ids);
@@ -104,7 +106,8 @@ class MoneybikeController extends Controller
         $followed_Count = Follower::where('followed_id', $user->id)->count();
         //フォロー・フォロワーのカウント数：ここまで
         
-        $all_users = DB::table('users')->get();
+        // $all_users = DB::table('users')->get();
+        $all_users = User::where('id', '!=', $user->id);
         // dd($users);
         //投稿記事
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
@@ -143,8 +146,10 @@ class MoneybikeController extends Controller
         $followed_Count = Follower::where('followed_id', $user->id)->count();
         //フォロー・フォロワーのカウント数：ここまで
         
-        $all_users = DB::table('users')->get();
-        // dd($users);
+        // $all_users = DB::table('users')->get();
+        $all_users = User::where('id', '!=', $user->id)->get();
+        
+        dd($all_users);
         //投稿記事
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         foreach($posts as $post){
