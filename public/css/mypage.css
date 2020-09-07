@@ -207,3 +207,15 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
 .follow-button:active{
   background-color: black;
 }
+
+.control-label{
+  margin-top: 3px;
+}
+.form-control{
+  margin-top: 3px;
+}
+
+.add-btn{
+  font-size: 20px;
+  margin-top: 20px;
+}

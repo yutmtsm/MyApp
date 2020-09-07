@@ -34,11 +34,15 @@
                         </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
-                            <p class="personal-text">MT-25</p>
+                            <div class="d-flex">
+                                <p class="personal-text">{{ $mybike->manufacturer }}</p>
+                                <p class="personal-text">MT-25</p>
+                                <p class="personal-text">MT-25</p>
+                            </div>
                         </div>
                         <div class="content">
                             <div class="d-flex">
-                                <a href="{{ action('Admin\BikeController@add') }}" class="add-bike" href="#">バイク追加</a>
+                                <a class="add-bike" href="{{ action('Admin\BikeController@add') }}">バイク追加</a>
                                 <a class="add-bike" href="#">バイク編集</a>
                             </div>
                         </div>

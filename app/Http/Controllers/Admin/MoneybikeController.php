@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Post;
+use App\Bike;
 use App\Follower;
 use Auth;
 use DB;
@@ -51,7 +52,9 @@ class MoneybikeController extends Controller
         // dd($user->id);
         $today = Carbon::now('Asia/Tokyo');
         $users = DB::table('users')->get();
-        
+        //バイク情報取得
+        $mybikes = Bike::where('user_id', $user->id)->get();
+        dd($mybikes);
         //フォロー・フォロワーのカウント数：ログイン中のユーザーIDとfollowersテーブル記載のID数と一致数にて表記
         $following_Count = Follower::where('following_id', $user->id)->count();
         $followed_Count = Follower::where('followed_id', $user->id)->count();
@@ -82,7 +85,7 @@ class MoneybikeController extends Controller
         //dd($post->path);
         //dd($post->user_name);
         //dd($posts);
-        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users,
+        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users, 'mybike' => $mybike,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }
     
