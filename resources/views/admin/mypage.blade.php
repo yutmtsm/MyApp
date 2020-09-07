@@ -35,29 +35,40 @@
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
                             
-                            <!-- モーダル部分 -->
-                            <div class="signup-modal-wrapper" id="signup-modal">
-                                <div class="modal">
-                                    <div id="close-modal">
-                                        <i class="fa fa-2x fa-times"></i>
-                                    </div>
-                                    <div id="signup-form">
-                                        <h2>Emailで新規登録</h2>
-                                        <form action="#">
-                                            <input class="form-control" type="text" placeholder="メールアドレス">
-                                            <input class="form-control" type="password" placeholder="パスワード">
-                                            <div id="submit-btn">新規登録</div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                              <!-- モーダルここまで -->
-                            
                             @foreach($mybikes as $mybike)
                                 <div class="d-flex">
                                     <img class="bike-icon" src="storage/image/{{ $mybike->image_path }}">
-                                    <p class="bike-text">{{ $mybike->manufacturer }}</p>
+                                    <p class="bike-text"><p>{{ $mybike->manufacturer }}</p></p>
                                     <p class="bike-text">『{{ $mybike->type }}』( {{ $mybike->engine_displacement }} )</p>
+                                    
+                                    
+                                    <!-- 詳細ボタン -->
+                                    <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal3">
+                                        <p>詳しく見る...</p>
+                                    </button>
+                                    
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModal3Label">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            ...
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">編集</button>
+                                            <button type="button" class="btn btn-primary">削除</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- Modalここまで -->
                                 </div>
                             @endforeach
                             
