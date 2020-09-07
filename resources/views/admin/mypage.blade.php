@@ -34,11 +34,33 @@
                         </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
-                            <div class="d-flex">
-                                <p class="personal-text">{{ $mybike->manufacturer }}</p>
-                                <p class="personal-text">MT-25</p>
-                                <p class="personal-text">MT-25</p>
+                            
+                            <!-- モーダル部分 -->
+                            <div class="signup-modal-wrapper" id="signup-modal">
+                                <div class="modal">
+                                    <div id="close-modal">
+                                        <i class="fa fa-2x fa-times"></i>
+                                    </div>
+                                    <div id="signup-form">
+                                        <h2>Emailで新規登録</h2>
+                                        <form action="#">
+                                            <input class="form-control" type="text" placeholder="メールアドレス">
+                                            <input class="form-control" type="password" placeholder="パスワード">
+                                            <div id="submit-btn">新規登録</div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
+                              <!-- モーダルここまで -->
+                            
+                            @foreach($mybikes as $mybike)
+                                <div class="d-flex">
+                                    <img class="bike-icon" src="storage/image/{{ $mybike->image_path }}">
+                                    <p class="bike-text">{{ $mybike->manufacturer }}</p>
+                                    <p class="bike-text">『{{ $mybike->type }}』( {{ $mybike->engine_displacement }} )</p>
+                                </div>
+                            @endforeach
+                            
                         </div>
                         <div class="content">
                             <div class="d-flex">

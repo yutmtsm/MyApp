@@ -54,7 +54,7 @@ class MoneybikeController extends Controller
         $users = DB::table('users')->get();
         //バイク情報取得
         $mybikes = Bike::where('user_id', $user->id)->get();
-        dd($mybikes);
+        // dd($mybikes);
         //フォロー・フォロワーのカウント数：ログイン中のユーザーIDとfollowersテーブル記載のID数と一致数にて表記
         $following_Count = Follower::where('following_id', $user->id)->count();
         $followed_Count = Follower::where('followed_id', $user->id)->count();
@@ -85,7 +85,7 @@ class MoneybikeController extends Controller
         //dd($post->path);
         //dd($post->user_name);
         //dd($posts);
-        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users, 'mybike' => $mybike,
+        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users, 'mybikes' => $mybikes,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }
     
