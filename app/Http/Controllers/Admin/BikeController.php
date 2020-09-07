@@ -45,6 +45,13 @@ class BikeController extends Controller
         return redirect('mypage');
     }
     
+    public function delete(Request $request){
+        $mybike = Bike::find($request->id);
+        dd($mybike);
+        
+        
+        return redirect('mypage');
+    }
     
 
 }

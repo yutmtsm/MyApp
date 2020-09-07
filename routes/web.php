@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function(){
     //バイク新規追加画面
     Route::get('mypage/add_bike', 'Admin\BikeController@add');
     Route::post('mypage/add_bike', 'Admin\BikeController@create');
+    Route::get('/mypage/delete', 'Admin\BikeController@delete');
     
     
     //following

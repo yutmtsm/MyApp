@@ -130,7 +130,7 @@
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">編集</button>
-                                            <button type="button" class="btn btn-primary">削除</button>
+                                            <button href="{{ action('Admin\BikeController@delete') }}" type="button" class="btn btn-primary">削除</button>
                                           </div>
                                         </div>
                                       </div>
