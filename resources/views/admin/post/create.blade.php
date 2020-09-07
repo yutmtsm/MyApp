@@ -45,9 +45,14 @@
                 <div class="form-group">
                     <label class="control-label">画像</label>
                     <input type="file" class="form-control-file" name="image">
-                <!--</div>-->
+                </div>
+                <!-- タイトル -->
+                <div class="form-group">
+                    <label class="control-label">行った日</label>
+                    <input type="date" class="form-control" name="created_at" value="{{ old('created_at') }}">
+                </div>
                 {{ csrf_field() }}
-                <input type="submit" class="btn" value="投稿!!">
+                <input type="submit" class="btn-primary add-btn" value="投稿">
             </form>
         </div>
     </div>

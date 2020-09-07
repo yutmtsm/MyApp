@@ -47,7 +47,6 @@
                                         <p>詳しく見る...</p>
                                     </button>
                                     
-                                    
                                     <!-- Modal -->
                                     <div class="modal fade bd-example-modal-lg" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
                                       <div class="modal-dialog modal-lg" role="document">
@@ -130,7 +129,7 @@
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">編集</button>
-                                            <button href="{{ action('Admin\BikeController@delete') }}" type="button" class="btn btn-primary">削除</button>
+                                            <a href="{{ action('Admin\BikeController@delete', ['id' => $mybike->id]) }}">削除</a>
                                           </div>
                                         </div>
                                       </div>

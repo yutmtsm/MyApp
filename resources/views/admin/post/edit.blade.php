@@ -58,7 +58,7 @@
                 </div>
                 <input type="hidden" name="id" value="{{ $post_form->id }}">
                 {{ csrf_field() }}
-                <input type="submit" class="btn" value="更新!!">
+                <input type="submit" class="btn-primary add-btn" value="更新">
             </form>
         </div>
     </div>

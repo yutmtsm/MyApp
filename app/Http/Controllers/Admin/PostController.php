@@ -115,7 +115,7 @@ class PostController extends Controller
         //dd($post);
         
         $post->delete();
-        $post->save();
+        
         //dd($post);
         return redirect('mypage');
     }

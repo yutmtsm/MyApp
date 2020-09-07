@@ -24,7 +24,7 @@ class BikeController extends Controller
         // dd($mybike->user_id);
         
         $form = $request->all();
-        
+        // dd($form);
         if(isset($form['image'])){
             //画像をStrange内に格納し、パスを代入
             $path = $request->file('image')->store('public/image');
@@ -47,9 +47,11 @@ class BikeController extends Controller
     
     public function delete(Request $request){
         $mybike = Bike::find($request->id);
-        dd($mybike);
+        // dd($mybike);
         
+        $mybike->delete();
         
+        //dd($post);
         return redirect('mypage');
     }
     
