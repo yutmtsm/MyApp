@@ -49,8 +49,8 @@
                                     
                                     
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
-                                      <div class="modal-dialog" role="document">
+                                    <div class="modal fade bd-example-modal-lg" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                                      <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModal3Label">
@@ -61,7 +61,72 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            ...
+                                                <div class="d-flex">
+                                                    <img class="bike-icon w-50 h-auto" src="storage/image/{{ $mybike->image_path }}">
+                                                    <div class="bike-detail">
+                                                        <table>
+                                                            <div class="bike-detail-title">基本情報</div>
+                                                            <tr>
+                                                                <th>メーカー</th>
+                                                                <td>{{ $mybike->manufacturer }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>車種</th>
+                                                                <td>{{ $mybike->type }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>排気量</th>
+                                                                <td>{{ $mybike->engine_displacement }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>年式</th>
+                                                                <td>{{ $mybike->model_year }}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="d-flex">
+                                                    <div class="bike-detail">
+                                                        <table>
+                                                            <div class="bike-detail-title">固定費</div>
+                                                            <tr>
+                                                                <th>軽自動車税</th>
+                                                                <td>{{ $mybike->light_vehicle_tax }}円</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>重量税</th>
+                                                                <td>{{ $mybike->weight_tax }}円</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>自賠責保険</th>
+                                                                <td>{{ $mybike->liability_insurance }}円</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    
+                                                    <div class="bike-detail">
+                                                        <table>
+                                                            <div class="bike-detail-title">変動日</div>
+                                                            <tr>
+                                                                <th>任意保険</th>
+                                                                <td>{{ $mybike->voluntary_insurance }}円</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>車検</th>
+                                                                <td>{{ $mybike->vehicle_inspection }}円</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>駐車場代</th>
+                                                                <td>{{ $mybike->parking_fee }}円</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>消耗品費</th>
+                                                                <td>{{ $mybike->consumables }}円</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">編集</button>
