@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="container">
-    <h1>新規投稿</h1>
+    <h1>新規バイク追加</h1>
     <div class="row" style="width: 100%;">
         <div class="col-md-6 mx-auto" >
-            <form action="{{ action('Admin\BikeController@create') }}" method="post" enctype="multipart/form-data">
+            <form action="#" method="post" enctype="multipart/form-data">
                 @if (count($errors) > 0)
                     <ul>
                         @foreach($errors->all() as $e)
@@ -28,12 +28,12 @@
                 <!-- 使用金 -->
                 <div class="d-flex align-items-center">
                     <div class="form-group">
-                        <label class="control-label">施設費</label>
-                        <input type="text" class="form-control" name="addmission_fee" value="{{ old('addmission_fee') }}">円
+                        <label class="control-label">車種</label>
+                        <input type="text" class="form-control" name="type" value="{{ old('type') }}">
                     </div>
                     <div class="form-group" style="margin-left: 100px;">
-                        <label class="control-label">購入金</label>
-                        <input type="text" class="form-control" name="purchase_cost" value="{{ old('purchase_cost') }}">円
+                        <label class="control-label">年式</label>
+                        <input type="text" class="form-control" name="model_year" value="{{ old('model_year') }}">年
                     </div>
                 </div>
                 <!-- コメント -->

@@ -37,7 +37,10 @@ Route::group(['middleware' => 'auth'], function(){
     //投稿削除
     Route::get('/mypage/delete', 'Admin\PostController@delete');
     
-    
+    //バイク関連
+    //バイク新規追加画面
+    Route::get('mypage/add_bike', 'Admin\BikeController@add');
+    Route::get('mypage/add_bike', 'Admin\BikeController@create');
     
     //following
     Route::get('mypage/following', 'Admin\MoneybikeController@following');

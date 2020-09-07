@@ -12,11 +12,6 @@ class BikeController extends Controller
         return view('admin.bike.create');
     }
     
-    public function create(Request $request)
-    {
-        $bike_info = new Bike;
-        
-        $bike_info->user_id = $user->id;
-    }
+    
 
 }
