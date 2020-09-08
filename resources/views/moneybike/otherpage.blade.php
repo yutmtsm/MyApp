@@ -54,7 +54,7 @@
                         </div>
                         <div class="content">
                             <div class="d-flex">
-                                <a href="#" class="add-bike" href="#">バイクを確認できる仕様にする</a>
+                                <a href="#" class="add-bike" href="#">バイクを確認できる仕様にすること</a>
                             </div>
                         </div>
                     </div>

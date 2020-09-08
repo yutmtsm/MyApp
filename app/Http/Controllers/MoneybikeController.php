@@ -47,7 +47,6 @@ class MoneybikeController extends Controller
         
         return view('moneybike.otherpage', ['other_user' => $other_user, 'today' => $today, 'posts' => $posts,
         'login_user' => $login_user,
-        'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
         
     }
