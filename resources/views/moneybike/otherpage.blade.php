@@ -21,7 +21,24 @@
                         </div>
                         <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">ニックネーム</p>
-                            <p class="personal-text">{{ $other_user->name}}</p>
+                            <div class="d-flex">
+                                <p class="personal-text">{{ $other_user->name}}</p>
+                                <div class="follow-btn">
+                                    
+                                    @if ($login_user->isFollowing($other_user->id))
+                                    <form action="{{ route('unfollow', ['id' => $other_user->id]) }}" method="POST">
+                                       {{ csrf_field() }}
+                                       {{ method_field('DELETE') }}
+                                       <button type="submit" class="btn btn-danger">{{ $other_user->name}}さんのフォロー解除</button>
+                                    </form>
+                                    @else
+                                    <form action="{{ route('follow', ['id' => $other_user->id]) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-primary">{{ $other_user->name}}さんをフォローする</button>
+                                    </form>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                        <div class="content">
                             <p class="personal-title text-bold text-large text-ornament">性別</p>
@@ -37,8 +54,7 @@
                         </div>
                         <div class="content">
                             <div class="d-flex">
-                                <a href="#" class="add-bike" href="#">バイク追加</a>
-                                <a class="add-bike" href="#">バイク編集</a>
+                                <a href="#" class="add-bike" href="#">バイクを確認できる仕様にする</a>
                             </div>
                         </div>
                     </div>

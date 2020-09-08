@@ -41,8 +41,7 @@
                                     <p class="bike-text"><p>{{ $mybike->manufacturer }}</p></p>
                                     <p class="bike-text">『{{ $mybike->type }}』( {{ $mybike->engine_displacement }} )</p>
                                     
-                                    
-                                    <!-- 詳細ボタン -->
+                                    <!-- Modalの詳細ボタン -->
                                     <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal3">
                                         <p>詳しく見る...</p>
                                     </button>
@@ -56,12 +55,12 @@
                                                 <p class="bike-text"><p>{{ $mybike->manufacturer }}『{{ $mybike->type }}』( {{ $mybike->engine_displacement }} )の詳細情報</p>
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
+                                                <span aria-hidden="true">&times;</span>
                                             </button>
                                           </div>
                                           <div class="modal-body">
                                                 <div class="d-flex">
-                                                    <img class="bike-icon w-50 h-auto" src="storage/image/{{ $mybike->image_path }}">
+                                                    <img class="bike-detail-icon w-50 h-auto" src="storage/image/{{ $mybike->image_path }}">
                                                     <div class="bike-detail">
                                                         <table>
                                                             <div class="bike-detail-title">基本情報</div>
@@ -128,7 +127,7 @@
                                                 </div>
                                           </div>
                                           <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">編集</button>
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">編集</button>
                                             <a href="{{ action('Admin\BikeController@delete', ['id' => $mybike->id]) }}">削除</a>
                                           </div>
                                         </div>
@@ -142,7 +141,6 @@
                         <div class="content">
                             <div class="d-flex">
                                 <a class="add-bike" href="{{ action('Admin\BikeController@add') }}">バイク追加</a>
-                                <a class="add-bike" href="#">バイク編集</a>
                             </div>
                         </div>
                     </div>
