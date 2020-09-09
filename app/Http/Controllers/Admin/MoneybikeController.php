@@ -22,6 +22,9 @@ class MoneybikeController extends Controller
     {
         $user = Auth::user();
         
+        $mybikes = Bike::where('user_id', $user->id)->get();
+        // dd($mybikes);
+        
         //ログインユーザーのフォロー・フォロワーユーザーの取得
         //フォローしているユーザーID。| following_id（対象） | followed_id（被対象） |で表現する為。followed_idを取得 
         $following_Users_Id = Follower::where('following_id', $user->id)->get('followed_id');
@@ -41,7 +44,7 @@ class MoneybikeController extends Controller
         //dd($users->image_path);
         //dd($post->path);
         //dd($post->user_name);
-        return view('admin.following', ['user' => $user,
+        return view('admin.following', ['user' => $user, 'mybikes' => $mybikes,
         'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }
@@ -150,9 +153,8 @@ class MoneybikeController extends Controller
         //フォロー・フォロワーのカウント数：ここまで
         
         // $all_users = DB::table('users')->get();
-        $all_users = User::where('id', '!=', $user->id)->get();
+        $all_users = User::where('id', '!=', $user->id)->orderByDesc('created_at')->simplePaginate(10);
         
-        dd($all_users);
         //投稿記事
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         foreach($posts as $post){
@@ -163,6 +165,7 @@ class MoneybikeController extends Controller
         // dd($post->image_icon);;
         //投稿記事ここまで
         
+        // dd($all_users);
         return view('admin.spot_search', ['user' => $user, 'posts' => $posts, 'all_users' => $all_users,
         'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count,
@@ -196,7 +199,7 @@ class MoneybikeController extends Controller
         //フォロー・フォロワーのカウント数：ここまで
         
         // $users = DB::table('users')->get();
-        $all_users = DB::table('users')->simplePaginate(7);
+        $all_users = User::where('id', '!=', $user->id)->orderByDesc('created_at')->simplePaginate(10);
         // dd($users);
         
         //検索⇨投稿記事
