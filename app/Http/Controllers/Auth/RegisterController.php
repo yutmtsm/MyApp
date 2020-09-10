@@ -87,6 +87,7 @@ class RegisterController extends Controller
         $today = date('y/m');
         $money = new Money;
         $money->date_number = $today;
+        $money->user_id = $user->id;
         $money->save();
         // dd($money);
         if(isset($data['image'])){

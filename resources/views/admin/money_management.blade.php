@@ -28,6 +28,16 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="card" style="margin-top: 10px;">
+                <div class="card-body">
+                    <div class="card-title">8月</div>
+                    <div class="card-header d-flex">
+                        <p class="card-title">前の月</p>
+                        <p class="card-title">次の月</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- スポット検索ここまで -->
         
