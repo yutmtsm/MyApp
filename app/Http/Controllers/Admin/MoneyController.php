@@ -23,14 +23,13 @@ class MoneyController extends Controller
         // dd($user->id);
         $today = date('y/m');
         // dd($today);
-        $money = Money::where('user_id', $user->id)->get();
+        // $money = Money::where('user_id', $user->id)->get();
+        $money = Money::find($user->id);
         // dd($money);
-        dd($money->date_number);
-        // if($money->date_number == ){
-        //     $money = new Money;
-        //     $money->date_number = $today;
-        // }
-        dd($money);
+        if($money->date_number != $today){
+            dd($user);
+        }
+    
         return view('admin.money_management');
     }
 }

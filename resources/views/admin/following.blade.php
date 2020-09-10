@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="section">
                     <div class="card">
-                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $user->image_path }}">
+                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/user/{{ $user->image_path }}">
                         <div class="content d-flex">
                             <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロー数：{{ $following_Count }}</a>
                             <a href="{{ action('Admin\MoneybikeController@following') }}" class="">フォロワー数：{{ $followed_Count }}</a>
@@ -31,7 +31,7 @@
                             <p class="personal-title text-bold text-large text-ornament">マイバイク情報</p>
                             @foreach($mybikes as $mybike)
                                 <div class="d-flex">
-                                    <img class="bike-icon" src="storage/image/{{ $mybike->image_path }}">
+                                    <img class="bike-icon" src="storage/image/bike/{{ $mybike->image_path }}">
                                     <p class="bike-text"><p>{{ $mybike->manufacturer }}</p></p>
                                     <p class="bike-text">『{{ $mybike->type }}』( {{ $mybike->engine_displacement }} )</p>
                                     
@@ -54,7 +54,7 @@
                                           </div>
                                           <div class="modal-body">
                                                 <div class="d-flex">
-                                                    <img class="bike-detail-icon w-50 h-auto" src="storage/image/{{ $mybike->image_path }}">
+                                                    <img class="bike-detail-icon w-50 h-auto" src="storage/image/bike{{ $mybike->image_path }}">
                                                     <div class="bike-detail">
                                                         <table>
                                                             <div class="bike-detail-title">基本情報</div>
@@ -156,7 +156,7 @@
                                                <div class="post-info d-flex">
                                                    <a href="{{ action('MoneybikeController@otherpage', ['id' => $following_User->id]) }}">
                                                    <div class="col-md-8 d-flex no-gutters">
-                                                       <img  class="post-icon" src="/storage/image/{{ $following_User->image_path }}">
+                                                       <img  class="post-icon" src="/storage/image/user/{{ $following_User->image_path }}">
                                                        <div class="post-name"><p>{{ $following_User->name }}</p></div>
                                                    </div>
                                                    </a>
@@ -214,7 +214,7 @@
                                                <div class="post-info d-flex">
                                                    <a href="{{ action('MoneybikeController@otherpage', ['id' => $followed_User->id]) }}">
                                                    <div class="d-flex no-gutters" style="margin: 0;">
-                                                       <img  class="post-icon" src="/storage/image/{{ $followed_User->image_path }}">
+                                                       <img  class="post-icon" src="/storage/image/user/{{ $followed_User->image_path }}">
                                                        <div class="post-name">{{ $followed_User->name }}</div>
                                                    </div>
                                                    </a>

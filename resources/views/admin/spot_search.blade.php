@@ -15,7 +15,7 @@
                     <div class="content">
                         <div class="row">
                             <div class="col-md-1">
-                                <img  class="spot-icon" src="/storage/image/{{ $user->image_path }}">
+                                <img  class="spot-icon" src="/storage/image/user/{{ $user->image_path }}">
                             </div>
                             <div class="col-md-10">
                                 <form action="{{ action('Admin\MoneybikeController@search') }}" method="get">
@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="post-info d-flex">
                                             <div class="col-md-8 d-flex no-gutters">
-                                                <img  class="post-icon" src="/storage/image/{{ $post->image_icon }}">
+                                                <img  class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
                                                 <div class="post-name">名前：{{ $post->user_name }}</div>
                                                 <div class="post-spot">　エリア：{{ $post->spot }}</div>
                                             </div>
@@ -59,7 +59,7 @@
                                         <div class="d-flex">
                                             <div class="spot-image">
                                                 @if(isset($post->image_icon))
-                                                    <img src="/storage/image/{{ $post->image_icon }}">
+                                                    <img src="/storage/image/post/{{ $post->image_path }}">
                                                 @else
                                                     <img src="/storage/image/noimage.png">
                                                 @endif
@@ -105,7 +105,7 @@
                                     <div class="post-info d-flex">
                                         <a href="{{ action('MoneybikeController@otherpage', ['id' => $all_user->id]) }}">
                                         <div class="col-md-8 d-flex no-gutters">
-                                            <img  class="post-icon" src="/storage/image/{{ $all_user->image_path }}">
+                                            <img  class="post-icon" src="/storage/image/user/{{ $all_user->image_path }}">
                                             <div class="post-name">{{ $all_user->name }}</div>
                                         </div>
                                         </a>

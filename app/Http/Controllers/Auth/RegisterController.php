@@ -87,7 +87,7 @@ class RegisterController extends Controller
         
         // dd($money);
         if(isset($data['image'])){
-            $path = $request->file('image')->store('public/image');
+            $path = $request->file('image')->store('public/image/user');
             //dd($path);
             //$data->image = basename($path);
         } else {

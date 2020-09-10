@@ -30,7 +30,7 @@ class PostController extends Controller
         // dd($form);
         if(isset($form['image'])){
             //画像をStrange内に格納し、パスを代入
-            $path = $request->file('image')->store('public/image');
+            $path = $request->file('image')->store('public/image/post');
             //画像のパス先を格納
             $post->image_path = basename($path);
             // $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
@@ -52,6 +52,7 @@ class PostController extends Controller
     
     public function detail(Request $request){
         $user = Auth::user();
+        // dd($request->id);
         $post = Post::find($request->id);
         // dd($post);
         $total_cost = $post->addmission_fee + $post->purchase_cost;
@@ -95,7 +96,7 @@ class PostController extends Controller
         if ($request->remove == 'true') {
             $post_form['image_path'] = null;
         } elseif ($request->file('image')) {
-            $path = $request->file('image')->store('public/image');
+            $path = $request->file('image')->store('public/image/post');
             $post_form['image_path'] = basename($path);
             // $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
             // $news->image_path = Storage::disk('s3')->url($path);

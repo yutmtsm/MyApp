@@ -66,7 +66,7 @@
                         <div class="form-text text-info">
                                 設定中の画像: 
                                 @if(isset($mybike_form->image_icon))
-                                <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $mybike_form->image_path }}">
+                                <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/bike{{ $mybike_form->image_path }}">
                                 @else
                                 <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
                                 ※設定中の画像はありません。

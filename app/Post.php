@@ -10,7 +10,7 @@ class Post extends Model
     protected $guarded = array('id');
     
     public static $rules = array(
-        'title' => 'required | max:25',
+        'title' => 'required | max:50',
         'spot' => 'required | max:50',
         'addmission-fee' => 'numeric',
         'purchase-cost' => 'numeric',

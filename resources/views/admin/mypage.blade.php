@@ -12,7 +12,7 @@
                     <div class="card">
                         
                         @if(isset($user->image_path))
-                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $user->image_path }}">
+                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/user/{{ $user->image_path }}">
                         @else
                         <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
                         @endif
@@ -37,7 +37,7 @@
                             
                             @foreach($mybikes as $mybike)
                                 <div class="d-flex">
-                                    <img class="bike-icon" src="storage/image/{{ $mybike->image_path }}">
+                                    <img class="bike-icon" src="storage/image/bike/{{ $mybike->image_path }}">
                                     <p class="bike-text"><p>{{ $mybike->manufacturer }}</p></p>
                                     <p class="bike-text">『{{ $mybike->type }}』( {{ $mybike->engine_displacement }} )</p>
                                     
@@ -60,7 +60,7 @@
                                           </div>
                                           <div class="modal-body">
                                                 <div class="d-flex">
-                                                    <img class="bike-detail-icon w-50 h-auto" src="storage/image/{{ $mybike->image_path }}">
+                                                    <img class="bike-detail-icon w-50 h-auto" src="storage/image/bike/{{ $mybike->image_path }}">
                                                     <div class="bike-detail">
                                                         <table>
                                                             <div class="bike-detail-title">基本情報</div>
@@ -251,7 +251,7 @@
                                                    <div class="col-md-8 d-flex no-gutters">
                                                        
                                                        @if(isset($post->image_icon))
-                                                       <img  class="post-icon" src="storage/image/{{ $post->image_icon }}">
+                                                       <img  class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
                                                         @else
                                                         <img class="post-icon" src="/storage/image/noimage.png">
                                                         @endif

@@ -11,7 +11,7 @@
                 <div class="section">
                     <div class="card">
                         @if(isset($other_user->image_path))
-                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="storage/image/{{ $other_user->image_path }}">
+                        <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/user/{{ $other_user->image_path }}">
                         @else
                         <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
                         @endif
@@ -62,7 +62,7 @@
                                                <div class="post-info d-flex">
                                                    <a href="{{ action('MoneybikeController@otherpage', ['id' => $following_User->id]) }}">
                                                    <div class="col-md-8 d-flex no-gutters">
-                                                       <img  class="post-icon" src="/storage/image/{{ $following_User->image_path }}">
+                                                       <img  class="post-icon" src="/storage/image/user/{{ $following_User->image_path }}">
                                                        <div class="post-name">{{ $following_User->name }}</div>
                                                    </div>
                                                    </a>
