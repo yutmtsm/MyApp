@@ -84,11 +84,7 @@ class RegisterController extends Controller
     protected function create(Request $request)
     {
         $data = $request->all();
-        $today = date('y/m');
-        $money = new Money;
-        $money->date_number = $today;
-        $money->user_id = $user->id;
-        $money->save();
+        
         // dd($money);
         if(isset($data['image'])){
             $path = $request->file('image')->store('public/image');
@@ -100,7 +96,7 @@ class RegisterController extends Controller
         //dd($data);
         unset($data['_token']);
        //dd($data);
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -109,6 +105,14 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'image_path' => $data['image'] = basename($path),
         ]);
+        
+        $today = date('y/m');
+        $money = new Money;
+        $money->date_number = $today;
+        $money->user_id = $user->id;
+        $money->save();
+        
+        return $user;
         
     }
     

@@ -20,13 +20,16 @@ class MoneyController extends Controller
     public function moneypage()
     {
         $user = Auth::user();
+        // dd($user->id);
         $today = date('y/m');
-        // $money = Money::find($money->date_number);
-        dd($money);
-        if(is_null($money)){
-            $money = new Money;
-            $money->date_number = $today;
-        }
+        // dd($today);
+        $money = Money::where('user_id', $user->id)->get();
+        // dd($money);
+        dd($money->date_number);
+        // if($money->date_number == ){
+        //     $money = new Money;
+        //     $money->date_number = $today;
+        // }
         dd($money);
         return view('admin.money_management');
     }
