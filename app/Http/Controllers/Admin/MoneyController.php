@@ -21,9 +21,7 @@ class MoneyController extends Controller
     {
         $user = Auth::user();
         $today = date('y/m');
-        $moneys = Money::find(999);
-        dd($moneys);
-        $money = Money::find($money->date_number);
+        // $money = Money::find($money->date_number);
         dd($money);
         if(is_null($money)){
             $money = new Money;
