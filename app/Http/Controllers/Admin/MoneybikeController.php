@@ -52,7 +52,7 @@ class MoneybikeController extends Controller
     public function mypage()
     {
         $user = Auth::user();
-        // dd($user->id);
+        dd($user->created_at('y/m'));
         $today = Carbon::now('Asia/Tokyo');
         $users = DB::table('users')->get();
         //バイク情報取得

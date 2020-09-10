@@ -42,12 +42,12 @@
                                     <p class="bike-text">『{{ $mybike->type }}』( {{ $mybike->engine_displacement }} )</p>
                                     
                                     <!-- Modalの詳細ボタン -->
-                                    <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal3">
+                                    <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal{{ $mybike->id }}">
                                         <p>詳しく見る...</p>
                                     </button>
                                     
                                     <!-- Modal -->
-                                    <div class="modal fade bd-example-modal-lg" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                                    <div class="modal fade bd-example-modal-lg" id="exampleModal{{ $mybike->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
                                       <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
@@ -127,8 +127,8 @@
                                                 </div>
                                           </div>
                                           <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">編集</button>
-                                            <a href="{{ action('Admin\BikeController@delete', ['id' => $mybike->id]) }}">削除</a>
+                                              <a href="{{ action('Admin\BikeController@edit', ['id' => $mybike->id]) }}" class="btn btn-primary">編集</a>
+                                              <a href="{{ action('Admin\BikeController@delete', ['id' => $mybike->id]) }}" class="btn btn-danger">削除</a>
                                           </div>
                                         </div>
                                       </div>

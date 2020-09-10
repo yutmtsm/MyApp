@@ -54,6 +54,8 @@ class PostController extends Controller
         $user = Auth::user();
         $post = Post::find($request->id);
         // dd($post);
+        $total_cost = $post->addmission_fee + $post->purchase_cost;
+        // dd($total_cost);
         $users = DB::table('users')->get();
         
         //ポストに紐づいたUser_idを持ってきて情報を代入
@@ -68,7 +70,8 @@ class PostController extends Controller
             abort(404);
         }
         //dd($post);
-        return view('admin.post.detail', ['user' => $user, 'post' => $post, 'users' => $users]);
+        return view('admin.post.detail', ['user' => $user, 'post' => $post, 'users' => $users,
+        'total_cost' => $total_cost]);
     }
     
     public function edit(Request $request){

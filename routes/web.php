@@ -41,7 +41,16 @@ Route::group(['middleware' => 'auth'], function(){
     //バイク新規追加画面
     Route::get('mypage/add_bike', 'Admin\BikeController@add');
     Route::post('mypage/add_bike', 'Admin\BikeController@create');
+    Route::get('mypage/edit', 'Admin\BikeController@edit');
+    Route::post('mypage/edit', 'Admin\BikeController@update');
     Route::get('/mypage/delete', 'Admin\BikeController@delete');
+    
+     //お金管理
+    //お金管理トップ遷移
+    Route::get('mypage/money', 'Admin\MoneyController@add');
+    //お金管理トップ
+    Route::get('mypage/money', 'Admin\MoneyController@moneypage');
+    
     
     
     //following

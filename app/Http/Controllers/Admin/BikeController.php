@@ -45,6 +45,48 @@ class BikeController extends Controller
         return redirect('mypage');
     }
     
+    public function edit(Request $request)
+    {
+        $mybike = Bike::find($request->id);
+        // dd($mybike);
+        if(empty($mybike)){
+            abort(404);
+        }
+        
+        return view('admin.bike.edit', ['mybike_form' => $mybike]);
+    }
+    
+    public function update(Request $request)
+    {
+        // dd($request->manufacturer);
+        $mybike = Bike::find($request->id);
+        // dd($mybike);
+        
+        $mybike_form = $request->all();
+        // dd($mybike_form);
+        if($request->remove == 'true'){
+            // 削除にチェックを入れた場合
+            $mybike_form['image_path'] = null;
+        } elseif($request->file('image')){
+            // 画像を変更した場合
+            $path = $request->file('image')->store('public/image');
+            $mybike->image_path = basename($path);
+        } else {
+            // 変更しなかった場合
+        }
+        
+        unset($mybike_form['_token']);
+        unset($mybike_form['image']);
+        unset($mybike_form['remove']);
+        
+        $mybike->fill($mybike_form);
+        // dd($mybike);
+        $mybike->save;
+        // dd($mybike);
+        
+        return redirect('mypage');
+    }
+    
     public function delete(Request $request){
         $mybike = Bike::find($request->id);
         // dd($mybike);

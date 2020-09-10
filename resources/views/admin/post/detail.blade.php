@@ -52,12 +52,17 @@
                 <div class="form-group">
                     <label class="control-label">施設費</label>
                     <!--<input type="text" class="form-control" name="addmission_fee" value="{{ old('addmission_fee') }}">-->
-                    <p style="color: white;">{{ $post->addmission_fee }}</p>
+                    <p style="color: white;">{{ $post->addmission_fee }}円</p>
                 </div>
                 <div class="form-group" style="margin-left: 100px;">
                     <label class="control-label">購入金</label>
                     <!--<input type="text" class="form-control" name="purchase_cost" value="{{ old('purchase_cost') }}">-->
-                    <p style="color: white;">{{ $post->purchase_cost }}</p>
+                    <p style="color: white;">{{ $post->purchase_cost }}円</p>
+                </div>
+                <div class="form-group" style="margin-left: 100px;">
+                    <label class="control-label">トータル</label>
+                    <!--<input type="text" class="form-control" name="purchase_cost" value="{{ old('purchase_cost') }}">-->
+                    <p style="color: white;">{{ $total_cost }}円</p>
                 </div>
             </div>
             <!-- 画像 -->

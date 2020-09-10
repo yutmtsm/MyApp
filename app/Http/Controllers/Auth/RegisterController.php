@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Money;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -83,7 +84,11 @@ class RegisterController extends Controller
     protected function create(Request $request)
     {
         $data = $request->all();
-        //dd($data);
+        $today = date('y/m');
+        $money = new Money;
+        $money->date_number = $today;
+        $money->save();
+        // dd($money);
         if(isset($data['image'])){
             $path = $request->file('image')->store('public/image');
             //dd($path);

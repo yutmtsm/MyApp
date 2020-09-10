@@ -46,6 +46,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Bike');
     }
     
+    public function moneys(){
+        return $this->hasMany('App\Money');
+    }
+    
     public function followers()
     {
         return $this->belongsToMany(self::class, 'followers', 'followed_id', 'following_id');
