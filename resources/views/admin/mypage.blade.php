@@ -194,34 +194,75 @@
                                         <a class="ml-auto" href="#">次の月</a>
                                     </div>
                                 </div>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <th colspan="7" class="cellTableHead">2020年8月</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="cellSunday">日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th class="cellSaturday">土</th>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday"> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td class="cellSaturday">1</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class="cellSaturday">8</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">9</td><td>10</td><td class="cellHoliday">11</td><td>12</td><td>13</td><td>14</td><td class="cellToday">15</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td class="cellSaturday">22</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td class="cellSaturday">29</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cellSunday">30</td><td>31</td><td> </td><td> </td><td> </td><td> </td><td class="cellSaturday"> </td>
-                                        </tr>
-                                    </tbody>
+                                <table border="0" cellspacing="1" cellpadding="1" bgcolor="#CCCCCC" style="font: 12px; color: #666666;">
+                                    <tr>
+                                        <td align="center" colspan="7" bgcolor="#EEEEEE" height="18" style="color: #666666;">2020年11月</td>
+                                    </tr>
+                                    <!--
+                                    @if(spending_today >= 1000)
+                                        color: #A7F1FF;
+                                    @elseif(spending_today >= 3000)
+                                        color: #FF8856;
+                                    @else
+                                        color: #666666;
+                                    @endif
+                                    -->
+                                    <tr>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">1</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">2</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">3</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">4</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">5</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">6</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">7</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">8</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">9</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">10</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">11</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">12</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">13</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">14</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">15</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">16</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">17</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">18</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">19</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">20</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">21</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">22</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">23</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">24</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">25</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">26</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">27</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">28</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">29</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">30</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">31</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
+                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                                    </tr>
                                 </table>
+
                             </div>
                         </div>
                     </div>
