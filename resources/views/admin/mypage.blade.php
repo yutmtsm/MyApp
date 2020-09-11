@@ -207,6 +207,7 @@
                                         color: #666666;
                                     @endif
                                     -->
+                                    
                                     <tr>
                                         <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">1</td>
                                         <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">2</td>
