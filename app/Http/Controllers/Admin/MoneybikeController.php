@@ -74,7 +74,8 @@ class MoneybikeController extends Controller
         // dd($followed_user_ids);
         //配列の中身を出す時はwhereIn
         //folllowed_idsにログイン中の情報も追加
-        $posts = DB::table('posts')->whereIn('user_id', $followed_user_ids)->simplePaginate(4);
+        $posts = DB::table('posts')->whereYear('created_at', 2020)->simplePaginate(4);
+        // $posts = DB::table('posts')->whereIn('user_id', $followed_user_ids)->simplePaginate(4);
         // dd($posts);
         // $followed_ids = Follower::where('followed_id', $user->id)->get('following_id');
         //dd($followed_ids);
