@@ -49,6 +49,7 @@ class MoneybikeController extends Controller
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }
     
+    
     public function mypage()
     {
         $user = Auth::user();
