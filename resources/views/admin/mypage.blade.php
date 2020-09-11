@@ -226,7 +226,7 @@
                                         <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">14</td>
                                     </tr>
                                     <tr>
-                                        <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">15</td>
+                                        <td class="calendar-days" align="center" bgcolor="#FFFFFF" style="color: #666666;">15</td>
                                         <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">16</td>
                                         <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">17</td>
                                         <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">18</td>
