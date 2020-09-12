@@ -31,65 +31,131 @@
             
             <div class="card" style="margin-top: 10px;">
                 <div class="card-body">
-                    <table border="0" cellspacing="1" cellpadding="1" bgcolor="#CCCCCC" style="font: 12px; color: #666666; width: 100%;">
-                        <tr>
-                            <td align="center" colspan="7" bgcolor="#EEEEEE" height="18" style="color: #666666;">2020年11月</td>
+                    
+                    <table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=4>
+                        <tr bgcolor="#f0f8ff" align=center>
+                            <td width=14%><font color="#ff0000"><b></b></font></td>
+                            <td width=14%><font color="#000000"><b></b></font></td>
+                            <td width=14%><font color="#000000"><b></b></font></td>
+                            <td width=14%><font color="#000000"><b></b></font></td>
+                            <td width=14%><font color="#000000"><b></b></font></td>
+                            <td width=14%><font color="#000000"><b></b></font></td>
+                            <td width=14%><font color="#0000ff"><b></b></font></td>
                         </tr>
-                        
-                        
-                        <tr>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">1</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">2</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">3</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">4</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">5</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">6</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">7</td>
+                        <tr bgcolor="#ffffff" valign=top>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;1</b></font> <font size="-1">@if($today == 1)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1">@if($post->day_post === 10)<span style="color:blue;"> aaa</span>@endif</font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;2</b></font> <font size="-1">@if($today == 2)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;3</b></font> <font size="-1">@if($today == 3)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;4</b></font> <font size="-1">@if($today == 4)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;5</b></font> <font size="-1">@if($today == 5)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;6</b></font> <font size="-1">@if($today == 6)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;7</b></font> <font size="-1">@if($today == 7)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
                         </tr>
-                        <tr>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">8</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">9</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">10</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">11</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">12</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">13</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">14</td>
+                        <tr bgcolor="#ffffff" valign=top>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;8</b></font> <font size="-1">@if($today == 8)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;9</b></font> <font size="-1">@if($today == 9)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;10</b></font> <font size="-1">@if($today == 10)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;11</b></font> <font size="-1">@if($today == 11)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;12</b></font> <font size="-1">@if($today == 12)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;13</b></font> <font size="-1">@if($today == 13)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;14</b></font> <font size="-1">@if($today == 14)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
                         </tr>
-                        <tr>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">15</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">16</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">17</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">18</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">19</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">20</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">21</td>
+                        <tr bgcolor="#ffffff" valign=top>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;15</b></font> <font size="-1">@if($today == 15)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;16</b></font> <font size="-1">@if($today == 16)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;17</b></font> <font size="-1">@if($today == 17)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;18</b></font> <font size="-1">@if($today == 18)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;19</b></font> <font size="-1">@if($today == 19)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;20</b></font> <font size="-1">@if($today == 20)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;21</b></font> <font size="-1">@if($today == 21)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
                         </tr>
-                        <tr>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">22</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">23</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">24</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">25</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">26</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">27</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">28</td>
+                        <tr bgcolor="#ffffff" valign=top>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;22</b></font> <font size="-1">@if($today == 22)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;23</b></font> <font size="-1">@if($today == 23)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;24</b></font> <font size="-1">@if($today == 24)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;25</b></font> <font size="-1">@if($today == 25)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;26</b></font> <font size="-1">@if($today == 26)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;27</b></font> <font size="-1">@if($today == 27)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;28</b></font> <font size="-1">@if($today == 28)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
                         </tr>
-                        <tr>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">29</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">30</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">31</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
-                            <td class="calendar-day moneypage" align="center" bgcolor="#FFFFFF" style="color: #666666;">　</td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#FFFFFF">&nbsp;</td>
-                            <td bgcolor="#FFFFFF">&nbsp;</td>
-                            <td bgcolor="#FFFFFF">&nbsp;</td>
-                            <td bgcolor="#FFFFFF">&nbsp;</td>
-                            <td bgcolor="#FFFFFF">&nbsp;</td>
-                            <td bgcolor="#FFFFFF">&nbsp;</td>
-                            <td bgcolor="#FFFFFF">&nbsp;</td>
+                        <tr bgcolor="#ffffff" valign=top>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;29</b></font> <font size="-1">@if($today == 29)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;30</b></font> <font size="-1">@if($today == 30)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;31</b></font> <font size="-1">@if($today == 31)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                <font size="-1"></font>
+                            </td>
+                            <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                <font size="-1"></font>
+                            </td>
                         </tr>
                     </table>
 
