@@ -287,6 +287,7 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   background: linear-gradient(transparent 70%, #4CE0FF 70%);
 }
 
-.calendar-day{
-  
+.moneypage{
+  border: 1px solid #C0C0C0;
+  padding-bottom: 40px;
 }
