@@ -44,7 +44,7 @@
                         </tr>
                         <tr bgcolor="#ffffff" valign=top>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;1</b></font> <font size="-1">@if($today == 1)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->day_post === 10)<span style="color:blue;"> aaa</span>@endif</font>
+                                <font size="-1">ここに記事情報を記載したいです。</font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;2</b></font> <font size="-1">@if($today == 2)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                 <font size="-1"></font>

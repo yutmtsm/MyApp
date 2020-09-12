@@ -33,13 +33,13 @@ class MoneyController extends Controller
         // dd($money);
         $posts = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->simplePaginate(60);
         // $posts = DB::table('posts')->where('user_id', $user->id)->whereYear('created_at', 2020)->whereMonth('created_at', 9)->simplePaginate(30);
-        dd($posts);
+        // dd($posts);
         foreach($posts as $post){
             $post->day_post = substr($post->created_at, 8, 2);
             // dd($post->day_post);
         }
         
-        dd($post->day_post);
+        // dd($post->day_post);
         // $money = Money::where('date_number', $today)->get();
         // dd($money->date_number);
         // if($money->date_number != $year_month){
