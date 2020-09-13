@@ -44,117 +44,328 @@
                         </tr>
                         <tr bgcolor="#ffffff" valign=top>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;1</b></font> <font size="-1">@if($today == 1)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-01 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-01 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;2</b></font> <font size="-1">@if($today == 2)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-02 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-02 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;3</b></font> <font size="-1">@if($today == 3)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-03 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-03 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;4</b></font> <font size="-1">@if($today == 4)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-04 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-04 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;5</b></font> <font size="-1">@if($today == 5)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-05 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-05 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;6</b></font> <font size="-1">@if($today == 6)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-06 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-06 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;7</b></font> <font size="-1">@if($today == 7)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-07 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-07 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                         </tr>
                         <tr bgcolor="#ffffff" valign=top>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;8</b></font> <font size="-1">@if($today == 8)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-08 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-08 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;9</b></font> <font size="-1">@if($today == 9)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-09 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-09 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;10</b></font> <font size="-1">@if($today == 10)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-10 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-10 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;11</b></font> <font size="-1">@if($today == 11)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-11 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-11 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;12</b></font> <font size="-1">@if($today == 12)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-12 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-12 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;13</b></font> <font size="-1">@if($today == 13)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-13 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-13 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;14</b></font> <font size="-1">@if($today == 14)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-14 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-14 00:00:00")
+                                <?php $total_spending += $post->addmission_fee + $post->purchase_cost ?>
+                                @endif
+                                @endforeach
+                                {{ $total_spending }}
+                                </font>
                             </td>
                         </tr>
                         <tr bgcolor="#ffffff" valign=top>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;15</b></font> <font size="-1">@if($today == 15)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-15 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-15 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;16</b></font> <font size="-1">@if($today == 16)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-16 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-16 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;17</b></font> <font size="-1">@if($today == 17)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-17 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-17 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;18</b></font> <font size="-1">@if($today == 18)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-18 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-18 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;19</b></font> <font size="-1">@if($today == 19)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-19 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-19 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;20</b></font> <font size="-1">@if($today == 20)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-20 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-20 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;21</b></font> <font size="-1">@if($today == 21)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-21 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-21 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                         </tr>
                         <tr bgcolor="#ffffff" valign=top>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;22</b></font> <font size="-1">@if($today == 22)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-22 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-22 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;23</b></font> <font size="-1">@if($today == 23)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-23 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-23 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;24</b></font> <font size="-1">@if($today == 24)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-24 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-24 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;25</b></font> <font size="-1">@if($today == 25)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-25 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-25 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;26</b></font> <font size="-1">@if($today == 26)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-26 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-26 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;27</b></font> <font size="-1">@if($today == 27)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-27 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-27 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;28</b></font> <font size="-1">@if($today == 28)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-28 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-28 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                         </tr>
                         <tr bgcolor="#ffffff" valign=top>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;29</b></font> <font size="-1">@if($today == 29)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-29 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-29 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;30</b></font> <font size="-1">@if($today == 30)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-30 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-30 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;31</b></font> <font size="-1">@if($today == 31)<span style="color:red;"> 今日</span>@endif</font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-31 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-31 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-01 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-011 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-01 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-011 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-01 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-011 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                             <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
-                                <font size="-1">@if($post->created_at == "2020-$month-01 00:00:00"){{ $total_spending }}@endif</font>
+                                <font size="-1">
+                                @foreach($posts as $post)
+                                @if($post->created_at == "2020-$month-011 00:00:00")
+                                {{ $total_spending += $post->addmission_fee + $post->purchase_cost }}
+                                @endif
+                                @endforeach
+                                </font>
                             </td>
                         </tr>
                     </table>

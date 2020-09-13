@@ -35,26 +35,19 @@ class MoneyController extends Controller
         $posts = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->simplePaginate(60);
         // $posts = DB::table('posts')->where('user_id', $user->id)->whereYear('created_at', 2020)->whereMonth('created_at', 9)->simplePaginate(30);
         // dd($posts);
-        foreach($posts as $post){
-            for($i = 1; $i <= 31; $i++){
-                if($post->created_at == "2020-$month-$i 00:00:00"){
-                    $total_spending = $post->addmission_fee + $post->purchase_cost;
-                    // dd($total_spending);
-                }
-                
-            }
-        }
-        
         // foreach($posts as $post){
-        //     for($i = 1; $i <= 31; $i++){
+        $total_spending = 0;
         //         if($post->created_at == "2020-$month-02 00:00:00"){
-        //             $post.$i = $post;
+        //             $total_spending[] = $post->created_at .":". ($post->addmission_fee + $post->purchase_cost);
+        //             // dd($total_spending);
         //         }
-        //     }
+                
             
         // }
-        // 
-        // dd($post->day_post);
+        
+        // // }
+        
+        // dd($total_spending);
         // $money = Money::where('date_number', $today)->get();
         // dd($money->date_number);
         // if($money->date_number != $year_month){
@@ -65,7 +58,7 @@ class MoneyController extends Controller
         //     $money->save();
         // }
     
-        return view('admin.money.money_management', ['posts' => $posts, 'post' => $post,
+        return view('admin.money.money_management', ['posts' => $posts,
         'today' => $today, 'month' => $month,
         'total_spending' => $total_spending,
         
