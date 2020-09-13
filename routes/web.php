@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function(){
     //新規投稿
     Route::post('/mypage/newpost', 'Admin\PostController@create');
     //投稿削除
-    Route::get('/mypage/delete', 'Admin\PostController@delete');
+    Route::get('/mypage/spot_search/delete', 'Admin\PostController@delete');
     
     //バイク関連
     //バイク新規追加画面

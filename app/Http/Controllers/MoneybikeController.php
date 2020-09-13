@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Follower;
+use App\Bike;
 use Carbon\Carbon;
 use DB;
 use Auth;
@@ -17,11 +18,13 @@ class MoneybikeController extends Controller
         // dd($request->id);
         $other_user = User::find($request->id);
         $login_user = Auth::user();
-        // dd($login_user);
+        // dd($other_user->id);
         
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         //dd($posts);
         
+        $other_mybikes = Bike::where('user_id', $other_user->id)->get();
+        // dd($other_mybikes);
         //ログインユーザーのフォロー・フォロワーユーザーの取得
         //フォローしているユーザーID。| following_id（対象） | followed_id（被対象） |で表現する為。followed_idを取得 
         $following_Users_Id = Follower::where('following_id', $other_user->id)->get('followed_id');
@@ -46,7 +49,7 @@ class MoneybikeController extends Controller
         $today = Carbon::now('Asia/Tokyo');
         
         return view('moneybike.otherpage', ['other_user' => $other_user, 'today' => $today, 'posts' => $posts,
-        'login_user' => $login_user,
+        'login_user' => $login_user,  'other_mybikes' => $other_mybikes,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
         
     }
