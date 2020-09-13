@@ -18,7 +18,8 @@
                 <!-- メーカー -->
                 <div class="form-group">
                     <label class="control-label">メーカー</label>
-                    <select name="engine_displacement" class="form-control">
+                    <select name="manufacturer" class="form-control">
+                        <option value="">メーカーを選択してください</option>
                         <option value="ホンダ">ホンダ</option>
                         <option value="ヤマハ">ヤマハ</option>
                         <option value="スズキ">スズキ</option>
@@ -123,6 +124,7 @@
                 <div class="form-group">
                     <label class="control-label">排気量</label>
                     <select name="engine_displacement" class="form-control">
+                        <option value="">排気量を選択して下さい</option>
                         <option value="～50cc">～50cc</option>
                         <option value="51cc～125cc">51cc～125cc</option>
                         <option value="126cc～250cc">126cc～250cc</option>
@@ -190,12 +192,37 @@
                 <!-- その他情報 -->
                 <div class="d-flex align-items-start">
                     <div class="form-group">
-                        <label class="control-label">軽自動車税</label>
-                        <input type="text" class="form-control" name="light_vehicle_tax" value="{{ old('light_vehicle_tax') }}">
+                        <label class="control-label">軽自動車税 ※年額</label>
+                        <select name="light_vehicle_tax" class="form-control">
+                            <option value="">コメント参考に選択してください</option>
+                            <option value="2000">2000円：原付（総排気量50cc以下）</option>
+                            <option value="2000円">2000円：原付（総排気量50cc超 90cc以下）</option>
+                            <option value="2400">2400円：原付（総排気量90cc超 125cc以下）</option>
+                            <option value="3600">3600円：二輪（総排気量125cc超 250cc以下）</option>
+                            <option value="6000">6000円：二輪（総排気量250cc超）</option>
+                            <option value="0">払ってない？？？</option>
+                        </select>
                         <label class="control-label">重量税</label>
                         <input type="text" class="form-control" name="weight_tax" value="{{ old('weight_tax') }}">
                         <label class="control-label">自賠責保険</label>
-                        <input type="text" class="form-control" name="liability_insurance" value="{{ old('liability_insurance') }}">
+                        <select name="liability_insurance" class="form-control">
+                            <option value="">コメント参考に選択してください</option>
+                            <option value="7060">7060円：保険期間1年（排気量125cc以下のバイク）</option>
+                            <option value="4475">4475円：保険期間2年（排気量125cc以下のバイク）</option>
+                            <option value="3597">3597円：保険期間3年（排気量125cc以下のバイク）</option>
+                            <option value="3150">3150円：保険期間4年（排気量125cc以下のバイク）</option>
+                            <option value="2876">2876円：保険期間5年（排気量125cc以下のバイク）</option>
+                            <option value="7670">7670円：保険期間1年（排気量125cc超～250cc以下のバイク）</option>
+                            <option value="5080">5080円：保険期間2年（排気量125cc超～250cc以下のバイク）</option>
+                            <option value="4200">4200円：保険期間3年（排気量125cc超～250cc以下のバイク）</option>
+                            <option value="3470">3470円：保険期間4年（排気量125cc超～250cc以下のバイク）</option>
+                            <option value="7060">7060円：保険期間5年（排気量125cc超～250cc以下のバイク）</option>
+                            <option value="9680">9680円：保険期間2年（排気量250cc以上のバイク）</option>
+                            <option value="9870">9870円：保険期間2年1ヶ月（排気量250cc以上のバイク）</option>
+                            <option value="11900">11900円：保険期間3年（排気量250cc以上のバイク）</option>
+                            <option value="12080">12080円：保険期間3年1ヶ月（排気量250cc以上のバイク）</option>
+                            <option value="0">払ってない？？？</option>
+                        </select>
                     </div>
                     <div class="form-group" style="margin-left: 100px;">
                         <label class="control-label">任意保険</label>
@@ -212,9 +239,10 @@
                 <div class="form-group">
                     <label class="control-label">バイク画像</label>
                     <input type="file" class="form-control-file" name="image">
-                <!--</div>-->
-                {{ csrf_field() }}
-                <input type="submit" class="btn-primary add-btn" value="新規追加">
+                    <!--</div>-->
+                    {{ csrf_field() }}
+                    <input type="submit" class="btn-primary add-btn" value="新規追加">
+                </div>
             </form>
         </div>
     </div>
