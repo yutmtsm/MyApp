@@ -18,7 +18,6 @@ class AddColumnToBikesTable extends Migration
             $table->string('image_path')->nullable();
         });
     }
-    aa
 
     /**
      * Reverse the migrations.

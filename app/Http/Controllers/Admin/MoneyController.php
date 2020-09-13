@@ -53,7 +53,7 @@ class MoneyController extends Controller
         //     }
             
         // }
-        
+        // 
         // dd($post->day_post);
         // $money = Money::where('date_number', $today)->get();
         // dd($money->date_number);
