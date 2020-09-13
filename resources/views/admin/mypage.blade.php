@@ -198,15 +198,7 @@
                                     <tr>
                                         <td align="center" colspan="7" bgcolor="#EEEEEE" height="18" style="color: #666666;">2020年11月</td>
                                     </tr>
-                                    <!--
-                                    @if(spending_today >= 1000)
-                                        color: #A7F1FF;
-                                    @elseif(spending_today >= 3000)
-                                        color: #FF8856;
-                                    @else
-                                        color: #666666;
-                                    @endif
-                                    -->
+                                    
                                     
                                     <tr>
                                         <td class="calendar-day" align="center" bgcolor="#FFFFFF" style="color: #666666;">1</td>

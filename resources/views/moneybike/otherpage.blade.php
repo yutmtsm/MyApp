@@ -163,7 +163,7 @@
                                                    <div class="col-md-8 d-flex no-gutters">
                                                        
                                                        @if(isset($post->image_icon))
-                                                       <img class="post-icon" src="/storage/image/{{ $post->image_icon }}">
+                                                       <img class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
                                                         @else
                                                         <img class="post-icon" src="/storage/image/noimage.png">
                                                         @endif
