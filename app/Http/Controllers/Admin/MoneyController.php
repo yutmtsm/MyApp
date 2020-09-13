@@ -35,28 +35,16 @@ class MoneyController extends Controller
         // dd($posts);
         // foreach($posts as $post){
         // 他にいい方法があるか模索中
-        $total_spending = 0;
-        $total_spending01 = 0;$total_spending02 = 0;$total_spending03 = 0;$total_spending04 = 0;$total_spending05 = 0;$total_spending06 = 0;$total_spending07 = 0;
-        $total_spending08 = 0;$total_spending09 = 0;$total_spending10 = 0;$total_spending11 = 0;$total_spending12 = 0;$total_spending13 = 0;$total_spending14 = 0;
-        $total_spending15 = 0;$total_spending16 = 0;$total_spending17 = 0;$total_spending18 = 0;$total_spending19 = 0;$total_spending20 = 0;$total_spending21 = 0;
-        $total_spending22 = 0;$total_spending23 = 0;$total_spending24 = 0;$total_spending25 = 0;$total_spending26 = 0;$total_spending27 = 0;$total_spending28 = 0;
-        $total_spending29 = 0;$total_spending30 = 0;$total_spending31 = 0;
+        $total_spending = null;
+        $total_spending01 = null;$total_spending02 = null;$total_spending03 = null;$total_spending04 = null;$total_spending05 = null;$total_spending06 = null;$total_spending07 = null;
+        $total_spending08 = null;$total_spending09 = null;$total_spending10 = null;$total_spending11 = null;$total_spending12 = null;$total_spending13 = null;$total_spending14 = null;
+        $total_spending15 = null;$total_spending16 = null;$total_spending17 = null;$total_spending18 = null;$total_spending19 = null;$total_spending20 = null;$total_spending21 = null;
+        $total_spending22 = null;$total_spending23 = null;$total_spending24 = null;$total_spending25 = null;$total_spending26 = null;$total_spending27 = null;$total_spending28 = null;
+        $total_spending29 = null;$total_spending30 = null;$total_spending31 = null;
         
-        //         if($post->created_at == "2020-$month-02 00:00:00"){
-        //             $total_spending[]$post->created_at .":". ($post->addmission_fee + $post->purchase_cost);
-        //             // dd($total_spending);
-        //         }
-                
-            
-        // }
-        
-        // // }
-        
-        // dd($total_spending);
-        // $money = Money::where('date_number', $today)->get();
-        $money = Money::where('date_number', $year_month)->get();
+        $money = Money::where('date_number', $year_month)->first();
         // dd($money);
-        dd($money->date_number);
+        // dd($money->date_number);
         if($money->date_number != $year_month){
             // 月替り処理
             $money = new Money;
@@ -65,7 +53,8 @@ class MoneyController extends Controller
             $money->save();
         }
     
-        return view('admin.money.money_management', ['posts' => $posts,
+        return view('admin.money.money_management', 
+        ['posts' => $posts,
         'today' => $today, 'month' => $month,
         'total_spending' => $total_spending,
         'total_spending01' => $total_spending01, 'total_spending02' => $total_spending02, 'total_spending03' => $total_spending03, 'total_spending04' => $total_spending04, 'total_spending05' => $total_spending05, 'total_spending06' => $total_spending06, 'total_spending07' => $total_spending07, 
