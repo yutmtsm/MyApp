@@ -30,16 +30,16 @@ class MoneyController extends Controller
         $today = date('d');
         // dd($today);
         // $money = Money::where('user_id', $user->id)->get();
-        $posts = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->simplePaginate(60);
+        $posts = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
         // $posts = DB::table('posts')->where('user_id', $user->id)->whereYear('created_at', 2020)->whereMonth('created_at', 9)->simplePaginate(30);
-        // dd($posts);
-        // foreach($posts as $post){
+        // dd($posts->created_at);
+       
         
         //カレンダーのJSON
-        $url = public_path("/storage/json/2020$month.js");
+        $url = public_path("/storage/json/$year$month.js");
         $json = '[' . file_get_contents($url) . ']';
-        $arr = json_decode($json,TRUE);
-        dd($arr[0]);
+        $calendar_day = json_decode($json,false);
+        // dd($url);
         
         
         // 他にいい方法があるか模索中
@@ -63,7 +63,7 @@ class MoneyController extends Controller
     
         return view('admin.money.money_management', 
         ['posts' => $posts,
-        'today' => $today, 'month' => $month,
+        'today' => $today, 'month' => $month, 'calendar_day' => $calendar_day,
         'total_spending' => $total_spending,
         'total_spending01' => $total_spending01, 'total_spending02' => $total_spending02, 'total_spending03' => $total_spending03, 'total_spending04' => $total_spending04, 'total_spending05' => $total_spending05, 'total_spending06' => $total_spending06, 'total_spending07' => $total_spending07, 
         'total_spending08' => $total_spending08, 'total_spending09' => $total_spending09, 'total_spending10' => $total_spending10, 'total_spending11' => $total_spending11, 'total_spending12' => $total_spending12, 'total_spending13' => $total_spending13, 'total_spending14' => $total_spending14, 

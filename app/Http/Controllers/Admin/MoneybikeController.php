@@ -92,8 +92,16 @@ class MoneybikeController extends Controller
         $today = date('d');
         // dd($today);
         // $money = Money::where('user_id', $user->id)->get();
-        $day_costs = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->simplePaginate(60);
+        $day_costs = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
         // dd($day_cost);
+        
+        //カレンダーのJSON
+        $url = public_path("/storage/json/$year$month.js");
+        $json = '[' . file_get_contents($url) . ']';
+        $calendar_day = json_decode($json,false);
+        // dd($url);
+        
+        // 他にいい方法があるか模索中
         $total_spending = null;
         $total_spending01 = null;$total_spending02 = null;$total_spending03 = null;$total_spending04 = null;$total_spending05 = null;$total_spending06 = null;$total_spending07 = null;
         $total_spending08 = null;$total_spending09 = null;$total_spending10 = null;$total_spending11 = null;$total_spending12 = null;$total_spending13 = null;$total_spending14 = null;
@@ -101,13 +109,10 @@ class MoneybikeController extends Controller
         $total_spending22 = null;$total_spending23 = null;$total_spending24 = null;$total_spending25 = null;$total_spending26 = null;$total_spending27 = null;$total_spending28 = null;
         $total_spending29 = null;$total_spending30 = null;$total_spending31 = null;
         
-        //dd($post->path);
-        //dd($post->user_name);
-        //dd($posts);
-        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users, 'mybikes' => $mybikes,
+        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'post' => $post, 'users' => $users, 'mybikes' => $mybikes,
         'this_month' => $this_month,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count,
-        'today' => $today, 'day_costs' => $day_costs, 'month' => $month,
+        'today' => $today, 'day_costs' => $day_costs, 'month' => $month, 'calendar_day' => $calendar_day,
         'total_spending' => $total_spending,
         'total_spending01' => $total_spending01, 'total_spending02' => $total_spending02, 'total_spending03' => $total_spending03, 'total_spending04' => $total_spending04, 'total_spending05' => $total_spending05, 'total_spending06' => $total_spending06, 'total_spending07' => $total_spending07, 
         'total_spending08' => $total_spending08, 'total_spending09' => $total_spending09, 'total_spending10' => $total_spending10, 'total_spending11' => $total_spending11, 'total_spending12' => $total_spending12, 'total_spending13' => $total_spending13, 'total_spending14' => $total_spending14, 

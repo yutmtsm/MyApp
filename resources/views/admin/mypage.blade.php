@@ -197,371 +197,406 @@
                                 
                                 <table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=4>
                                     <tr bgcolor="#f0f8ff" align=center>
-                                        <td width=14%><font color="#ff0000"><b></b></font></td>
-                                        <td width=14%><font color="#000000"><b></b></font></td>
-                                        <td width=14%><font color="#000000"><b></b></font></td>
-                                        <td width=14%><font color="#000000"><b></b></font></td>
-                                        <td width=14%><font color="#000000"><b></b></font></td>
-                                        <td width=14%><font color="#000000"><b></b></font></td>
-                                        <td width=14%><font color="#0000ff"><b></b></font></td>
+                                        <td width=14%><font color="#ff0000"><b>日</b></font></td>
+                                        <td width=14%><font color="#000000"><b>月</b></font></td>
+                                        <td width=14%><font color="#000000"><b>火</b></font></td>
+                                        <td width=14%><font color="#000000"><b>水</b></font></td>
+                                        <td width=14%><font color="#000000"><b>木</b></font></td>
+                                        <td width=14%><font color="#000000"><b>金</b></font></td>
+                                        <td width=14%><font color="#0000ff"><b>土</b></font></td>
                                     </tr>
                                     <tr bgcolor="#ffffff" valign=top>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;1</b></font> <font size="-1">@if($today == 1)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[0]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[0]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-01 00:00:00")
+                                            <?php $post_day = substr($post->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[0]->jDay)
                                             <?php $total_spending01 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending01) }}
+                                            {{ number_format($total_spending01) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;2</b></font> <font size="-1">@if($today == 2)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[1]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[1]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-02 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[1]->jDay)
                                             <?php $total_spending02 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending02) }}
+                                            {{ number_format($total_spending02) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;3</b></font> <font size="-1">@if($today == 3)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[2]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[2]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-03 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[2]->jDay)
                                             <?php $total_spending03 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending03) }}
+                                            {{ number_format($total_spending03) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;4</b></font> <font size="-1">@if($today == 4)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[3]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[3]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-04 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[3]->jDay)
                                             <?php $total_spending04 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending04) }}
+                                            {{ number_format($total_spending04) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;5</b></font> <font size="-1">@if($today == 5)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[4]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[4]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-05 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[4]->jDay)
                                             <?php $total_spending05 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending05) }}
+                                            {{ number_format($total_spending05) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;6</b></font> <font size="-1">@if($today == 6)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[5]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[5]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-06 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[5]->jDay)
                                             <?php $total_spending06 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending06) }}
+                                            {{ number_format($total_spending06) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;7</b></font> <font size="-1">@if($today == 7)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[6]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[6]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-07 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[6]->jDay)
                                             <?php $total_spending07 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending07) }}
+                                            {{ number_format($total_spending07) }}円
                                             </font>
                                         </td>
                                     </tr>
                                     <tr bgcolor="#ffffff" valign=top>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;8</b></font> <font size="-1">@if($today == 8)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[7]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[7]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-08 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[7]->jDay)
                                             <?php $total_spending08 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending08) }}
+                                            {{ number_format($total_spending08) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;9</b></font> <font size="-1">@if($today == 9)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[8]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[8]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-09 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[8]->jDay)
                                             <?php $total_spending09 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending09) }}
+                                            {{ number_format($total_spending09) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;10</b></font> <font size="-1">@if($today == 10)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[9]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[9]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-10 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[9]->jDay)
                                             <?php $total_spending10 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending10) }}
+                                            {{ number_format($total_spending10) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;11</b></font> <font size="-1">@if($today == 11)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[10]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[10]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-11 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[10]->jDay)
                                             <?php $total_spending11 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending11) }}
+                                            {{ number_format($total_spending11) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;12</b></font> <font size="-1">@if($today == 12)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[11]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[11]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-12 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[11]->jDay)
                                             <?php $total_spending12 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending12) }}
+                                            {{ number_format($total_spending12) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;13</b></font> <font size="-1">@if($today == 13)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[12]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[12]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-13 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[12]->jDay)
                                             <?php $total_spending13 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending13) }}
+                                            {{ number_format($total_spending13) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;14</b></font> <font size="-1">@if($today == 14)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[13]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[13]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-14 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[13]->jDay)
                                             <?php $total_spending14 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending14) }}
+                                            {{ number_format($total_spending14) }}円
                                             </font>
                                         </td>
                                     </tr>
                                     <tr bgcolor="#ffffff" valign=top>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;15</b></font> <font size="-1">@if($today == 15)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[14]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[14]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-15 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[14]->jDay)
                                             <?php $total_spending15 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending15) }}
+                                            {{ number_format($total_spending15) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;16</b></font> <font size="-1">@if($today == 16)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[15]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[15]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-16 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[15]->jDay)
                                             <?php $total_spending16 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending16) }}
+                                            {{ number_format($total_spending16) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;17</b></font> <font size="-1">@if($today == 17)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[16]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[16]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-17 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[16]->jDay)
                                             <?php $total_spending17 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending17) }}
+                                            {{ number_format($total_spending17) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;18</b></font> <font size="-1">@if($today == 18)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[17]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[17]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-18 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[17]->jDay)
                                             <?php $total_spending18 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending18) }}
+                                            {{ number_format($total_spending18) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;19</b></font> <font size="-1">@if($today == 19)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[18]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[18]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-19 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[18]->jDay)
                                             <?php $total_spending19 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending19) }}
+                                            {{ number_format($total_spending19) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;20</b></font> <font size="-1">@if($today == 20)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[19]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[19]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-20 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[19]->jDay)
                                             <?php $total_spending20 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending20) }}
+                                            {{ number_format($total_spending20) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;21</b></font> <font size="-1">@if($today == 21)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[20]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[20]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-21 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[20]->jDay)
                                             <?php $total_spending21 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending21) }}
+                                            {{ number_format($total_spending21) }}円
                                             </font>
                                         </td>
                                     </tr>
                                     <tr bgcolor="#ffffff" valign=top>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;22</b></font> <font size="-1">@if($today == 22)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[21]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[21]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-22 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[21]->jDay)
                                             <?php $total_spending22 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending22) }}
+                                            {{ number_format($total_spending22) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;23</b></font> <font size="-1">@if($today == 23)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[22]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[22]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-23 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[22]->jDay)
                                             <?php $total_spending23 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending23) }}
+                                            {{ number_format($total_spending23) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;24</b></font> <font size="-1">@if($today == 24)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[23]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[23]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-24 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[23]->jDay)
                                             <?php $total_spending24 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending24) }}
+                                            {{ number_format($total_spending24) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;25</b></font> <font size="-1">@if($today == 25)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[24]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[24]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-25 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[24]->jDay)
                                             <?php $total_spending25 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending25) }}
+                                            {{ number_format($total_spending25) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;26</b></font> <font size="-1">@if($today == 26)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[25]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[25]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-26 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[25]->jDay)
                                             <?php $total_spending26 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending26) }}
+                                            {{ number_format($total_spending26) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;27</b></font> <font size="-1">@if($today == 27)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[26]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[26]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-27 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[26]->jDay)
                                             <?php $total_spending27 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending27) }}
+                                            {{ number_format($total_spending27) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;28</b></font> <font size="-1">@if($today == 28)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[27]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[27]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-28 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[27]->jDay)
                                             <?php $total_spending28 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending28) }}
+                                            {{ number_format($total_spending28) }}円
                                             </font>
                                         </td>
                                     </tr>
                                     <tr bgcolor="#ffffff" valign=top>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;29</b></font> <font size="-1">@if($today == 29)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[28]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[28]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-29 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[28]->jDay)
                                             <?php $total_spending29 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending29) }}
+                                            {{ number_format($total_spending29) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;30</b></font> <font size="-1">@if($today == 30)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[29]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[29]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-30 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[29]->jDay)
                                             <?php $total_spending30 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending30) }}
+                                            {{ number_format($total_spending30) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;31</b></font> <font size="-1">@if($today == 31)<span style="color:red;"> 今日</span>@endif</font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[30]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[30]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-31 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[30]->jDay)
                                             <?php $total_spending31 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending31) }}
+                                            {{ number_format($total_spending31) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[31]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[31]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-011 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[31]->jDay)
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending) }}
+                                            {{ number_format($total_spending) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[32]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[32]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-011 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[32]->jDay)
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending) }}
+                                            {{ number_format($total_spending) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[33]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[33]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-011 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[33]->jDay)
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending) }}
+                                            {{ number_format($total_spending) }}円
                                             </font>
                                         </td>
-                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
+                                        <td height=90><font color="#000000"><font size="+1"><b>&nbsp;{{ $calendar_day[34]->jDay}}</b></font> <font size="-1">@if($today == $calendar_day[34]->jDay)<span style="color:red;"> 今日</span>@endif</font></font><br>
                                             <font size="-1">
                                             @foreach($day_costs as $day_cost)
-                                            @if($day_cost->created_at == "2020-$month-011 00:00:00")
+                                            <?php $post_day = substr($day_cost->created_at, 8, 2); ?>
+                                            @if($post_day == $calendar_day[34]->jDay)
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ number_format($total_spending) }}
+                                            {{ number_format($total_spending) }}円
                                             </font>
                                         </td>
                                     </tr>
