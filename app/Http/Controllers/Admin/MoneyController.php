@@ -34,6 +34,14 @@ class MoneyController extends Controller
         // $posts = DB::table('posts')->where('user_id', $user->id)->whereYear('created_at', 2020)->whereMonth('created_at', 9)->simplePaginate(30);
         // dd($posts);
         // foreach($posts as $post){
+        
+        //カレンダーのJSON
+        $url = public_path("/storage/json/2020$month.js");
+        $json = '[' . file_get_contents($url) . ']';
+        $arr = json_decode($json,TRUE);
+        dd($arr[0]);
+        
+        
         // 他にいい方法があるか模索中
         $total_spending = null;
         $total_spending01 = null;$total_spending02 = null;$total_spending03 = null;$total_spending04 = null;$total_spending05 = null;$total_spending06 = null;$total_spending07 = null;

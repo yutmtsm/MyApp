@@ -213,7 +213,7 @@
                                             <?php $total_spending01 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending01 }}
+                                            {{ number_format($total_spending01) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;2</b></font> <font size="-1">@if($today == 2)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -223,7 +223,7 @@
                                             <?php $total_spending02 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending02 }}
+                                            {{ number_format($total_spending02) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;3</b></font> <font size="-1">@if($today == 3)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -233,7 +233,7 @@
                                             <?php $total_spending03 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending03 }}
+                                            {{ number_format($total_spending03) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;4</b></font> <font size="-1">@if($today == 4)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -243,7 +243,7 @@
                                             <?php $total_spending04 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending04 }}
+                                            {{ number_format($total_spending04) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;5</b></font> <font size="-1">@if($today == 5)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -253,7 +253,7 @@
                                             <?php $total_spending05 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending05 }}
+                                            {{ number_format($total_spending05) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;6</b></font> <font size="-1">@if($today == 6)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -263,7 +263,7 @@
                                             <?php $total_spending06 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending06 }}
+                                            {{ number_format($total_spending06) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;7</b></font> <font size="-1">@if($today == 7)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -273,7 +273,7 @@
                                             <?php $total_spending07 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending07 }}
+                                            {{ number_format($total_spending07) }}
                                             </font>
                                         </td>
                                     </tr>
@@ -285,7 +285,7 @@
                                             <?php $total_spending08 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending08 }}
+                                            {{ number_format($total_spending08) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;9</b></font> <font size="-1">@if($today == 9)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -295,7 +295,7 @@
                                             <?php $total_spending09 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending09 }}
+                                            {{ number_format($total_spending09) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;10</b></font> <font size="-1">@if($today == 10)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -305,7 +305,7 @@
                                             <?php $total_spending10 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending10 }}
+                                            {{ number_format($total_spending10) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;11</b></font> <font size="-1">@if($today == 11)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -315,7 +315,7 @@
                                             <?php $total_spending11 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending11 }}
+                                            {{ number_format($total_spending11) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;12</b></font> <font size="-1">@if($today == 12)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -325,7 +325,7 @@
                                             <?php $total_spending12 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending12 }}
+                                            {{ number_format($total_spending12) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;13</b></font> <font size="-1">@if($today == 13)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -335,7 +335,7 @@
                                             <?php $total_spending13 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending13 }}
+                                            {{ number_format($total_spending13) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;14</b></font> <font size="-1">@if($today == 14)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -345,7 +345,7 @@
                                             <?php $total_spending14 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending14 }}
+                                            {{ number_format($total_spending14) }}
                                             </font>
                                         </td>
                                     </tr>
@@ -357,7 +357,7 @@
                                             <?php $total_spending15 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending15 }}
+                                            {{ number_format($total_spending15) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;16</b></font> <font size="-1">@if($today == 16)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -367,7 +367,7 @@
                                             <?php $total_spending16 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending16 }}
+                                            {{ number_format($total_spending16) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;17</b></font> <font size="-1">@if($today == 17)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -377,7 +377,7 @@
                                             <?php $total_spending17 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending17 }}
+                                            {{ number_format($total_spending17) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;18</b></font> <font size="-1">@if($today == 18)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -387,7 +387,7 @@
                                             <?php $total_spending18 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending18 }}
+                                            {{ number_format($total_spending18) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;19</b></font> <font size="-1">@if($today == 19)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -397,7 +397,7 @@
                                             <?php $total_spending19 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending19 }}
+                                            {{ number_format($total_spending19) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;20</b></font> <font size="-1">@if($today == 20)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -407,7 +407,7 @@
                                             <?php $total_spending20 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending20 }}
+                                            {{ number_format($total_spending20) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;21</b></font> <font size="-1">@if($today == 21)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -417,7 +417,7 @@
                                             <?php $total_spending21 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending21 }}
+                                            {{ number_format($total_spending21) }}
                                             </font>
                                         </td>
                                     </tr>
@@ -429,7 +429,7 @@
                                             <?php $total_spending22 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending22 }}
+                                            {{ number_format($total_spending22) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;23</b></font> <font size="-1">@if($today == 23)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -439,7 +439,7 @@
                                             <?php $total_spending23 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending23 }}
+                                            {{ number_format($total_spending23) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;24</b></font> <font size="-1">@if($today == 24)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -449,7 +449,7 @@
                                             <?php $total_spending24 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending24 }}
+                                            {{ number_format($total_spending24) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;25</b></font> <font size="-1">@if($today == 25)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -459,7 +459,7 @@
                                             <?php $total_spending25 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending25 }}
+                                            {{ number_format($total_spending25) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;26</b></font> <font size="-1">@if($today == 26)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -469,7 +469,7 @@
                                             <?php $total_spending26 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending26 }}
+                                            {{ number_format($total_spending26) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;27</b></font> <font size="-1">@if($today == 27)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -479,7 +479,7 @@
                                             <?php $total_spending27 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending27 }}
+                                            {{ number_format($total_spending27) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;28</b></font> <font size="-1">@if($today == 28)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -489,7 +489,7 @@
                                             <?php $total_spending28 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending28 }}
+                                            {{ number_format($total_spending28) }}
                                             </font>
                                         </td>
                                     </tr>
@@ -501,7 +501,7 @@
                                             <?php $total_spending29 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending29 }}
+                                            {{ number_format($total_spending29) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;30</b></font> <font size="-1">@if($today == 30)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -511,7 +511,7 @@
                                             <?php $total_spending30 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending30 }}
+                                            {{ number_format($total_spending30) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;31</b></font> <font size="-1">@if($today == 31)<span style="color:red;"> 今日</span>@endif</font></font><br>
@@ -521,7 +521,7 @@
                                             <?php $total_spending31 += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending31 }}
+                                            {{ number_format($total_spending31) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
@@ -531,7 +531,7 @@
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending }}
+                                            {{ number_format($total_spending) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
@@ -541,7 +541,7 @@
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending }}
+                                            {{ number_format($total_spending) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
@@ -551,7 +551,7 @@
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending }}
+                                            {{ number_format($total_spending) }}
                                             </font>
                                         </td>
                                         <td height=90><font color="#000000"><font size="+1"><b>&nbsp;</b></font> <font size="-1"></font></font><br>
@@ -561,7 +561,7 @@
                                             <?php $total_spending += $day_cost->addmission_fee + $day_cost->purchase_cost ?>
                                             @endif
                                             @endforeach
-                                            {{ $total_spending }}
+                                            {{ number_format($total_spending) }}
                                             </font>
                                         </td>
                                     </tr>
