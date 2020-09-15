@@ -18,15 +18,11 @@ class Money extends Model
     return $this->belongsTo('App\User');
     }
     
-    public function total_month()
-    {
-        
-    }
     
-    public function getTotalAddmissionFee($user_id)
+    public static function getTotalAddmissionFee($post_array)
     {
-        $posts = Post::where('user_id', $user_id);
-        foreach($posts as $post){
+        $total_addmission_fee = 0;
+        foreach($post_array as $post){
             $total_addmission_fee += $post->addmission_fee;
         }
         
