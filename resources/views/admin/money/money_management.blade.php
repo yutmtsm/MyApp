@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <h1>支出一覧{{ $calendar_day[5]->jDay}}</h1>
+    <h1>支出一覧</h1>
     <!-- スポット検索 -->
     <div class="row">
         
@@ -13,8 +13,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-header d-flex">
-                        <h4 class="card-title personal-title">年間支出：{{ number_format(12000) }}　</h4>
-                        <h4 class="card-title personal-title">当月支出：4000円</h4>
+                        <h4 class="card-title personal-title">年間支出：{{ number_format(12000) }}円　</h4>
+                        <h4 class="card-title personal-title">当月支出：{{ number_format($money->spending_month) }}円</h4>
                     </div>
                 </div>
             </div>
@@ -590,11 +590,11 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-header">
-                        <h4 class="card-title personal-title">旅費等</h4>
+                        <h4 class="card-title personal-title">旅費等 : {{ number_format($money->travel_expenses) }}円</h4>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-dark">施設費　　：</li>
-                        <li class="list-group-item text-dark">購入費　　：</li>
+                        <li class="list-group-item text-dark">施設費　　：{{ number_format($money->total_addmission_fee) }}円</li>
+                        <li class="list-group-item text-dark">購入費　　：{{ number_format($money->total_purchase_cost) }}円</li>
                     </ul>
                 </div>
             </div>
@@ -603,14 +603,14 @@
             <div class="card" style="margin-top: 10px;">
                 <div class="card-body">
                     <div class="card-header">
-                        <h4 class="card-title personal-title">変動費</h4>
+                        <h4 class="card-title personal-title">変動費 : {{ number_format($money->variable_cost) }}円</h4>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-dark">任意保険　：</li>
-                        <li class="list-group-item text-dark">車検　　　：</li>
-                        <li class="list-group-item text-dark">駐車場代　：</li>
-                        <li class="list-group-item text-dark">消耗品費　：</li>
-                        <li class="list-group-item text-dark">分割払い金：</li>
+                        <li class="list-group-item text-dark">任意保険　：{{ number_format($total_voluntary_insurance) }}円</li>
+                        <li class="list-group-item text-dark">車検　　　：{{ number_format($total_vehicle_inspection) }}円</li>
+                        <li class="list-group-item text-dark">駐車場代　：{{ number_format($total_parking_fee) }}円</li>
+                        <li class="list-group-item text-dark">消耗品費　：{{ number_format($total_consumables) }}円</li>
+                        <li class="list-group-item text-dark">分割払い金：円</li>
                     </ul>
                 </div>
             </div>
@@ -619,12 +619,12 @@
             <div class="card" style="margin-top: 10px;">
                 <div class="card-body">
                     <div class="card-header">
-                        <h4 class="card-title personal-title">固定費</h4>
+                        <h4 class="card-title personal-title">固定費 : {{ number_format($money->fixed_cost) }}円</h4>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-dark">自賠責保険：</li>
-                        <li class="list-group-item text-dark">重量税　　：</li>
-                        <li class="list-group-item text-dark">自動車税　：</li>
+                        <li class="list-group-item text-dark">自賠責保険：{{ number_format($total_liability_insurance) }}円</li>
+                        <li class="list-group-item text-dark">重量税　　：{{ number_format($total_weight_tax) }}円</li>
+                        <li class="list-group-item text-dark">自動車税　：{{ number_format($total_light_vehicle_tax) }}円</li>
                     </ul>
                 </div>
             </div>

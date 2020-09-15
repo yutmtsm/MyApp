@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Money;
 use App\Post;
+use App\Bike;
 use DB;
 use Auth;
 
@@ -21,7 +22,8 @@ class MoneyController extends Controller
     public function moneypage()
     {
         $user = Auth::user();
-        // dd($user->id);
+        $mybikes = Bike::where('user_id', $user->id)->get();
+        // dd($mybikes);
         $year_month = date('y/m');
         $year = '20' . date('y');
         // dd($year);
@@ -32,9 +34,7 @@ class MoneyController extends Controller
         // $money = Money::where('user_id', $user->id)->get();
         $posts = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
         // $posts = DB::table('posts')->where('user_id', $user->id)->whereYear('created_at', 2020)->whereMonth('created_at', 9)->simplePaginate(30);
-        // dd($posts->created_at);
-       Money::getTotalAddmissionFee($posts);
-       dd(getTotalAddmissionFee);
+       
         
         //カレンダーのJSON
         $url = public_path("/storage/json/$year$month.js");
@@ -52,7 +52,26 @@ class MoneyController extends Controller
         $total_spending29 = null;$total_spending30 = null;$total_spending31 = null;$total_spending32 = null;$total_spending33 = null;$total_spending34 = null;$total_spending35 = null;
         
         $money = Money::where('date_number', $year_month)->first();
-        // dd($money);
+        foreach($mybikes as $mybike){
+            $total_light_vehicle_tax = $mybike->sum('light_vehicle_tax');
+            $total_weight_tax = $mybike->sum('weight_tax');
+            $total_liability_insurance = $mybike->sum('liability_insurance');
+            $total_voluntary_insurance = $mybike->sum('voluntary_insurance');
+            $total_vehicle_inspection = $mybike->sum('vehicle_inspection');
+            $total_parking_fee = $mybike->sum('parking_fee');
+            $total_consumables = $mybike->sum('consumables');
+            // dd($total_weight_tax);
+        }
+        
+        $money->total_addmission_fee = $posts->sum('addmission_fee');
+        $money->total_purchase_cost = $posts->sum('purchase_cost');
+        $money->travel_expenses = $money->total_addmission_fee + $money->total_purchase_cost;
+        $money->variable_cost = $total_voluntary_insurance + $total_vehicle_inspection + $total_parking_fee + $total_consumables;
+        $money->fixed_cost = $total_light_vehicle_tax + $total_weight_tax + $total_liability_insurance;
+        $money->spending_month = $money->travel_expenses + $total_parking_fee;
+        
+        $money->save();
+        // dd($money->total_purchase_cost);
         // dd($money->date_number);
         if($money->date_number != $year_month){
             // 月替り処理
@@ -61,7 +80,6 @@ class MoneyController extends Controller
             $money->user_id = $user->id;
             $money->save();
         }
-    
         return view('admin.money.money_management', 
         ['posts' => $posts,
         'today' => $today, 'month' => $month, 'calendar_day' => $calendar_day,
@@ -70,7 +88,9 @@ class MoneyController extends Controller
         'total_spending08' => $total_spending08, 'total_spending09' => $total_spending09, 'total_spending10' => $total_spending10, 'total_spending11' => $total_spending11, 'total_spending12' => $total_spending12, 'total_spending13' => $total_spending13, 'total_spending14' => $total_spending14, 
         'total_spending15' => $total_spending15, 'total_spending16' => $total_spending16, 'total_spending17' => $total_spending17, 'total_spending18' => $total_spending18, 'total_spending19' => $total_spending19, 'total_spending20' => $total_spending20, 'total_spending21' => $total_spending21, 
         'total_spending22' => $total_spending22, 'total_spending23' => $total_spending23, 'total_spending24' => $total_spending24, 'total_spending25' => $total_spending25, 'total_spending26' => $total_spending26, 'total_spending27' => $total_spending27, 'total_spending28' => $total_spending28, 
-        'total_spending29' => $total_spending29, 'total_spending30' => $total_spending30, 'total_spending31' => $total_spending31, 'total_spending32' => $total_spending32, 'total_spending33' => $total_spending33, 'total_spending34' => $total_spending34, 'total_spending35' => $total_spending35
+        'total_spending29' => $total_spending29, 'total_spending30' => $total_spending30, 'total_spending31' => $total_spending31, 'total_spending32' => $total_spending32, 'total_spending33' => $total_spending33, 'total_spending34' => $total_spending34, 'total_spending35' => $total_spending35,
+        'money' => $money, 'mybikes' => $mybikes,
+        'total_light_vehicle_tax' => $total_light_vehicle_tax, 'total_weight_tax' => $total_weight_tax, 'total_liability_insurance' => $total_liability_insurance, 'total_voluntary_insurance' => $total_voluntary_insurance, 'total_vehicle_inspection' => $total_vehicle_inspection, 'total_parking_fee' => $total_parking_fee, 'total_consumables' => $total_consumables
         ]);
     }
 }
