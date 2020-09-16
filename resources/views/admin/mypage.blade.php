@@ -60,7 +60,7 @@
                                           </div>
                                           <div class="modal-body">
                                                 <div class="d-flex">
-                                                    <img class="bike-detail-icon w-50 h-auto" src="storage/image/bike/{{ $mybike->image_path }}">
+                                                    <img class="bike-detail-icon w-50 h-auto" src="/storage/image/bike/{{ $mybike->image_path }}">
                                                     <div class="bike-detail">
                                                         <table>
                                                             <div class="bike-detail-title">基本情報</div>

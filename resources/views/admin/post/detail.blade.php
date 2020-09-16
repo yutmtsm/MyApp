@@ -25,7 +25,7 @@
                            <div class="post-date">{{ $post->created_at }}</div>
                         </div>
                         <div class="post-title">
-                            <h2>『{{ $post->title }}』</h2>
+                            <h3>『{{ $post->title }}』</h3>
                         </div>
                    </div>
                </div>
@@ -68,10 +68,72 @@
             <!-- 画像 -->
             <div class="form-group">
                 @if(isset($post->image_path))
-                <img src="/storage/image/post/{{ $post->image_path }}">
+                <img width="300px" height="auto" src="/storage/image/post/{{ $post->image_path }}">
                 @else
-                <img width="100%" height="300px" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
+                <img width="300px" height="auto" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
                 @endif
+            </div>
+            <div class="comment-btn">
+                <!-- コメント表示モーダル -->
+                <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal{{ $post->id }}">
+                    <p class="text-right btn btn-primary">この投稿にコメント</p>
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" id="exampleModal{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModal3Label">
+                                <div class="col-md-8 d-flex no-gutters text-secondary">
+                                    <div>
+                                        @if(isset($post->image_icon))
+                                       <img class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
+                                        @else
+                                        <img class="post-icon" src="/storage/image/noimage.png">
+                                        @endif
+                                        <div class="v_line_fix" style="margin:5px 0 5px 25px;width: 2px;height: 50px;background-color: brown;margin:"></div>
+                                    </div>
+                                   <div class="post-top">
+                                         <div class="form-inline">
+                                             <div class="post-name" style="margin-right: 10px;">{{ $post->user_name }}</div>
+                                           <div class="post-date">{{ $post->created_at }}</div>
+                                        </div>
+                                        <div class="post-title">
+                                            <h5>『{{ $post->title }}』</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 d-flex no-gutters text-secondary">
+                                    <div>
+                                        @if(isset($post->image_icon))
+                                       <img class="post-icon" src="/storage/image/user/{{ $user->image_path }}">
+                                        @else
+                                        <img class="post-icon" src="/storage/image/noimage.png">
+                                        @endif
+                                    </div>
+                                    <form action="" method="post">
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="comment" value="{{ old('comment') }}" style="height: 150px;" placeholder="思ったことや気になることなどを入力してください">{{ old('comment') }}</textarea>
+                                            <input type="submit" class="btn-primary add-btn" value="コメント">
+                                        </div>
+                                    </form>
+                                </div>
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modalここまで -->
             </div>
         </div>
     </div>

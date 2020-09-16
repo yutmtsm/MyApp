@@ -85,11 +85,14 @@ class MoneybikeController extends Controller
             $post->image_icon = $users->image_path;
         }
         
+        
+        $year_month = date('y/m');
         $year = '20' . date('y');
         // dd($year);
         $month = date('m');
         // dd($month);
         $today = date('d');
+        $money = Money::where('date_number', $year_month)->first();
         // dd($today);
         // $money = Money::where('user_id', $user->id)->get();
         $day_costs = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
@@ -118,7 +121,8 @@ class MoneybikeController extends Controller
         'total_spending08' => $total_spending08, 'total_spending09' => $total_spending09, 'total_spending10' => $total_spending10, 'total_spending11' => $total_spending11, 'total_spending12' => $total_spending12, 'total_spending13' => $total_spending13, 'total_spending14' => $total_spending14, 
         'total_spending15' => $total_spending15, 'total_spending16' => $total_spending16, 'total_spending17' => $total_spending17, 'total_spending18' => $total_spending18, 'total_spending19' => $total_spending19, 'total_spending20' => $total_spending20, 'total_spending21' => $total_spending21, 
         'total_spending22' => $total_spending22, 'total_spending23' => $total_spending23, 'total_spending24' => $total_spending24, 'total_spending25' => $total_spending25, 'total_spending26' => $total_spending26, 'total_spending27' => $total_spending27, 'total_spending28' => $total_spending28, 
-        'total_spending29' => $total_spending29, 'total_spending30' => $total_spending30, 'total_spending31' => $total_spending31, 'total_spending32' => $total_spending32, 'total_spending33' => $total_spending33, 'total_spending34' => $total_spending34, 'total_spending35' => $total_spending35
+        'total_spending29' => $total_spending29, 'total_spending30' => $total_spending30, 'total_spending31' => $total_spending31, 'total_spending32' => $total_spending32, 'total_spending33' => $total_spending33, 'total_spending34' => $total_spending34, 'total_spending35' => $total_spending35,
+        'money' => $money,
         ]);
     }
     
@@ -146,6 +150,7 @@ class MoneybikeController extends Controller
         $all_users = User::where('id', '!=', $user->id);
         // dd($users);
         //投稿記事
+        $money = Money::where('date_number', $year_month)->first();
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         foreach($posts as $post){
             $users = User::find($post->user_id);
@@ -158,6 +163,7 @@ class MoneybikeController extends Controller
         return view('admin.spot_search', ['user' => $user, 'posts' => $posts, 'all_users' => $all_users,
         'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count,
+        'money' => $money
         ]);
     }
     
@@ -185,6 +191,8 @@ class MoneybikeController extends Controller
         // $all_users = DB::table('users')->get();
         $all_users = User::where('id', '!=', $user->id)->orderByDesc('created_at')->simplePaginate(10);
         
+        $money = Money::where('date_number', $year_month)->first();
+        // dd($money);
         //投稿記事
         $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         foreach($posts as $post){
@@ -199,6 +207,7 @@ class MoneybikeController extends Controller
         return view('admin.spot_search', ['user' => $user, 'posts' => $posts, 'all_users' => $all_users,
         'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count,
+        'money' => $money
         ]);
     }
     

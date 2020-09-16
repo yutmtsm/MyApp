@@ -51,6 +51,7 @@ class PostController extends Controller
     }
     
     public function detail(Request $request){
+        // dd($request);
         $user = Auth::user();
         // dd($request->id);
         $post = Post::find($request->id);

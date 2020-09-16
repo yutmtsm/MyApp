@@ -14,7 +14,7 @@ use Auth;
 class MoneyController extends Controller
 {
     //
-    public function add()
+    public function add_money()
     {
         return view('admin.money_management');
     }

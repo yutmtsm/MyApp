@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
     
      //お金管理
     //お金管理トップ遷移
-    Route::get('mypage/money', 'Admin\MoneyController@add');
+    Route::get('mypage/money', 'Admin\MoneyController@add_money');
     //お金管理トップ
     Route::get('mypage/money', 'Admin\MoneyController@moneypage');
     
