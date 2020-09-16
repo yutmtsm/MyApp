@@ -154,7 +154,7 @@
             @foreach($post_comments as $post_comment)
             <div class="card text-secondary">
                 <div class="card-body">
-                    <h5 class="card-title d-flex">
+                    <h5 class="card-title d-flex no-gutters" style="margin-top:3px;">
                         @if(isset($post_comment->image_path))
                         <img  class="post-comment-icon" src="/storage/image/user/{{ $post_comment->image_path }}">
                         @else
