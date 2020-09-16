@@ -112,9 +112,10 @@
                                         <img class="post-icon" src="/storage/image/noimage.png">
                                         @endif
                                     </div>
-                                    <form action="" method="post">
+                                    <form action="{{ action('Admin\CommentController@create', ['id' => $post->id]) }}" method="post">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="comment" value="{{ old('comment') }}" style="height: 150px;" placeholder="思ったことや気になることなどを入力してください">{{ old('comment') }}</textarea>
+                                            <textarea class="form-control" name="comment" value="{{ old('comment') }}" style="resize: none;width:450px;height:200px;" placeholder="思ったことや気になることなどを入力してください">{{ old('comment') }}</textarea>
+                                            {{ csrf_field() }}
                                             <input type="submit" class="btn-primary add-btn" value="コメント">
                                         </div>
                                     </form>

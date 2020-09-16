@@ -51,7 +51,9 @@ Route::group(['middleware' => 'auth'], function(){
     //お金管理トップ
     Route::get('mypage/money', 'Admin\MoneyController@moneypage');
     
-    
+    // コメント
+    // 追加
+    Route::post('mypage/post/coomment', 'Admin\CommentController@create');
     
     //following
     Route::get('mypage/following', 'Admin\MoneybikeController@following');
