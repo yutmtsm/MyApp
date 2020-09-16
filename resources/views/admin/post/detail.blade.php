@@ -9,7 +9,7 @@
         <div class="col-md-6 mx-auto" >
             <!-- タイトル -->
             <div class="post-info d-flex">
-               <div class="col-md-8 d-flex no-gutters">
+               <div class="col-md-12 d-flex no-gutters">
                    <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
                        @if(isset($post->image_icon))
                        <img class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
@@ -73,7 +73,7 @@
                 <img width="300px" height="auto" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
                 @endif
             </div>
-            <div class="comment-btn">
+            <div class="col-md-12 comment-btn">
                 <!-- コメント表示モーダル -->
                 <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal{{ $post->id }}">
                     <p class="text-right btn btn-primary">この投稿にコメント</p>
@@ -85,7 +85,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModal3Label">
-                                <div class="col-md-8 d-flex no-gutters text-secondary">
+                                <div class="col-md-12 d-flex no-gutters text-secondary">
                                     <div>
                                         @if(isset($post->image_icon))
                                        <img class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
@@ -104,7 +104,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-8 d-flex no-gutters text-secondary">
+                                <div class="col-md-12 d-flex no-gutters text-secondary">
                                     <div>
                                         @if(isset($post->image_icon))
                                        <img class="post-icon" src="/storage/image/user/{{ $user->image_path }}">
