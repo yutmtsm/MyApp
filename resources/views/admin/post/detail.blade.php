@@ -141,29 +141,36 @@
             <div class="item">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">コメント</div>
-                    </div>
-                    @foreach($post_comments as $post_comment)
-                    <div class="card-body text-secondary">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="post-info d-flex">
-                                    <div class="col-md-8 d-flex no-gutters">
-                                        @if(isset($post_comment->image_path))
-                                        <img  class="post-icon" src="/storage/image/user/{{ $post_comment->image_path }}">
-                                        @else
-                                        <img class="post-icon" src="/storage/image/noimage.png">
-                                        @endif
-                                        <div class="post-name">{{ $post_comment->user_name }}</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-title">
+                            @if($post_comment_count != 0)
+                            {{ $post_comment_count }}件のコメント
+                            @else
+                            0件のコメント
+                            @endif
                         </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
-            
+            @foreach($post_comments as $post_comment)
+            <div class="card text-secondary">
+                <div class="card-body">
+                    <h5 class="card-title d-flex">
+                        @if(isset($post_comment->image_path))
+                        <img  class="post-comment-icon" src="/storage/image/user/{{ $post_comment->image_path }}">
+                        @else
+                        <img class="post-comment-icon" src="/storage/image/noimage.png">
+                        @endif
+                        <div class="post-name" style="padding-top:5px;">{{ $post_comment->user_name }}</div>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $post_comment->created_at }}</h6>
+                    <p class="card-text">
+                      {{ str_limit($post_comment->text, 1500) }}
+                    </p>
+                    <a href="#!" class="card-link">Card link</a>
+                    <a href="#!" class="card-link">Another link</a>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
     

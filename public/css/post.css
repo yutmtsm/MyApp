@@ -131,6 +131,13 @@ tstrap4 colの隙間（padding、margin）をを削除する（CSS）Default .no
   margin-right: 10px;
   border-radius: 50%;
 }
+.post-comment-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+}
 
 .post-name {
   font-weight: bold;

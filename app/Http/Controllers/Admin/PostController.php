@@ -51,7 +51,8 @@ class PostController extends Controller
         return redirect('mypage');
     }
     
-    public function detail(Request $request){
+    public function detail(Request $request)
+    {
         // dd($request);
         $user = Auth::user();
         // dd($request->id);
@@ -67,7 +68,10 @@ class PostController extends Controller
             $post->image_icon = $users->image_path;
             $post->created_at = $users->created_at;
         
-        $post_comments = Comment::where('post_id', $post->id)->get();
+        $post_comments = Comment::where('post_id', $post->id)->orderByDesc('created_at')->get();
+        // dd($post_comments);
+        $post_comment_count = Comment::where('post_id', $post->id)->count();
+        // dd($post_comment_count);
         // $post_comment_user = User::find($$post_comments->user_id);
         
         // コメントに紐づいたユーザーの取得
@@ -79,14 +83,16 @@ class PostController extends Controller
             $post_comment->user_name = $post_comment_user->name;
             $post_comment->image_path = $post_comment_user->image_path;
         }
-        //dd($post);
+        
         if(empty($post)){
             abort(404);
         }
-        //dd($post);
+        
+        
+        
         return view('admin.post.detail', ['user' => $user, 'post' => $post, 'users' => $users,
         'total_cost' => $total_cost,
-        'post_comments' => $post_comments, 'post_comment' => $post_comment
+        'post_comments' => $post_comments, 'post_comment_count' => $post_comment_count
         ]);
     }
     

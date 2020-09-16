@@ -31,6 +31,6 @@ class CommentController extends Controller
         $comment->text = $request->comment;
         // dd($comment->text);
         $comment->save();
-        return redirect('mypage');
+        return back();
     }
 }
