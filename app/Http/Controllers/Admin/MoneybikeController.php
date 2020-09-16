@@ -59,6 +59,7 @@ class MoneybikeController extends Controller
         $users = DB::table('users')->get();
         //バイク情報取得
         $mybikes = Bike::where('user_id', $user->id)->get();
+        
         // dd($mybikes);
         //フォロー・フォロワーのカウント数：ログイン中のユーザーIDとfollowersテーブル記載のID数と一致数にて表記
         $following_Count = Follower::where('following_id', $user->id)->count();

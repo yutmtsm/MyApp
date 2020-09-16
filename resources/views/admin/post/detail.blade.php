@@ -6,7 +6,7 @@
 <div class="container">
     <h1>投稿内容</h1>
     <div class="row" style="width: 100%;">
-        <div class="col-md-6 mx-auto" >
+        <div class="col-md-9 mx-auto" >
             <!-- タイトル -->
             <div class="post-info d-flex">
                <div class="col-md-12 d-flex no-gutters">
@@ -73,7 +73,7 @@
                 <img width="300px" height="auto" style="margin-bottom: 5px;" src="/storage/image/noimage.png">
                 @endif
             </div>
-            <div class="col-md-12 comment-btn">
+            <div class="col-md-6 comment-btn">
                 <!-- コメント表示モーダル -->
                 <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal{{ $post->id }}">
                     <p class="text-right btn btn-primary">この投稿にコメント</p>
@@ -136,6 +136,34 @@
                 </div>
                 <!-- Modalここまで -->
             </div>
+        </div>
+        <div class="col-md-3 mx-auto">
+            <div class="item">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">コメント</div>
+                    </div>
+                    @foreach($post_comments as $post_comment)
+                    <div class="card-body text-secondary">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="post-info d-flex">
+                                    <div class="col-md-8 d-flex no-gutters">
+                                        @if(isset($post_comment->image_path))
+                                        <img  class="post-icon" src="/storage/image/user/{{ $post_comment->image_path }}">
+                                        @else
+                                        <img class="post-icon" src="/storage/image/noimage.png">
+                                        @endif
+                                        <div class="post-name">{{ $post_comment->user_name }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            
         </div>
     </div>
     

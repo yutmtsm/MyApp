@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Post;
+use App\Comment;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -66,14 +67,27 @@ class PostController extends Controller
             $post->image_icon = $users->image_path;
             $post->created_at = $users->created_at;
         
-        //dd($users);
+        $post_comments = Comment::where('post_id', $post->id)->get();
+        // $post_comment_user = User::find($$post_comments->user_id);
+        
+        // コメントに紐づいたユーザーの取得
+        // dd($post_comments);
+        foreach($post_comments as $post_comment)
+        {
+            $post_comment_user = User::find($post_comment->user_id);
+            // dd($post_comment_user->name);
+            $post_comment->user_name = $post_comment_user->name;
+            $post_comment->image_path = $post_comment_user->image_path;
+        }
         //dd($post);
         if(empty($post)){
             abort(404);
         }
         //dd($post);
         return view('admin.post.detail', ['user' => $user, 'post' => $post, 'users' => $users,
-        'total_cost' => $total_cost]);
+        'total_cost' => $total_cost,
+        'post_comments' => $post_comments, 'post_comment' => $post_comment
+        ]);
     }
     
     public function edit(Request $request){
@@ -83,7 +97,9 @@ class PostController extends Controller
         if(empty($post)){
             abort(404);
         }
-        return view('admin.post.edit', ['post_form' => $post]);
+        return view('admin.post.edit', [
+            'post_form' => $post,
+            ]);
     }
     
     public function update(Request $request){
