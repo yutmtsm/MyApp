@@ -1,61 +1,11 @@
-@extends('layouts.mypage')
-
-@section('title', '他ユーザーのマイページ')
-
-@section('content')
-    <div class="container">
-        <h1>{{ $other_user->name}}さんのページ</h1>
-        <div class="row">
-            <!-- 左コンテンツ -->
-            @include('layouts.common.other_profile')
-            <!-- 真ん中コンテンツ -->
-            <div class="col-md-8">
-                <div class="row">
-                    <!-- 支出 -->
-                    <div class="col-md-6">
-                        <div class="item" style="margin-bottom: 20px;">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">支出一覧</div>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">年間支出</th>
-                                                <th scope="col">当月支出</th>
-                                                <th scope="col">当日支出</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>120,000円</td>
-                                                <td>5,400円</td>
-                                                <td>300円</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>前月比：+10%</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- カレンダー -->
-                        @include('layouts.common.calendar')
-                    </div>
-                    <!-- ツイート部分 -->
-                    <div class="col-md-6">
                         <div class="item">
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">スポットツイート</div>
-                                   
+                                    <div class="d-flex">
+                                        <a class="new-post" href="{{ action('Admin\PostController@newpost') }}">新規投稿</a>
+                                        <a class="new-post" href="{{ action('Admin\PostController@newpost') }}" style="margin-left: 40px;">削除一覧</a>
+                                    </div>
                                 </div>
                                <!-- 新着順に表示 -->
                                <!--<section class="scroll_area"-->
@@ -64,7 +14,6 @@
                                <!--"append": ".post"-->
                                <!--}'>-->
                                @foreach($posts as $post)
-                               
                                <a href="{{ action('Admin\PostController@detail', ['id' => $post->id]) }}">
                                    <div class="post">
                                        <div class="row">
@@ -73,7 +22,7 @@
                                                    <div class="col-md-8 d-flex no-gutters">
                                                        
                                                        @if(isset($post->image_icon))
-                                                       <img class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
+                                                       <img  class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
                                                         @else
                                                         <img class="post-icon" src="/storage/image/noimage.png">
                                                         @endif
@@ -95,7 +44,7 @@
                                        </div>
                                    </div>
                                  </a>
-                               
+                         
                                @endforeach
                                <!--</section>-->
                                {{ $posts->links() }}
@@ -105,10 +54,3 @@
                                 <!--</div>-->
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-@endsection

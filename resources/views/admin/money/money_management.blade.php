@@ -99,7 +99,9 @@
                                 @if($total_spending04 == 0)
                                 
                                 @else
+                                <a href="#">
                                 {{ number_format($total_spending04) }}円
+                                </a>
                                 @endif
                                 </font>
                             </td>

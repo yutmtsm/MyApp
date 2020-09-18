@@ -23,7 +23,7 @@
                  <!--スポット -->
                 <div class="form-group">
                     <label class="control-label">スポット</label>
-                    <select name="spot" class="form-control">
+                    <select name="pref" class="form-control">
                         <option value="" selected>都道府県</option>
                         <option value="北海道">北海道</option>
                         <option value="青森県">青森県</option>
@@ -73,7 +73,7 @@
                         <option value="鹿児島県">鹿児島県</option>
                         <option value="沖縄県">沖縄県</option>
                     </select>
-                    
+                    <input type="text" class="form-control mt-1" placeholder="スポット名を入力してください" name="spot" value="{{ old('spot') }}">
                 </div>
                 <!-- 使用金 -->
                 <div class="d-flex align-items-center">

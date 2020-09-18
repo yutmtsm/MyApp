@@ -7,20 +7,21 @@
     <h1>投稿内容</h1>
     <div class="row" style="width: 100%;">
         <div class="col-md-9 mx-auto" >
-            <!-- タイトル -->
+            
             <div class="post-info d-flex">
-               <div class="col-md-12 d-flex no-gutters">
-                   <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
-                       @if(isset($post->image_icon))
+                <!-- タイトル -->
+                <div class="col-md-12 d-flex no-gutters">
+                    <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
+                        @if(isset($post->image_icon))
                        <img class="post-icon" src="/storage/image/user/{{ $post->image_icon }}">
                         @else
                         <img class="post-icon" src="/storage/image/noimage.png">
                         @endif
                     </a>
                    <div class="post-top">
-                         <div class="form-inline">
-                             <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
-                                 <div class="post-name" style="margin-right: 10px;">{{ $post->user_name }}</div>
+                       <div class="form-inline">
+                           <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
+                               <div class="post-name" style="margin-right: 10px;">{{ $post->user_name }}</div>
                             </a>
                            <div class="post-date">{{ $post->created_at }}</div>
                         </div>
@@ -28,26 +29,35 @@
                             <h3>『{{ $post->title }}』</h3>
                         </div>
                    </div>
-               </div>
-               <div class="col-md-4 text-right">
+                   <div class="col-md-4 text-right">
                    @if($user->id == $post->user_id)
                    <a href="{{ action('Admin\PostController@edit', ['id' => $post->id]) }}">編集</a>
                    <a href="{{ action('Admin\PostController@delete', ['id' => $post->id]) }}">削除</a>
                    @endif
                </div>
+               </div>
+               
            </div>
             <!-- コメント -->
             <div class="post-content">
                 <label class="post-comment"></label>
                 <p style="color: white;">{{ $post->comment }}</p>
             </div>
-                <!-- スポット -->
+            
             <div class="d-flex">
                 <div class="col-md-7">
+                    <!-- スポット -->
                     <div class="form-group">
-                        <label class="control-label">スポット</label>
-                        <!--<input type="text" class="form-control" name="spot" value="{{ old('spot') }}">-->
-                        <p style="color: white;">{{ $post->spot }}</p>
+                        <div class="d-flex">
+                            <div>
+                                <label class="control-label">都道府県</label>
+                                <p style="color: white;">　{{ $post->pref }}</p>
+                            </div>
+                            <div class="ml-5">
+                                <label class="control-label">スポット名</label>
+                                <p style="color: white;">　{{ $post->spot }}</p>
+                            </div>
+                        </div>
                     </div>
             
                     <!-- 使用金 -->
@@ -68,6 +78,7 @@
                             <p style="color: white;">{{ number_format($total_cost) }}円</p>
                         </div>
                     </div>
+                    
                     <!-- 画像 -->
                     <div class="form-group">
                         @if(isset($post->image_path))
@@ -84,10 +95,10 @@
                         
                         <!-- Modal -->
                         <div class="modal fade bd-example-modal-lg" id="exampleModal{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
-                          <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModal3Label">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModal3Label">
                                         <div class="col-md-12 d-flex no-gutters text-secondary">
                                             <div>
                                                 @if(isset($post->image_icon))
@@ -123,11 +134,11 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
                                 <div class="modal-body">
                                     
                                 </div>
@@ -144,7 +155,7 @@
                     </div>
                 <div class="col-md-6">
                     <iframe style="border: 0;" 
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPv-uNVityorhO-YUuKfYxg7F5ab-NumM&q={{ $post->spot}}" 
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPv-uNVityorhO-YUuKfYxg7F5ab-NumM&q={{ $post->pref}}{{ $post->spot }}" 
                     width="300" height="300" frameborder="0" allowfullscreen="allowfullscreen">
                     </iframe>
                 </div>

@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label class="control-label">スポット</label>
                     <select name="spot" class="form-control">
-                        <option value="spot" selected>{{ $post_form->spot }}</option>
+                        <option value="pref" selected>{{ $post_form->pref }}</option>
                         <option value="北海道">北海道</option>
                         <option value="青森県">青森県</option>
                         <option value="岩手県">岩手県</option>
@@ -73,6 +73,7 @@
                         <option value="鹿児島県">鹿児島県</option>
                         <option value="沖縄県">沖縄県</option>
                     </select>
+                    <input type="text" class="form-control mt-1" name="spot" value="{{ $post_form->spot }}">
                 </div>
                 <!-- 使用金 -->
                 <div class="d-flex align-items-center">

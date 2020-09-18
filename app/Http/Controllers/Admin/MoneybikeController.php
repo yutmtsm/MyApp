@@ -218,7 +218,7 @@ class MoneybikeController extends Controller
     
     public function search(Request $request){
         $cond_title = $request->cond_title;
-        // dd($cond_title);
+        // dd($request);
         $user = Auth::user();
         // dd($user)
         
@@ -250,6 +250,7 @@ class MoneybikeController extends Controller
             $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         }
         
+        unset($request['_token']);
         // dd($posts);
         foreach($posts as $post){
             $users = User::find($post->user_id);
