@@ -15,9 +15,7 @@ class TopController extends Controller
         $post_image_path = array();
         $i = 0;
         foreach($posts as $post){
-            $post_image_path[$i] = array(
-                $i => $post->image_path,
-            );
+            $post_image_path[$i] = $post->image_path;
             $i++;
         }
         // dd($post_image_path[3]);

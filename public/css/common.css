@@ -55,7 +55,17 @@ nav {
 }
 
 footer {
+  bottom: 0;
   width: 100%;
-  margin-top: auto;
+  height: 100px;
 }
 
+.post-wrapper{
+  margin-top: 20px;
+}
+
+.heading_text {
+    font-size: 1em;
+    line-height: 1.6;
+    font-weight: 500;
+}
