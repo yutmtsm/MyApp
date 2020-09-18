@@ -48,7 +48,7 @@
                                 @csrf
                                 </form>
                                 @else
-                                <li><a href="{{ action('Admin\MoneybikeController@create') }}">{{ __('messages.nav_home') }}</a></li>
+                                <li><a href="#">{{ __('messages.nav_home') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_about') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_searvice') }}</a></li>
                                 @if (Route::has('register'))
@@ -89,7 +89,7 @@
                                 @csrf
                                 </form>
                                 @else
-                                <li><a href="{{ action('Admin\MoneybikeController@create') }}">{{ __('messages.nav_home') }}</a></li>
+                                <li><a href="#">{{ __('messages.nav_home') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_about') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_searvice') }}</a></li>
                                 @if (Route::has('register'))

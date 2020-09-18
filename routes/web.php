@@ -19,8 +19,13 @@
 //     return view('top')->middleware('auth');
 // });
 Route::get('/', 'Admin\MoneybikeController@create');
+Route::get('/', 'TopController@top');
 
 Route::group(['middleware' => 'auth'], function(){
+    
+    // トップページ表示
+  
+    
     Route::get('/mypage', 'Admin\MoneybikeController@mypage');
     
     //投稿関連
