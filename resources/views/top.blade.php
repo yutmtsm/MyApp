@@ -1,4 +1,6 @@
-@extends('layouts.index')
+
+@extends('layouts.common.common')
+@section('css', 'top.css')
 
 @section('title', 'TOP')
 
