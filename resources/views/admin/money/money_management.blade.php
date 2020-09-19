@@ -14,9 +14,23 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-header d-flex">
-                        <h4 class="card-title personal-title">年間支出：{{ number_format(12000) }}円　</h4>
                         <h4 class="card-title personal-title">当月支出：{{ number_format($money->spending_month) }}円</h4>
                     </div>
+                    
+                    <div class="card-header d-flex">
+                        <div class="search-totalmoney text-secondary">
+                            <h4 class="card-title personal-title">旅費等を期間で検索</h4>
+                            <form action="{{ action('Admin\MoneyController@search') }}" method="GET">
+                                <input type="date" name="from" placeholder="from_date">
+                                    <span class="mx-3 text-grey">~</span>
+                                <input type="date" name="until" placeholder="until_date">
+                                <input type="hidden" name="id" value="{{ $money->user_id }}">
+                                <button type="submit">検索</button>
+                            </form>
+                            <p>{{ $period['from'] }}から{{ $period['until'] }}までの旅費等は{{ number_format($total_period_money) }}円</p>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         
