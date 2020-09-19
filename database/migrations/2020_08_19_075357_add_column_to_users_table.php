@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToMoneysTable extends Migration
+class AddColumnToUsersTable2 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddColumnToMoneysTable extends Migration
      */
     public function up()
     {
-        Schema::table('moneys', function (Blueprint $table) {
-            //
-            $table->string('date_number');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('image_path')->nullable();
         });
     }
 
@@ -26,9 +25,8 @@ class AddColumnToMoneysTable extends Migration
      */
     public function down()
     {
-        Schema::table('moneys', function (Blueprint $table) {
-            //
-            $table->dropColumn('date_number');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('image_path');
         });
     }
 }
