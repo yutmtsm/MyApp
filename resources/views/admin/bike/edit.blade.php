@@ -1,4 +1,5 @@
-@extends('layouts.mypage')
+@extends('layouts.common.common')
+@section('css', 'mypage.css')
 
 @section('title', '新規バイク追加')
 

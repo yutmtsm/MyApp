@@ -1,4 +1,5 @@
-@extends('layouts.post')
+@extends('layouts.common.common')
+@section('css', 'post.css')
 
 @section('title', '投稿内容')
 

@@ -21,7 +21,7 @@ class PostController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Post::$rules);
-        
+        // dd($request);
         $post = new Post;
         $user = Auth::user();
         //userと関連付け
@@ -37,7 +37,7 @@ class PostController extends Controller
             // $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
             // $news->image_path = Storage::disk('s3')->url($path);
         } else {
-            $post->image_path = "noimage.png";
+            $post->image_path = null;
         }
         $post->delete_flag = false;
         $post->created_at = Carbon::now('Asia/Tokyo');
@@ -110,11 +110,13 @@ class PostController extends Controller
     
     public function update(Request $request){
         
-        //dd($request);
+        // dd($request);
         $this->validate($request, Post::$rules);
         $post = Post::find($request->id);
-        //dd($post);
+        $user = Auth::user();
+        // dd($post);
         $post_form = $request->all();
+        $total_cost = $post->addmission_fee + $post->purchase_cost;
         
         if ($request->remove == 'true') {
             $post_form['image_path'] = null;
@@ -134,7 +136,37 @@ class PostController extends Controller
         $post->fill($post_form)->save();
         //dd($post);
         
-        return redirect('mypage');
+        $total_cost = $post->addmission_fee + $post->purchase_cost;
+        // dd($total_cost);
+        $users = DB::table('users')->get();
+        
+        //ポストに紐づいたUser_idを持ってきて情報を代入
+            $users = User::find($post->user_id);
+            $post->user_name = $users->name;
+            $post->image_icon = $users->image_path;
+            $post->created_at = $users->created_at;
+        
+        $post_comments = Comment::where('post_id', $post->id)->orderByDesc('created_at')->get();
+        // dd($post_comments);
+        $post_comment_count = Comment::where('post_id', $post->id)->count();
+        // dd($post_comment_count);
+        // $post_comment_user = User::find($$post_comments->user_id);
+        
+        // コメントに紐づいたユーザーの取得
+        // dd($post_comments);
+        foreach($post_comments as $post_comment)
+        {
+            $post_comment_user = User::find($post_comment->user_id);
+            // dd($post_comment_user->name);
+            $post_comment->user_name = $post_comment_user->name;
+            $post_comment->image_path = $post_comment_user->image_path;
+        }
+        
+        
+        return view('admin.post.detail', ['user' => $user, 'post' => $post, 'users' => $users,
+        'total_cost' => $total_cost,
+        'post_comments' => $post_comments, 'post_comment_count' => $post_comment_count
+        ]);
     }
     
     public function delete(Request $request){

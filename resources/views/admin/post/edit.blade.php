@@ -1,4 +1,5 @@
-@extends('layouts.index')
+@extends('layouts.common.common')
+@section('css', 'top.css')
 
 @section('title', '投稿編集')
 
@@ -23,8 +24,8 @@
                 <!-- スポット -->
                 <div class="form-group">
                     <label class="control-label">スポット</label>
-                    <select name="spot" class="form-control">
-                        <option value="pref" selected>{{ $post_form->pref }}</option>
+                    <select name="pref" class="form-control">
+                        <option value="" selected>{{ $post_form->pref }}</option>
                         <option value="北海道">北海道</option>
                         <option value="青森県">青森県</option>
                         <option value="岩手県">岩手県</option>

@@ -1,4 +1,5 @@
-@extends('layouts.mypage')
+@extends('layouts.common.common')
+@section('css', 'mypage.css')
 
 @section('title', 'スポット検索')
 
@@ -58,7 +59,7 @@
                                         </div>
                                         <div class="d-flex">
                                             <div class="spot-image">
-                                                @if(isset($post->image_icon))
+                                                @if(isset($post->image_path))
                                                     <img src="/storage/image/post/{{ $post->image_path }}">
                                                 @else
                                                     <img src="/storage/image/noimage.png">

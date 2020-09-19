@@ -11,7 +11,7 @@ class TopController extends Controller
     public function top()
     {
         // 画像ありの投稿データーを最新中に処理
-        $posts = Post::where('image_path', '<>', 'noimage.png')->orderBy('created_at', 'DESC')->take(4)->get('image_path');
+        $posts = Post::where('image_path', '<>', 'noimage.png')->orderBy('created_at', 'DESC')->take(12)->get('image_path');
         $post_image_path = array();
         $i = 0;
         foreach($posts as $post){

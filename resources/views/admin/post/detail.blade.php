@@ -1,4 +1,5 @@
-@extends('layouts.post')
+@extends('layouts.common.common')
+@section('css', 'post.css')
 
 @section('title', '投稿内容')
 
@@ -178,13 +179,16 @@
             @foreach($post_comments as $post_comment)
             <div class="card text-secondary">
                 <div class="card-body">
+                    
                     <h5 class="card-title d-flex no-gutters" style="margin-top:3px;">
-                        @if(isset($post_comment->image_path))
-                        <img  class="post-comment-icon" src="/storage/image/user/{{ $post_comment->image_path }}">
-                        @else
-                        <img class="post-comment-icon" src="/storage/image/noimage.png">
-                        @endif
-                        <div class="post-name" style="padding-top:5px;">{{ $post_comment->user_name }}</div>
+                        <a class="other-link" href="{{ action('MoneybikeController@otherpage', ['id' => $post->user_id]) }}">
+                            @if(isset($post_comment->image_path))
+                            <img  class="post-comment-icon" src="/storage/image/user/{{ $post_comment->image_path }}">
+                            @else
+                            <img class="post-comment-icon" src="/storage/image/noimage.png">
+                            @endif
+                            <div class="post-name" style="padding-top:5px;">{{ $post_comment->user_name }}</div>
+                        </a>
                     </h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $post_comment->created_at }}</h6>
                     <p class="card-text">

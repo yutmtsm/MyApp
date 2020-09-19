@@ -1,4 +1,5 @@
-@extends('layouts.index')
+@extends('layouts.common.common')
+@section('css', 'top.css')
 
 @section('content')
 <div class="container">

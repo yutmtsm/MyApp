@@ -113,7 +113,7 @@ class MoneybikeController extends Controller
         $total_spending22 = null;$total_spending23 = null;$total_spending24 = null;$total_spending25 = null;$total_spending26 = null;$total_spending27 = null;$total_spending28 = null;
         $total_spending29 = null;$total_spending30 = null;$total_spending31 = null;$total_spending32 = null;$total_spending33 = null;$total_spending34 = null;$total_spending35 = null;
         
-        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'post' => $post, 'users' => $users, 'mybikes' => $mybikes,
+        return view('admin.mypage', ['user' => $user, 'today' => $today, 'posts' => $posts, 'users' => $users, 'mybikes' => $mybikes,
         'this_month' => $this_month,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count,
         'today' => $today, 'day_costs' => $day_costs, 'month' => $month, 'calendar_day' => $calendar_day,
@@ -195,11 +195,12 @@ class MoneybikeController extends Controller
         $money = Money::where('date_number', $year_month)->first();
         // dd($money);
         //投稿記事
-        $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
+        $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(10);
+        // dd($posts);
         foreach($posts as $post){
             $users = User::find($post->user_id);
             $post->user_name = $users->name;
-            $post->image_icon = $users->image_path;
+            
         }
         // dd($post->image_icon);;
         //投稿記事ここまで
@@ -245,7 +246,7 @@ class MoneybikeController extends Controller
         //検索⇨投稿記事
         if($cond_title != ''){
             // 検索されたら検索結果を取得する
-            $posts = DB::table('posts')->where('spot', 'like', "%$cond_title%")->orwhere('comment', 'like', "%$cond_title%")->orderByDesc('created_at')->simplePaginate(4);
+            $posts = DB::table('posts')->where('title', 'like', "%$cond_title%")->orwhere('comment', 'like', "%$cond_title%")->orwhere('created_at', 'like', "%$cond_title%")->orwhere('spot', 'like', "%$cond_title%")->orwhere('pref', 'like', "%$cond_title%")->orderByDesc('created_at')->simplePaginate(4);
         } else {
             $posts = DB::table('posts')->orderByDesc('created_at')->simplePaginate(3);
         }
@@ -255,7 +256,12 @@ class MoneybikeController extends Controller
         foreach($posts as $post){
             $users = User::find($post->user_id);
             $post->user_name = $users->name;
-            $post->image_icon = $users->image_path;
+            if($users->image_path != null){
+                $post->image_icon = $users->image_path;
+            } else {
+                $post->image_icon = null;
+            }
+            
         }
         // dd($post->image_icon);;
         //投稿記事ここまで

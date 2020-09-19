@@ -86,13 +86,13 @@
                                 @auth
                                 <li><a href="{{ action('Admin\MoneybikeController@mypage') }}">{{ __('messages.nav_mypage') }}</a></li>
                                 <li><a href="/mypage/money">{{ __('messages.nav_moneyaccount') }}</a></li>
-                                <li><a href="{{ action('Admin\MoneybikeController@create') }}">{{ __('messages.nav_spotsearch') }}</a></li>
+                                <li><a href="#">{{ __('messages.nav_spotsearch') }}</a></li>
                                 <li><a href="{{ route('logout') }}"　onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('messages.nav_logout') }}</a></li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                                 </form>
                                 @else
-                                <li><a href="{{ action('Admin\MoneybikeController@create') }}">{{ __('messages.nav_home') }}</a></li>
+                                <li><a href="{{ action('Admin\TopController@top') }}">{{ __('messages.nav_home') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_about') }}</a></li>
                                 <li><a href="#">{{ __('messages.nav_searvice') }}</a></li>
                                 @if (Route::has('register'))

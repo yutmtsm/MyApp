@@ -18,7 +18,7 @@
 // Route::get('/', function() {
 //     return view('top')->middleware('auth');
 // });
-Route::get('/', 'Admin\MoneybikeController@create');
+
 Route::get('/', 'TopController@top');
 
 Route::group(['middleware' => 'auth'], function(){
