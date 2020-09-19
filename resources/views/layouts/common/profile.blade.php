@@ -28,7 +28,7 @@
                                     
                                     <!-- Modalの詳細ボタン -->
                                     <button type="button" class="bike-detail-btn btn w-10 h-25" style="padding: 0;" data-toggle="modal" data-target="#exampleModal3">
-                                        <p>詳しく見る...</p>
+                                        <p>詳細</p>
                                     </button>
                                     
                                     <!-- Modal -->
