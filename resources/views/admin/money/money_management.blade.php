@@ -27,7 +27,12 @@
                                 <input type="hidden" name="id" value="{{ $money->user_id }}">
                                 <button type="submit">検索</button>
                             </form>
-                            <p>{{ $period['from'] }}から{{ $period['until'] }}までの旅費等は{{ number_format($total_period_money) }}円</p>
+                            @if($total_period_money > 0)
+                            <p>「{{ $period['from'] }}」から「{{ $period['until'] }}」までの旅費等は
+                            <span class="text-danger" style="border-bottom: 2px solid red; font-size: 20px;">{{ number_format($total_period_money) }}円</span></p>
+                            @else
+                            <p>{{ $total_period_money }}</p>
+                            @endif
                         </div>
                     </div>
                     

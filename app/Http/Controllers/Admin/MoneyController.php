@@ -180,18 +180,22 @@ class MoneyController extends Controller
             $dates = Post::getDate($money->user_id, $request['from'], $request['until']);
         } else {
             //リクエストデータがなければそのままで表示
-            $dates = "期間を選択してください";
+            $dates = null;
         }
         // dd($dates);
         $period = $request->all();
         // dd($period['from']);
         $total_period_money = 0;
-        foreach($dates as $date)
+        if(isset($dates))
         {
-            $total_period_money += $date->addmission_fee + $date->purchase_cost;
+            foreach($dates as $date)
+            {
+                $total_period_money += $date->addmission_fee + $date->purchase_cost;
+            }
+        } else {
+            $total_period_money = "期間を選択してください";
         }
-        
-        
+        // dd($total_period_money);
         return view('admin.money.money_management', 
         ['posts' => $posts,
         'today' => $today, 'month' => $month, 'calendar_day' => $calendar_day,
