@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/mypage/newpost', 'Admin\PostController@newpost');
     //詳細画面
     Route::get('/mypage/post/detail', 'Admin\PostController@detail');
+    // 日毎の詳細画面
+    Route::get('/mypage/post/day_details', 'Admin\PostController@day_details');
     //編集画面
     Route::get('/mypage/post/edit', 'Admin\PostController@edit');
     //編集後の更新
@@ -55,6 +57,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('mypage/money', 'Admin\MoneyController@add_money');
     //お金管理トップ
     Route::get('mypage/money', 'Admin\MoneyController@moneypage');
+    Route::get('mypage/other_money', 'Admin\MoneyController@other_moneypage');
     Route::get('mypage/money', 'Admin\MoneyController@search');
     
     // コメント

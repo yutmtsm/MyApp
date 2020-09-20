@@ -44,7 +44,7 @@
                     <div class="card-title">8月</div>
                     <div class="card-header d-flex">
                         <a href="{{ action('Admin\MoneyController@other_moneypage') }}">前の月</a>
-                        <a href="{{ action('Admin\MoneyController@other_moneypage') }}">次の月</a>
+                        <p class="card-title">次の月</p>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                                 @if($total_spending04 == 0)
                                 
                                 @else
-                                <a href="{{ action('Admin\PostController@day_details', ['created_at' => $post->created_at]) }}">
+                                <a href="#">
                                 {{ number_format($total_spending04) }}円
                                 </a>
                                 @endif
