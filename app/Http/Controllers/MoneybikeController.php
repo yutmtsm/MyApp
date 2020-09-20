@@ -92,7 +92,8 @@ class MoneybikeController extends Controller
         $other_user = User::find($request->id);
         
         //ログインユーザーがフォローしているか判断のために必要
-        $user = Auth::user();
+        $login_user = Auth::user();
+        $other_mybikes = Bike::where('user_id', $other_user->id)->get();
         // dd($user);
         //ログインユーザーのフォロー・フォロワーユーザーの取得
         //フォローしているユーザーID。| following_id（対象） | followed_id（被対象） |で表現する為。followed_idを取得 
@@ -111,7 +112,7 @@ class MoneybikeController extends Controller
         $followed_Count = Follower::where('followed_id', $other_user->id)->count();
         //フォロー・フォロワーのカウント数：ここまで
         
-        return view('moneybike.following', ['other_user' => $other_user, 'user' => $user,
+        return view('moneybike.following', ['other_user' => $other_user, 'login_user' => $login_user, 'other_mybikes' => $other_mybikes,
         'following_Users' => $following_Users, 'followed_Users' => $followed_Users,
         'following_Count' => $following_Count, 'followed_Count' => $followed_Count]);
     }

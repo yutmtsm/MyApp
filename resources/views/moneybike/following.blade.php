@@ -1,7 +1,7 @@
 @extends('layouts.common.common')
 @section('css', 'mypage.css')
 
-@section('title', 'マイページ')
+@section('title', '他ユーザ-ーマイページ')
 
 @section('content')
     <div class="container">
@@ -31,7 +31,7 @@
                                                    </div>
                                                    </a>
                                                    <div class="follow-btn">
-                                                        @if ($user->isFollowing($following_User->id))
+                                                        @if ($login_user->isFollowing($following_User->id))
                                                         <form action="{{ route('unfollow', ['id' => $following_User->id]) }}" method="POST">
                                                            {{ csrf_field() }}
                                                            {{ method_field('DELETE') }}
@@ -41,11 +41,7 @@
                                                         <form action="{{ route('follow', ['id' => $following_User->id]) }}" method="POST">
                                                             {{ csrf_field() }}
                                                             <button type="submit" class="btn btn-primary">フォローする</button>
-                                                            <!--@if (!$user->isFollowing($following_User->id))-->
-                                                            <!--    <div class="px-2">-->
-                                                            <!--        <span class="px-1 bg-secondary text-light">フォローされています</span>-->
-                                                            <!--    </div>-->
-                                                            <!--@endif-->
+                                                            
                                                         </form>
                                                         @endif
                                                     </div>
