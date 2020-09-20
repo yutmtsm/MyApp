@@ -26,12 +26,18 @@ class MoneyController extends Controller
         $user = Auth::user();
         $mybikes = Bike::where('user_id', $user->id)->get();
         // dd($mybikes);
-        $year_month = date('y/m');
+        // $year_month = date('y/m');
         $year = '20' . date('y');
         // dd($year);
         $month = date('m');
         // dd($month);
         $today = date('d');
+        //対象の日付を取得
+        $year_month = $request->get('target');
+        if (empty($year_month)) {
+            $year_month = date('Y/m');
+        }
+        $targetDate = Carbon::createFromFormat('Y/m/d', $year_month . '/01');
         // dd($today);
         // $money = Money::where('user_id', $user->id)->get();
         $posts = Post::where('user_id', $user->id)->whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
@@ -109,7 +115,7 @@ class MoneyController extends Controller
     
     public function other_moneypage(Request $request)
     {
-        dd($request->last_month);
+        dd($request);
         $user = Auth::user();
         $mybikes = Bike::where('user_id', $user->id)->get();
 
