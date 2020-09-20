@@ -127,7 +127,8 @@ class MoneybikeController extends Controller
         ]);
     }
     
-    public function spot(){
+    public function spot()
+    {
         $user = Auth::user();
         // dd($user)
         
@@ -213,11 +214,13 @@ class MoneybikeController extends Controller
         ]);
     }
     
-    public function spotsearch(){
+    public function spotsearch()
+    {
         return view('admin.spot_search');
     }
     
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $cond_title = $request->cond_title;
         // dd($request);
         $user = Auth::user();
