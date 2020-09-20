@@ -1,7 +1,7 @@
 @extends('layouts.common.common')
 @section('css', 'mypage.css')
 
-@section('title', '他ユーザ-ーマイページ')
+@section('title', '他ユーザーのマイページ')
 
 @section('content')
     <div class="container">
