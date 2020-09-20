@@ -1,4 +1,5 @@
-@extends('layouts.mypage')
+@extends('layouts.common.common')
+@section('css', 'mypage.css')
 
 @section('title', '他ユーザーのマイページ')
 
