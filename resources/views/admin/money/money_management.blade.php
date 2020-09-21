@@ -43,18 +43,8 @@
                 <div class="card-body">
                     <div class="card-title">8月</div>
                     <div class="card-header d-flex">
-                        <form action="{{ action('Admin\MoneyController@last_month') }}" method="post">
-                            <input type="hidden" class="form-control" name="month" value="{{$month}}">
-                            <input type="hidden" class="form-control" name="target" value="-1">
-                            {{ csrf_field() }}
-                            <input type="submit" value="前の月"/>
-                        </form>
-                        <form action="{{ action('Admin\MoneyController@next_month') }}" method="post">
-                            <input type="hidden" class="form-control" name="month" value="{{$month}}">
-                            <input type="hidden" class="form-control" name="target" value="+1">
-                            {{ csrf_field() }}
-                            <input type="submit" value="次の月"/>
-                        </form>
+                        <a href="{{ action('Admin\MoneyController@moneypage', ['target' => $last_month]) }}">前の月</a>
+                        <a href="{{ action('Admin\MoneyController@moneypage', ['target' => $next_month]) }}">次の月</a>
                     </div>
                 </div>
             </div>
