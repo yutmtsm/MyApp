@@ -32,7 +32,7 @@ class MoneyController extends Controller
             $year_month = date('Y/m');
         }
         $targetDate = Carbon::createFromFormat('Y/m/d', $year_month . '/01');
-
+        // dd($$targetDate);
         $today = date('d');
 
         $posts = Post::where('user_id', $user->id)->whereYear('created_at', $targetDate->year)->whereMonth('created_at', $targetDate->month)->get();
@@ -89,10 +89,10 @@ class MoneyController extends Controller
         // dd($money->date_number);
         
         
-        dd($targetDate->addMonthsNoOverflow(1)->format('Y/m'));
-        dd($targetDate->addMonthsNoOverflow(-1)->format('Y/m'));
+        // dd($targetDate->addMonthsNoOverflow(1)->format('Y/m'));
+        // dd($targetDate->addMonthsNoOverflow(-1)->format('Y/m'));
 
-        return view('money.other_money_management', 
+        return view('admin.money.money_management', 
         ['posts' => $posts, 'user' => $user,
         'today' => $today, 'month' => $targetDate->month, 'calendar_day' => $calendar_day,
         'next_month' => $targetDate->addMonthsNoOverflow(1)->format('Y/m'),
@@ -119,7 +119,7 @@ class MoneyController extends Controller
 
         //対象の日付を取得
         // $year_month = $request->get('target');
-        $year_month = "20/10";
+        $year_month = "2020/09";
         // dd($year_month);
         if (empty($year_month)) {
             $year_month = date('Y/m');

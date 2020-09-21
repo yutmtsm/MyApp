@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container">
-    <h1>支出一覧$year_month</h1>
+    <h1>支出一覧</h1>
     <!-- スポット検索 -->
     <div class="row">
         
@@ -47,6 +47,7 @@
                         <a href="{{ action('Admin\MoneyController@moneypage', ['target' => $next_month]) }}">次の月</a>
                     </div>
                 </div>
+                
             </div>
             
             <div class="card" style="margin-top: 10px;">
