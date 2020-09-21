@@ -58,7 +58,10 @@ Route::group(['middleware' => 'auth'], function(){
     //お金管理トップ
     Route::get('mypage/money', 'Admin\MoneyController@moneypage');
     Route::get('mypage/other_money', 'Admin\MoneyController@other_moneypage');
-    Route::get('mypage/money', 'Admin\MoneyController@search');
+    // Route::get('mypage/money', 'Admin\MoneyController@search');
+    // Route::get('mypage/other_money', 'Admin\MoneyController@search');
+    // Route::post('mypage/money/next_month', 'Admin\MoneyController@next_month');
+    // Route::post('mypage/money/last_month', 'Admin\MoneyController@last_month');
     
     // コメント
     // 追加

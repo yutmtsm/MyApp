@@ -44,7 +44,6 @@
                     <div class="card-title">8月</div>
                     <div class="card-header d-flex">
                         <a href="{{ action('Admin\MoneyController@other_moneypage', ['target' => $last_month]) }}">前の月</a>
-                        <a href="{{ action('Admin\MoneyController@other_moneypage', ['target' => $next_month]) }}">次の月</a>
                     </div>
                 </div>
             </div>

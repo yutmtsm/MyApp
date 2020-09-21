@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container">
-    <h1>支出一覧</h1>
+    <h1>支出一覧$year_month</h1>
     <!-- スポット検索 -->
     <div class="row">
         
@@ -43,8 +43,18 @@
                 <div class="card-body">
                     <div class="card-title">8月</div>
                     <div class="card-header d-flex">
-                        <a href="{{ action('Admin\MoneyController@other_moneypage') }}">前の月</a>
-                        <a href="{{ action('Admin\MoneyController@other_moneypage') }}">次の月</a>
+                        <form action="{{ action('Admin\MoneyController@last_month') }}" method="post">
+                            <input type="hidden" class="form-control" name="month" value="{{$month}}">
+                            <input type="hidden" class="form-control" name="target" value="-1">
+                            {{ csrf_field() }}
+                            <input type="submit" value="前の月"/>
+                        </form>
+                        <form action="{{ action('Admin\MoneyController@next_month') }}" method="post">
+                            <input type="hidden" class="form-control" name="month" value="{{$month}}">
+                            <input type="hidden" class="form-control" name="target" value="+1">
+                            {{ csrf_field() }}
+                            <input type="submit" value="次の月"/>
+                        </form>
                     </div>
                 </div>
             </div>

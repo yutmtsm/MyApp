@@ -26,17 +26,15 @@ class MoneyController extends Controller
         $user = Auth::user();
         $mybikes = Bike::where('user_id', $user->id)->get();
         // dd($mybikes);
-        // $year_month = date('y/m');
+        $year_month = date('y/m');
         $year = '20' . date('y');
-        // dd($year);
         $month = date('m');
-        // dd($month);
         $today = date('d');
         //対象の日付を取得
-        $year_month = $request->get('target');
-        if (empty($year_month)) {
-            $year_month = date('Y/m');
-        }
+        // $year_month = $request->get('target');
+        // if (empty($year_month)) {
+        //     $year_month = date('Y/m');
+        // }
         $targetDate = Carbon::createFromFormat('Y/m/d', $year_month . '/01');
         // dd($today);
         // $money = Money::where('user_id', $user->id)->get();
@@ -77,6 +75,14 @@ class MoneyController extends Controller
             // dd($total_weight_tax);
         }
         
+        if($money->date_number != $year_month){
+            // 月替り処理
+            $money = new Money;
+            $money->date_number = $year_month;
+            $money->user_id = $user->id;
+            $money->save();
+        }
+        
         $money->total_addmission_fee = $posts->sum('addmission_fee');
         $money->total_purchase_cost = $posts->sum('purchase_cost');
         $money->travel_expenses = $money->total_addmission_fee + $money->total_purchase_cost;
@@ -88,16 +94,10 @@ class MoneyController extends Controller
         $money->save();
         // dd($money->total_purchase_cost);
         // dd($money->date_number);
-        if($money->date_number != $year_month){
-            // 月替り処理
-            $money = new Money;
-            $money->date_number = $year_month;
-            $money->user_id = $user->id;
-            $money->save();
-        }
+       
         return view('admin.money.money_management', 
         ['posts' => $posts, 'user' => $user,
-        'today' => $today, 'month' => $month, 'calendar_day' => $calendar_day,
+        'today' => $today, 'month' => $month, 'calendar_day' => $calendar_day, '$year_month' => $year_month,
         'total_spending' => $total_spending,
         'total_spending01' => $total_spending01, 'total_spending02' => $total_spending02, 'total_spending03' => $total_spending03, 'total_spending04' => $total_spending04, 'total_spending05' => $total_spending05, 'total_spending06' => $total_spending06, 'total_spending07' => $total_spending07, 
         'total_spending08' => $total_spending08, 'total_spending09' => $total_spending09, 'total_spending10' => $total_spending10, 'total_spending11' => $total_spending11, 'total_spending12' => $total_spending12, 'total_spending13' => $total_spending13, 'total_spending14' => $total_spending14, 
@@ -115,15 +115,19 @@ class MoneyController extends Controller
     
     public function other_moneypage(Request $request)
     {
-        dd($request);
+        // dd($request);
         $user = Auth::user();
         $mybikes = Bike::where('user_id', $user->id)->get();
+        // dd($mybikes);
 
         //対象の日付を取得
-        $year_month = $request->get('target');
+        // $year_month = $request->get('target');
+        $year_month = "20/10";
+        // dd($year_month);
         if (empty($year_month)) {
             $year_month = date('Y/m');
         }
+        // dd($year_month);
         $targetDate = Carbon::createFromFormat('Y/m/d', $year_month . '/01');
         // dd($targetDate);
         $today = date('d');
@@ -131,7 +135,8 @@ class MoneyController extends Controller
         $posts = Post::where('user_id', $user->id)->whereYear('created_at', $targetDate->year)->whereMonth('created_at', $targetDate->month)->get();
 
         //カレンダーのJSON
-        $url = public_path("/storage/json/" . $targetDate->format('Ym') .".js");
+        // $url = public_path("/storage/json/" . $targetDate->format('Ym') .".js");
+        $url = public_path("/storage/json/202010.js");
         $json = '[' . file_get_contents($url) . ']';
         $calendar_day = json_decode($json,false);
 
@@ -144,7 +149,9 @@ class MoneyController extends Controller
         $total_spending29 = null;$total_spending30 = null;$total_spending31 = null;$total_spending32 = null;$total_spending33 = null;$total_spending34 = null;$total_spending35 = null;
 
 
-        $money = Money::where('date_number', $year_month)->first();
+        // $money = Money::where('date_number', $year_month)->first();
+        $money = Money::where('date_number', "20/09")->first();
+        // dd($money);
 
         $year_moneys = Post::whereBetween('created_at', ['2020-01-01 00:00:00', '2020-12-31 00:00:00'])->get();
         $month_moneys = Post::whereBetween('created_at', ['2020-09-01 00:00:00', '2020-09-31 00:00:00'])->get();
@@ -160,6 +167,15 @@ class MoneyController extends Controller
             $total_consumables = $mybike->sum('consumables');
             // dd($total_weight_tax);
         }
+        
+        if($money->date_number != $year_month){
+            // 月替り処理
+            // dd($user);
+            $money = new Money;
+            $money->date_number = $year_month;
+            $money->user_id = $user->id;
+            $money->save();
+        }
 
         $money->total_addmission_fee = $posts->sum('addmission_fee');
         $money->total_purchase_cost = $posts->sum('purchase_cost');
@@ -172,14 +188,10 @@ class MoneyController extends Controller
         $money->save();
         // dd($money->total_purchase_cost);
         // dd($money->date_number);
-        if($money->date_number != $year_month){
-            // 月替り処理
-            $money = new Money;
-            $money->date_number = $year_month;
-            $money->user_id = $user->id;
-            $money->save();
-        }
-        return view('admin.money.other_money_management', 
+        dd($targetDate->addMonthsNoOverflow(1)->format('Y/m'));
+        dd($targetDate->addMonthsNoOverflow(-1)->format('Y/m'));
+        
+        return redirect('admin.money.other_money_management', 
         ['posts' => $posts, 'user' => $user,
         'today' => $today, 'month' => $targetDate->month, 'calendar_day' => $calendar_day,
         'next_month' => $targetDate->addMonthsNoOverflow(1)->format('Y/m'),
@@ -304,5 +316,27 @@ class MoneyController extends Controller
         'total_voluntary_insurance' => $total_voluntary_insurance, 'total_vehicle_inspection' => $total_vehicle_inspection, 'total_parking_fee' => $total_parking_fee,
         'total_consumables' => $total_consumables, 'money->spending_month' => $money->spending_month, 'total_period_money' => $total_period_money, 'period' => $period
         ]);
+    }
+    
+    public function next_month(Request $request)
+    {
+        // dd($request);
+        $year_month = date('Y/m');
+        dd($year_month);
+        $year_month->addMonthsNoOverflow(1)->format('Y/m');
+        dd($mon);
+        // console.log("asdasd");
+        return redirect('mypage/money');
+    }
+    
+    public function last_month(Request $request)
+    {
+        // dd($request);
+        $year_month = date('Y/m') -1;
+        dd($year_month);
+        
+        dd(asdf);
+        // console.log("asdasd");
+        return redirect('mypage/money');
     }
 }
